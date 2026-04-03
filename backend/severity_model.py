@@ -112,13 +112,6 @@ def _get_care_needs(symptoms: list) -> dict:
 
 
 def predict(patient: dict) -> dict:
-    """
-    patient: dict with vitals (age, heart_rate, bp_systolic, bp_diastolic,
-             spo2, gcs, respiratory_rate, spo2_trend_per_min, hr_trend_per_min)
-             and symptoms (list or pipe-separated string)
-
-    Returns severity, triage tag, care needs, confidence, top features.
-    """
     if not MODEL_PATH.exists():
         raise FileNotFoundError("Model not trained. Run: python backend/severity_model.py")
 
@@ -135,7 +128,6 @@ def predict(patient: dict) -> dict:
 
     care = _get_care_needs(symptoms)
 
-    # Severity-driven overrides
     if severity >= 4:
         care["needs_icu"] = True
     if severity == 5:
@@ -144,7 +136,6 @@ def predict(patient: dict) -> dict:
         if spo2 < 85 or rr > 30:
             care["needs_ventilator"] = True
 
-    # Top contributing features for explainability
     importances = model.feature_importances_
     feature_names = VITALS + ALL_SYMPTOMS + ["max_symptom_weight", "symptom_count"]
     top = sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True)[:5]

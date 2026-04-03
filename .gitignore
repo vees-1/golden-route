@@ -1,7 +1,6 @@
 .claude/
 .venv/
 .env
-.env.example
 __pycache__/
 *.pyc
 *.pkl

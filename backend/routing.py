@@ -45,20 +45,20 @@ def _check_constraints(hospital: dict, severity_result: dict) -> list[str]:
 
 def _score(hospital: dict, dist_km: float, severity_result: dict, max_dist_km: float) -> dict:
     travel_min = _travel_minutes(dist_km)
-    travel_score = max(0.0, 1.0 - dist_km / max(max_dist_km, 1.0))
+    travel_score = max(0.0, 1.0 - dist_km / max(max_dist_km, 1.0))  # normalised against farthest hospital
 
     icu_ratio = hospital["icu_beds_available"] / max(hospital["icu_beds_total"], 1)
     vent_ratio = hospital["ventilators_available"] / max(hospital["ventilators_total"], 1)
     capacity_score = (icu_ratio + vent_ratio) / 2
 
     load_score = max(0.0, 1.0 - hospital["current_load_pct"])
-    wait_score = max(0.0, 1.0 - hospital["avg_er_wait_minutes"] / 60.0)
+    wait_score = max(0.0, 1.0 - hospital["avg_er_wait_minutes"] / 60.0)  # 60 min wait = score 0
     combined_load = (load_score + wait_score) / 2
 
     all_specialists = severity_result.get("all_specialists", [])
     if all_specialists:
         on_duty = set(hospital["specialists_on_duty"])
-        specialist_score = len(on_duty & set(all_specialists)) / len(all_specialists)
+        specialist_score = len(on_duty & set(all_specialists)) / len(all_specialists)  # fraction of needed specialists present
     else:
         specialist_score = 1.0
 

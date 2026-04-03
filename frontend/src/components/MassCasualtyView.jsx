@@ -1,8 +1,27 @@
 import React, { useState, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, Polyline, Popup } from 'react-leaflet'
 import L from 'leaflet'
-import { HOSPITALS } from '../data/mockData'
-import { Clock, Mic, MicOff, Loader, Upload, Play } from 'lucide-react'
+import { HOSPITALS, SYMPTOMS } from '../data/mockData'
+import { Clock, Mic, MicOff, Loader, Upload, Play, Plus, Trash2, FileText, Sliders, UserPlus } from 'lucide-react'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+
+const FORM_VITALS = [
+  { id: 'heart_rate',       label: 'Heart Rate',   unit: 'bpm',  min: 30,  max: 200, default: 80 },
+  { id: 'bp_systolic',      label: 'Systolic BP',  unit: 'mmHg', min: 60,  max: 200, default: 120 },
+  { id: 'spo2',             label: 'SpO₂',         unit: '%',    min: 60,  max: 100, default: 97 },
+  { id: 'gcs',              label: 'GCS',           unit: '/15',  min: 3,   max: 15,  default: 14 },
+  { id: 'respiratory_rate', label: 'Resp. Rate',   unit: '/min', min: 6,   max: 40,  default: 16 },
+  { id: 'age',              label: 'Age',           unit: 'yrs',  min: 1,   max: 100, default: 40 },
+]
+
+function vitalColor(id, val) {
+  if (id === 'heart_rate')       return val < 50 || val > 120 ? '#FF3B30' : val > 100 ? '#FF9500' : '#34C759'
+  if (id === 'bp_systolic')      return val < 80 || val > 180 ? '#FF3B30' : val > 140 ? '#FF9500' : '#34C759'
+  if (id === 'spo2')             return val < 88 ? '#FF3B30' : val < 94 ? '#FF9500' : '#34C759'
+  if (id === 'gcs')              return val < 8  ? '#FF3B30' : val < 12 ? '#FF9500' : '#34C759'
+  if (id === 'respiratory_rate') return val < 8  || val > 30 ? '#FF3B30' : val > 20 ? '#FF9500' : '#34C759'
+  return '#86868B'
+}
 
 const TRIAGE_CONFIG = {
   RED:    { color: '#FF3B30', bg: 'rgba(255,59,48,0.1)',  border: 'rgba(255,59,48,0.25)',  label: 'Immediate' },
@@ -49,6 +68,7 @@ function VitalPill({ label, value, unit }) {
 
 export default function MassCasualtyView() {
   const [mode, setMode] = useState('input') // 'input' | 'results'
+  const [inputTab, setInputTab] = useState('json') // 'json' | 'form'
   const [jsonText, setJsonText] = useState(JSON.stringify(SAMPLE_EVENT, null, 2))
   const [results, setResults] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -58,6 +78,14 @@ export default function MassCasualtyView() {
   const [transcribing, setTranscribing] = useState(false)
   const mediaRef = useRef(null)
   const chunksRef = useRef([])
+
+  // Form-based patient builder state
+  const [eventTitle, setEventTitle]   = useState('Mass Casualty Event')
+  const [eventLat, setEventLat]       = useState(18.52)
+  const [eventLng, setEventLng]       = useState(73.856)
+  const [formVitals, setFormVitals]   = useState(Object.fromEntries(FORM_VITALS.map((v) => [v.id, v.default])))
+  const [formSymptoms, setFormSymptoms] = useState([])
+  const [builtPatients, setBuiltPatients] = useState([])
 
   async function handleAnalyze() {
     setError('')
@@ -107,28 +135,87 @@ export default function MassCasualtyView() {
     try {
       const res = await fetch('http://localhost:8000/transcribe', { method: 'POST', body: form })
       const data = await res.json()
-      // voice fills a single patient — wrap into event format
-      const patient = {
-        patient_id: `P${Date.now()}`,
-        age: data.age || 0,
-        gender: 'M',
-        heart_rate: data.heart_rate || 0,
-        bp_systolic: data.bp_systolic || 0,
-        bp_diastolic: data.bp_diastolic || 0,
-        spo2: data.spo2 || 0,
-        gcs: data.gcs || 0,
-        respiratory_rate: data.respiratory_rate || 0,
-        spo2_trend_per_min: data.spo2_trend_per_min || 0,
-        hr_trend_per_min: data.hr_trend_per_min || 0,
-        symptoms: (data.symptoms || '').split('|').filter(Boolean),
+      const syms = (data.symptoms || '').split('|').filter(Boolean)
+
+      if (inputTab === 'form') {
+        // Auto-fill the form sliders
+        const updates = {}
+        if (data.age)              updates.age              = data.age
+        if (data.heart_rate)       updates.heart_rate       = data.heart_rate
+        if (data.bp_systolic)      updates.bp_systolic      = data.bp_systolic
+        if (data.spo2)             updates.spo2             = data.spo2
+        if (data.gcs)              updates.gcs              = data.gcs
+        if (data.respiratory_rate) updates.respiratory_rate = data.respiratory_rate
+        if (Object.keys(updates).length) setFormVitals((prev) => ({ ...prev, ...updates }))
+        if (syms.length) setFormSymptoms(syms)
+      } else {
+        // voice fills JSON textarea
+        const patient = {
+          patient_id: `P${Date.now()}`,
+          age: data.age || 0,
+          gender: 'M',
+          heart_rate: data.heart_rate || 0,
+          bp_systolic: data.bp_systolic || 0,
+          bp_diastolic: data.bp_diastolic || 0,
+          spo2: data.spo2 || 0,
+          gcs: data.gcs || 0,
+          respiratory_rate: data.respiratory_rate || 0,
+          spo2_trend_per_min: data.spo2_trend_per_min || 0,
+          hr_trend_per_min: data.hr_trend_per_min || 0,
+          symptoms: syms,
+        }
+        try {
+          const current = JSON.parse(jsonText)
+          current.patients = [...(current.patients || []), patient]
+          setJsonText(JSON.stringify(current, null, 2))
+        } catch { setError('Invalid JSON in textarea') }
       }
-      const current = JSON.parse(jsonText)
-      current.patients = [...(current.patients || []), patient]
-      setJsonText(JSON.stringify(current, null, 2))
     } catch (e) {
       setError('Voice transcription failed')
     } finally {
       setTranscribing(false)
+    }
+  }
+
+  function addFormPatient() {
+    const id = `P${builtPatients.length + 1}`
+    setBuiltPatients((prev) => [...prev, {
+      patient_id: id,
+      gender: 'M',
+      spo2_trend_per_min: 0,
+      hr_trend_per_min: 0,
+      bp_diastolic: Math.round(formVitals.bp_systolic * 0.65),
+      ...formVitals,
+      symptoms: [...formSymptoms],
+    }])
+    setFormVitals(Object.fromEntries(FORM_VITALS.map((v) => [v.id, v.default])))
+    setFormSymptoms([])
+  }
+
+  async function handleAnalyzeForm() {
+    if (builtPatients.length === 0) { setError('Add at least one patient'); return }
+    setError('')
+    setLoading(true)
+    try {
+      const payload = {
+        event_id: 'MCE_FORM',
+        title: eventTitle,
+        location: { name: 'Custom Event', lat: eventLat, lng: eventLng },
+        patients: builtPatients,
+      }
+      const res = await fetch('http://localhost:8000/mass-casualty', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error(await res.text())
+      const data = await res.json()
+      setResults(data)
+      setMode('results')
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -148,64 +235,159 @@ export default function MassCasualtyView() {
 
   if (mode === 'input') {
     return (
-      <div className="flex gap-6 h-full animate-fade-in">
-        {/* JSON input */}
-        <div className="flex flex-col flex-1 gap-4">
+      <div className="flex flex-col gap-4 animate-fade-in">
+        <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold mb-1" style={{ color: '#1D1D1F' }}>Mass Casualty Event</h2>
-            <p className="text-sm" style={{ color: '#86868B' }}>Paste event JSON or dictate patients via voice</p>
+            <h2 className="text-xl font-bold mb-0.5" style={{ color: '#1D1D1F' }}>Mass Casualty Event</h2>
+            <p className="text-sm" style={{ color: '#86868B' }}>Add patients via form or paste raw JSON</p>
           </div>
+          {/* Tab toggle */}
+          <div className="flex gap-1 p-1 rounded-xl" style={{ background: '#F5F5F7' }}>
+            {[{ id: 'form', icon: Sliders, label: 'Form' }, { id: 'json', icon: FileText, label: 'JSON' }].map(({ id, icon: Icon, label }) => (
+              <button key={id} type="button" onClick={() => setInputTab(id)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
+                style={{ background: inputTab === id ? 'white' : 'transparent', color: inputTab === id ? '#007AFF' : '#86868B', boxShadow: inputTab === id ? '0 1px 4px rgba(0,0,0,0.1)' : 'none' }}>
+                <Icon size={12} />{label}
+              </button>
+            ))}
+          </div>
+        </div>
 
-          {/* Voice add patient */}
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={recording ? stopRecording : startRecording}
-              disabled={transcribing}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
-              style={{
-                background: recording ? 'linear-gradient(135deg,#FF3B30,#FF6B6B)' : transcribing ? '#E5E5EA' : 'linear-gradient(135deg,#007AFF,#5856D6)',
-                color: transcribing ? '#86868B' : 'white',
-              }}
-            >
-              {transcribing ? <><Loader size={14} className="animate-spin" />Transcribing...</> :
-               recording    ? <><MicOff size={14} />Stop</> :
-                              <><Mic size={14} />Add Patient by Voice</>}
-            </button>
-            <button
-              type="button"
-              onClick={() => setJsonText(JSON.stringify(SAMPLE_EVENT, null, 2))}
+        {/* Voice button — works in both modes */}
+        <div className="flex gap-2">
+          <button type="button" onClick={recording ? stopRecording : startRecording} disabled={transcribing}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all"
+            style={{ background: recording ? 'linear-gradient(135deg,#FF3B30,#FF6B6B)' : transcribing ? '#E5E5EA' : 'linear-gradient(135deg,#007AFF,#5856D6)', color: transcribing ? '#86868B' : 'white' }}>
+            {transcribing ? <><Loader size={14} className="animate-spin" />Transcribing...</> : recording ? <><MicOff size={14} />Stop</> : <><Mic size={14} />{inputTab === 'form' ? 'Speak to fill form' : 'Add Patient by Voice'}</>}
+          </button>
+          {inputTab === 'json' && (
+            <button type="button" onClick={() => setJsonText(JSON.stringify(SAMPLE_EVENT, null, 2))}
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium"
-              style={{ background: '#F5F5F7', color: '#1D1D1F' }}
-            >
+              style={{ background: '#F5F5F7', color: '#1D1D1F' }}>
               <Upload size={14} /> Load Sample
             </button>
-          </div>
-
-          <textarea
-            value={jsonText}
-            onChange={(e) => setJsonText(e.target.value)}
-            className="flex-1 rounded-2xl p-4 text-xs font-mono resize-none focus:outline-none"
-            style={{ background: '#F5F5F7', border: '1px solid #E5E5EA', color: '#1D1D1F', minHeight: 320 }}
-            placeholder="Paste mass casualty event JSON here..."
-          />
-
-          {error && (
-            <p className="text-xs px-3 py-2 rounded-xl" style={{ background: 'rgba(255,59,48,0.08)', color: '#FF3B30' }}>
-              {error}
-            </p>
           )}
-
-          <button
-            onClick={handleAnalyze}
-            disabled={loading}
-            className="btn-primary flex items-center justify-center gap-2"
-          >
-            {loading
-              ? <><span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block" />Analyzing {(() => { try { return JSON.parse(jsonText).patients?.length } catch { return '' } })()} patients...</>
-              : <><Play size={16} />Run Mass Casualty Analysis</>}
-          </button>
         </div>
+
+        {/* JSON tab */}
+        {inputTab === 'json' && (
+          <div className="flex flex-col gap-3">
+            <textarea value={jsonText} onChange={(e) => setJsonText(e.target.value)}
+              className="rounded-2xl p-4 text-xs font-mono resize-none focus:outline-none"
+              style={{ background: '#F5F5F7', border: '1px solid #E5E5EA', color: '#1D1D1F', minHeight: 340 }}
+              placeholder="Paste mass casualty event JSON here..." />
+            {error && <p className="text-xs px-3 py-2 rounded-xl" style={{ background: 'rgba(255,59,48,0.08)', color: '#FF3B30' }}>{error}</p>}
+            <button onClick={handleAnalyze} disabled={loading} className="btn-primary flex items-center justify-center gap-2">
+              {loading
+                ? <><span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block" />Analyzing {(() => { try { return JSON.parse(jsonText).patients?.length } catch { return '' } })()} patients...</>
+                : <><Play size={16} />Run Mass Casualty Analysis</>}
+            </button>
+          </div>
+        )}
+
+        {/* Form tab */}
+        {inputTab === 'form' && (
+          <div className="flex gap-6">
+            {/* Left: vital sliders + symptoms */}
+            <div className="flex-1 flex flex-col gap-4">
+              {/* Event info */}
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <p className="label mb-1">Event Title</p>
+                  <input value={eventTitle} onChange={(e) => setEventTitle(e.target.value)}
+                    className="w-full px-3 py-2 rounded-xl text-sm focus:outline-none"
+                    style={{ background: '#F5F5F7', border: '1px solid #E5E5EA', color: '#1D1D1F' }} />
+                </div>
+                <div>
+                  <p className="label mb-1">Lat</p>
+                  <input type="number" value={eventLat} onChange={(e) => setEventLat(parseFloat(e.target.value))}
+                    className="w-24 px-3 py-2 rounded-xl text-sm focus:outline-none"
+                    style={{ background: '#F5F5F7', border: '1px solid #E5E5EA', color: '#1D1D1F' }} />
+                </div>
+                <div>
+                  <p className="label mb-1">Lng</p>
+                  <input type="number" value={eventLng} onChange={(e) => setEventLng(parseFloat(e.target.value))}
+                    className="w-24 px-3 py-2 rounded-xl text-sm focus:outline-none"
+                    style={{ background: '#F5F5F7', border: '1px solid #E5E5EA', color: '#1D1D1F' }} />
+                </div>
+              </div>
+
+              <p className="label">Patient Vitals</p>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                {FORM_VITALS.map((cfg) => {
+                  const val = formVitals[cfg.id]
+                  const col = vitalColor(cfg.id, val)
+                  const pct = ((val - cfg.min) / (cfg.max - cfg.min)) * 100
+                  return (
+                    <div key={cfg.id}>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-xs font-medium" style={{ color: '#1D1D1F' }}>{cfg.label}</span>
+                        <span className="text-xs font-bold tabular-nums" style={{ color: col }}>{val}<span className="font-normal ml-0.5" style={{ color: '#86868B' }}>{cfg.unit}</span></span>
+                      </div>
+                      <input type="range" min={cfg.min} max={cfg.max} value={val}
+                        onChange={(e) => setFormVitals((p) => ({ ...p, [cfg.id]: Number(e.target.value) }))}
+                        className="slider-input w-full"
+                        style={{ background: `linear-gradient(to right, ${col} ${pct}%, #E5E5EA ${pct}%)` }} />
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div>
+                <p className="label mb-2">Symptoms {formSymptoms.length > 0 && <span className="ml-1 px-1.5 py-0.5 rounded-full text-xs font-semibold" style={{ background: 'rgba(0,122,255,0.1)', color: '#007AFF' }}>{formSymptoms.length}</span>}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {SYMPTOMS.map((sym) => (
+                    <button key={sym.id} type="button"
+                      onClick={() => setFormSymptoms((p) => p.includes(sym.id) ? p.filter((s) => s !== sym.id) : [...p, sym.id])}
+                      className={`pill ${formSymptoms.includes(sym.id) ? 'pill-selected' : 'pill-unselected'}`}>
+                      {formSymptoms.includes(sym.id) && <span style={{ fontSize: 10 }}>✓</span>}{sym.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button type="button" onClick={addFormPatient}
+                className="flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold"
+                style={{ background: 'rgba(0,122,255,0.1)', color: '#007AFF' }}>
+                <UserPlus size={15} /> Add Patient to Queue
+              </button>
+            </div>
+
+            {/* Right: patient queue */}
+            <div style={{ width: 260, flexShrink: 0 }}>
+              <p className="label mb-2">Patient Queue <span className="ml-1 px-1.5 py-0.5 rounded-full text-xs font-semibold" style={{ background: 'rgba(255,59,48,0.1)', color: '#FF3B30' }}>{builtPatients.length}</span></p>
+              {builtPatients.length === 0 && (
+                <p className="text-xs" style={{ color: '#86868B' }}>No patients added yet. Fill vitals and click "Add Patient".</p>
+              )}
+              <div className="space-y-2" style={{ maxHeight: 360, overflowY: 'auto' }}>
+                {builtPatients.map((p, i) => (
+                  <div key={p.patient_id} className="flex items-center justify-between rounded-xl px-3 py-2"
+                    style={{ background: '#F5F5F7', border: '1px solid #E5E5EA' }}>
+                    <div>
+                      <p className="text-xs font-bold" style={{ color: '#1D1D1F' }}>{p.patient_id}</p>
+                      <p className="text-xs" style={{ color: '#86868B' }}>HR {p.heart_rate} · SpO₂ {p.spo2}% · GCS {p.gcs}</p>
+                      {p.symptoms.length > 0 && <p className="text-xs mt-0.5" style={{ color: '#007AFF' }}>{p.symptoms.length} symptom{p.symptoms.length !== 1 ? 's' : ''}</p>}
+                    </div>
+                    <button type="button" onClick={() => setBuiltPatients((prev) => prev.filter((_, j) => j !== i))}
+                      style={{ color: '#FF3B30', background: 'none', border: 'none', cursor: 'pointer' }}>
+                      <Trash2 size={13} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              {builtPatients.length > 0 && (
+                <button onClick={handleAnalyzeForm} disabled={loading}
+                  className="mt-3 w-full btn-primary flex items-center justify-center gap-2">
+                  {loading
+                    ? <><span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block" />Analyzing...</>
+                    : <><Play size={15} />Analyze {builtPatients.length} Patient{builtPatients.length !== 1 ? 's' : ''}</>}
+                </button>
+              )}
+              {error && <p className="mt-2 text-xs px-2 py-1.5 rounded-lg" style={{ background: 'rgba(255,59,48,0.08)', color: '#FF3B30' }}>{error}</p>}
+            </div>
+          </div>
+        )}
       </div>
     )
   }
@@ -217,7 +399,7 @@ export default function MassCasualtyView() {
   const sorted = [...red, ...yellow, ...green]
 
   return (
-    <div className="flex flex-col h-full gap-4 animate-fade-in">
+    <div className="flex flex-col gap-4 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-bold" style={{ color: '#1D1D1F' }}>{results?.title || 'Mass Casualty Results'}</h2>
@@ -232,9 +414,9 @@ export default function MassCasualtyView() {
         </button>
       </div>
 
-      <div className="flex gap-4" style={{ flex: 1, minHeight: 0 }}>
+      <div className="flex gap-4" style={{ minHeight: 420 }}>
         {/* Patient list */}
-        <div style={{ width: 280, flexShrink: 0, overflowY: 'auto' }}>
+        <div style={{ width: 280, flexShrink: 0, overflowY: 'auto', maxHeight: 480 }}>
           <p className="label mb-2">
             Triage Queue
             <span className="ml-2 px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: 'rgba(255,59,48,0.1)', color: '#FF3B30' }}>
@@ -277,11 +459,11 @@ export default function MassCasualtyView() {
         </div>
 
         {/* Map */}
-        <div className="flex-1 rounded-2xl overflow-hidden" style={{ minHeight: 0 }}>
+        <div className="flex-1 rounded-2xl overflow-hidden" style={{ minHeight: 420 }}>
           <MapContainer
             center={eventLocation ? [eventLocation.lat, eventLocation.lng] : [18.52, 73.856]}
             zoom={12}
-            style={{ height: '100%', width: '100%' }}
+            style={{ height: 420, width: '100%' }}
             zoomControl={false}
           >
             <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OpenStreetMap contributors &copy; CARTO" />
@@ -350,6 +532,40 @@ export default function MassCasualtyView() {
           </div>
         </div>
       </div>
+
+      {/* Load distribution chart */}
+      {(() => {
+        const hospCounts = {}
+        sorted.forEach((p) => {
+          const name = p.routing?.recommended?.[0]?.name
+          if (name) hospCounts[name] = (hospCounts[name] || 0) + 1
+        })
+        const chartData = Object.entries(hospCounts)
+          .map(([name, count]) => ({ name: name.replace(' Hospital', '').replace(' Clinic', ''), count }))
+          .sort((a, b) => b.count - a.count)
+        const maxCount = Math.max(...chartData.map((d) => d.count))
+        return (
+          <div className="card p-4" style={{ flexShrink: 0 }}>
+            <p className="label mb-1">Hospital Load Distribution</p>
+            <p className="text-xs mb-3" style={{ color: '#86868B' }}>Patients routed to each facility — ensures no single hospital is overloaded</p>
+            <ResponsiveContainer width="100%" height={100}>
+              <BarChart data={chartData} margin={{ top: 0, right: 0, bottom: 0, left: -20 }}>
+                <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#86868B' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 10, fill: '#86868B' }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <Tooltip
+                  contentStyle={{ borderRadius: 10, border: '1px solid #E5E5EA', fontSize: 12, fontFamily: 'Inter' }}
+                  formatter={(v) => [`${v} patient${v !== 1 ? 's' : ''}`, 'Assigned']}
+                />
+                <Bar dataKey="count" radius={[4, 4, 0, 0]}>
+                  {chartData.map((entry, i) => (
+                    <Cell key={i} fill={entry.count === maxCount ? '#FF9500' : '#007AFF'} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        )
+      })()}
 
       {/* Assignment table */}
       <div className="card p-4" style={{ flexShrink: 0 }}>

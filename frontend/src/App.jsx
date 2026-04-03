@@ -1,13 +1,12 @@
 import React, { useState, lazy, Suspense } from 'react'
-import { Activity, Clock, Users, Hospital } from 'lucide-react'
+import { Activity, Users, Hospital } from 'lucide-react'
 import PatientForm from './components/PatientForm'
+import EMTAssistant from './components/EMTAssistant'
 import SeverityGauge from './components/SeverityGauge'
 import SurvivalCard from './components/SurvivalCard'
-import FeatureImportanceChart from './components/FeatureImportanceChart'
 import HospitalCard from './components/HospitalCard'
 import RejectedList from './components/RejectedList'
 import AIReasoningPanel from './components/AIReasoningPanel'
-import GoldenHourChart from './components/GoldenHourChart'
 import MassCasualtyView from './components/MassCasualtyView'
 import HospitalStatusView from './components/HospitalStatusView'
 import { PICKUP_LOCATIONS } from './data/mockData'
@@ -15,10 +14,9 @@ import { PICKUP_LOCATIONS } from './data/mockData'
 const MapView = lazy(() => import('./components/MapView'))
 
 const TABS = [
-  { id: 'dispatch',  label: 'Dispatch',         icon: Activity },
-  { id: 'golden',   label: 'Golden Hour',       icon: Clock },
-  { id: 'mass',     label: 'Mass Casualty',     icon: Users },
-  { id: 'network',  label: 'Hospital Network',  icon: Hospital },
+  { id: 'dispatch', label: 'Dispatch',        icon: Activity },
+  { id: 'mass',     label: 'Mass Casualty',   icon: Users },
+  { id: 'network',  label: 'Hospital Network', icon: Hospital },
 ]
 
 // Map real API response → component-friendly shape
@@ -51,7 +49,9 @@ function normalizeResult(data) {
 
     // for FeatureImportanceChart
     featureImportance: (sev.top_features ?? []).map((f, i) => ({
-      feature: f.feature.replace(/_/g, ' '),
+      feature: f.feature === 'max_symptom_weight' ? 'symptom severity'
+             : f.feature === 'symptom_count'      ? 'symptom count'
+             : f.feature.replace(/_/g, ' '),
       value: f.importance,
       color: i === 0 ? '#FF3B30' : i === 1 ? '#FF9500' : '#007AFF',
     })),
@@ -93,6 +93,7 @@ export default function App() {
   const [rawResult, setRawResult]       = useState(null)
   const [isLoading, setIsLoading]       = useState(false)
   const [pickupLocation, setPickupLocation] = useState(PICKUP_LOCATIONS[0])
+  const [vitalsFromAI, setVitalsFromAI] = useState(null)
 
   async function handleAnalyze({ vitals, symptoms, location }) {
     setPickupLocation(location)
@@ -166,12 +167,7 @@ export default function App() {
 
       <main className="flex-1 overflow-hidden">
         {activeTab === 'dispatch' && (
-          <DispatchView result={result} isLoading={isLoading} pickupLocation={pickupLocation} onAnalyze={handleAnalyze} />
-        )}
-        {activeTab === 'golden' && (
-          <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
-            <GoldenHourChart result={rawResult} />
-          </div>
+          <DispatchView result={result} isLoading={isLoading} pickupLocation={pickupLocation} onAnalyze={handleAnalyze} vitalsFromAI={vitalsFromAI} onVitalsExtracted={setVitalsFromAI} />
         )}
         {activeTab === 'mass' && (
           <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
@@ -188,14 +184,15 @@ export default function App() {
   )
 }
 
-function DispatchView({ result, isLoading, pickupLocation, onAnalyze }) {
+function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFromAI, onVitalsExtracted }) {
   const hasAnalyzed = !!result
 
   return (
     <div className="flex gap-0 overflow-hidden" style={{ height: 'calc(100vh - 56px)' }}>
       <aside className="flex-shrink-0 flex flex-col p-4 overflow-y-auto"
         style={{ width: 280, borderRight: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        <PatientForm onAnalyze={onAnalyze} isLoading={isLoading} />
+        <PatientForm onAnalyze={onAnalyze} isLoading={isLoading} prefillVitals={vitalsFromAI} />
+        <EMTAssistant onVitalsExtracted={onVitalsExtracted} />
       </aside>
 
       <div className="flex-1 relative" style={{ minWidth: 0 }}>
@@ -258,13 +255,18 @@ function ResultPanel({ result }) {
   return (
     <div className="flex flex-col gap-4 p-4 animate-fade-in">
       <div className="card p-4">
-        <SeverityGauge severity={result.severity} score={result.severityScore} />
+        <SeverityGauge
+          severity={result.severity}
+          score={result.severityScore}
+          needsICU={result._raw?.severity?.needs_icu}
+          needsVentilator={result._raw?.severity?.needs_ventilator}
+          primarySpecialist={result._raw?.severity?.primary_specialist}
+          triageTag={result._raw?.severity?.triage_tag}
+          allSpecialists={result._raw?.severity?.all_specialists}
+        />
       </div>
       <div className="card p-4">
         <SurvivalCard survival={result.survivalProbability} nearestSurvival={result.nearestSurvivalProbability} gain={result.survivalGain} />
-      </div>
-      <div className="card p-4">
-        <FeatureImportanceChart features={result.featureImportance} />
       </div>
       {result.selectedHospital && (
         <div>
@@ -276,7 +278,7 @@ function ResultPanel({ result }) {
         <AIReasoningPanel explanation={result.aiExplanation} hospital={result.selectedHospital} />
       </div>
       <div className="card p-4">
-        <RejectedList selectedId={result.selectedHospital?.id} />
+        <RejectedList infeasibleHospitals={result._raw?.routing?.infeasible ?? []} />
       </div>
     </div>
   )

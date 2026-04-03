@@ -138,7 +138,11 @@ def predict(patient: dict) -> dict:
 
     importances = model.feature_importances_
     feature_names = VITALS + ALL_SYMPTOMS + ["max_symptom_weight", "symptom_count"]
-    top = sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True)[:5]
+    feat_vector = feats[0]
+
+    # Only include features this patient actually has (non-zero), ranked by global importance
+    relevant = [(name, imp) for name, imp, val in zip(feature_names, importances, feat_vector) if val > 0]
+    top = sorted(relevant, key=lambda x: x[1], reverse=True)[:5]
     top_features = [{"feature": k, "importance": round(float(v), 4)} for k, v in top]
 
     return {

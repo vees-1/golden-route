@@ -113,9 +113,23 @@ export default function MapView({ result, pickupLocation }) {
     ? [pickupLocation.lat, pickupLocation.lng]
     : [18.52, 73.856]
 
-  const selectedId = result?.selectedHospital?.id
-  const nearestId  = result?.nearestHospital?.id
-  const route      = result?.route
+  const selectedId  = result?.selectedHospital?.id
+  const nearestName = result?._raw?.routing?.nearest_hospital
+
+  // Merge mock coords with real-time status from API when available
+  const apiHospitals = result ? [
+    ...(result._raw?.routing?.recommended ?? []),
+    ...(result._raw?.routing?.infeasible ?? []),
+  ] : []
+  const apiMap = Object.fromEntries(apiHospitals.map((h) => [h.id, h]))
+
+  const hospitals = HOSPITALS.map((h) => ({ ...h, ...apiMap[h.id] }))
+
+  // Route: pickup → selected hospital
+  const selectedHosp = result?.selectedHospital
+  const routePositions = selectedHosp
+    ? [pickupPos, [selectedHosp.lat, selectedHosp.lng]]
+    : null
 
   return (
     <MapContainer
@@ -130,63 +144,71 @@ export default function MapView({ result, pickupLocation }) {
         maxZoom={19}
       />
 
-      {/* Hospital markers */}
-      {HOSPITALS.map((hospital) => (
-        <Marker
-          key={hospital.id}
-          position={[hospital.lat, hospital.lng]}
-          icon={createHospitalIcon(
-            hospital.icuAvailable,
-            hospital.icuBeds,
-            hospital.id === selectedId,
-            hospital.id === nearestId
-          )}
-        >
-          <Popup>
-            <div style={{ fontFamily: 'Inter, sans-serif', padding: '12px', minWidth: 180 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
-                {hospital.id === selectedId && (
-                  <span style={{
-                    background: 'linear-gradient(135deg, #007AFF, #5856D6)',
-                    color: 'white',
-                    borderRadius: 6,
-                    padding: '2px 8px',
-                    fontSize: 10,
-                    fontWeight: 700,
-                  }}>AI PICK</span>
-                )}
-                {hospital.id === nearestId && (
-                  <span style={{
-                    background: '#FF9500',
-                    color: 'white',
-                    borderRadius: 6,
-                    padding: '2px 8px',
-                    fontSize: 10,
-                    fontWeight: 700,
-                  }}>NEAREST</span>
+      {/* Hospital markers with real-time status */}
+      {hospitals.map((hospital) => {
+        const icuAvail  = hospital.icu_available ?? hospital.icuAvailable ?? 0
+        const icuTotal  = hospital.icuBeds ?? 10
+        const isSelected = hospital.id === selectedId
+        const isNearest  = hospital.name === nearestName
+        const eta = hospital.est_travel_minutes ?? hospital.eta ?? null
+
+        return (
+          <Marker
+            key={hospital.id}
+            position={[hospital.lat, hospital.lng]}
+            icon={createHospitalIcon(icuAvail, icuTotal, isSelected, isNearest)}
+          >
+            <Popup>
+              <div style={{ fontFamily: 'Inter, sans-serif', padding: '12px', minWidth: 180 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                  {isSelected && (
+                    <span style={{
+                      background: 'linear-gradient(135deg, #007AFF, #5856D6)',
+                      color: 'white', borderRadius: 6, padding: '2px 8px', fontSize: 10, fontWeight: 700,
+                    }}>AI PICK</span>
+                  )}
+                  {isNearest && (
+                    <span style={{
+                      background: '#FF9500',
+                      color: 'white', borderRadius: 6, padding: '2px 8px', fontSize: 10, fontWeight: 700,
+                    }}>NEAREST</span>
+                  )}
+                </div>
+                <p style={{ fontWeight: 700, fontSize: 13, color: '#1D1D1F', marginBottom: 4 }}>
+                  {hospital.name}
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                  <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
+                    <p style={{ fontSize: 10, color: '#86868B', marginBottom: 2 }}>ICU</p>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: icuAvail > 0 ? '#34C759' : '#FF3B30' }}>
+                      {icuAvail} free
+                    </p>
+                  </div>
+                  <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
+                    <p style={{ fontSize: 10, color: '#86868B', marginBottom: 2 }}>ETA</p>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: '#007AFF' }}>
+                      {eta != null ? `${Math.round(eta)}m` : '—'}
+                    </p>
+                  </div>
+                </div>
+                {hospital.load_pct != null && (
+                  <div style={{ marginTop: 8 }}>
+                    <p style={{ fontSize: 10, color: '#86868B', marginBottom: 4 }}>Load</p>
+                    <div style={{ height: 4, background: '#E5E5EA', borderRadius: 2 }}>
+                      <div style={{
+                        height: '100%', borderRadius: 2,
+                        width: `${hospital.load_pct}%`,
+                        background: hospital.load_pct > 85 ? '#FF3B30' : hospital.load_pct > 65 ? '#FF9500' : '#34C759',
+                      }} />
+                    </div>
+                    <p style={{ fontSize: 10, color: '#86868B', marginTop: 2 }}>{hospital.load_pct}% occupied</p>
+                  </div>
                 )}
               </div>
-              <p style={{ fontWeight: 700, fontSize: 13, color: '#1D1D1F', marginBottom: 4 }}>
-                {hospital.name}
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-                <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 10, color: '#86868B', marginBottom: 2 }}>ICU</p>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: '#34C759' }}>
-                    {hospital.icuAvailable}/{hospital.icuBeds}
-                  </p>
-                </div>
-                <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '6px 8px', textAlign: 'center' }}>
-                  <p style={{ fontSize: 10, color: '#86868B', marginBottom: 2 }}>ETA</p>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: '#007AFF' }}>
-                    {hospital.eta}m
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+            </Popup>
+          </Marker>
+        )
+      })}
 
       {/* Ambulance / pickup */}
       <Marker position={pickupPos} icon={createAmbulanceIcon()}>
@@ -200,8 +222,8 @@ export default function MapView({ result, pickupLocation }) {
         </Popup>
       </Marker>
 
-      {/* Animated route */}
-      {route && <AnimatedRoute positions={route} />}
+      {/* Route polyline: pickup → selected hospital */}
+      {routePositions && <AnimatedRoute positions={routePositions} />}
     </MapContainer>
   )
 }

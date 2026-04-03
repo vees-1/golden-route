@@ -11,6 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 from orchestrator import run_pipeline
 from orchestrator import run_pipeline_fast
 from voice import transcribe_and_extract
+from emt_assistant import chat as emt_chat_fn
 
 app = FastAPI(title="GoldenRoute API")
 
@@ -90,6 +91,24 @@ def mass_casualty(event: MasscasualtyEvent):
             results = list(ex.map(process, event.patients))
 
         return {"event_id": event.event_id, "title": event.title, "results": results}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class EMTMessage(BaseModel):
+    role: str
+    content: str
+
+
+class EMTChatRequest(BaseModel):
+    messages: List[EMTMessage]
+
+
+@app.post("/emt-chat")
+def emt_chat(req: EMTChatRequest):
+    try:
+        result = emt_chat_fn([m.model_dump() for m in req.messages])
+        return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -23,3 +23,15 @@ EXACT DELIVERABLES
 RECOMMENDED TECH APPROACH
 
 Use a gradient boosting model for severity and care-needs prediction. Use a constraint-based optimization library for the hospital routing engine. Use a routing or maps API for real-time transit time estimation. Build an interactive map-based dashboard for the dispatch UI.
+
+TWIST 1
+Before the EMT enters any vital signs, they photograph the accident scene — a crushed vehicle, a
+visible wound. Add a lightweight image classification model that instantly estimates trauma severity
+from the scene photograph alone. If a high-severity scene is detected, the system must automatically
+filter the hospital list to Level 1 Trauma Centers only, overriding the standard routing before the EMT
+completes the vitals form.
+
+TWIST 2
+Three major arterial roads close suddenly mid-journey due to an emergency road block. The routing
+engine must detect the closure, recalculate ETAs in real-time, and re-route any ambulance currently en
+route if a better hospital is now reachable — without requiring dispatcher intervention.

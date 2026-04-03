@@ -4,16 +4,11 @@ Route ambulances to the optimal hospital, not the nearest one.
 
 ---
 
-## Stack
-
-- ML — XGBoost, scikit-learn
-- Routing — Constraint-based optimizer, Haversine
-- LLM — Anthropic Claude API
-- UI — Streamlit, Folium, Plotly
+**Stack:** XGBoost, scikit-learn, Anthropic Claude, Streamlit, Folium, Plotly
 
 ---
 
-## Files
+**Files**
 
 ```
 backend/severity_model.py
@@ -29,7 +24,7 @@ data/symptoms_map.json
 
 ---
 
-## Build Order
+**Build Order**
 
 - [x] Project structure + data
 - [ ] Step 1: XGBoost severity model

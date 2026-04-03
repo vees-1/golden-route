@@ -2,6 +2,8 @@ import React, { useState, lazy, Suspense } from 'react'
 import { Activity, Users, Hospital } from 'lucide-react'
 import PatientForm from './components/PatientForm'
 import EMTAssistant from './components/EMTAssistant'
+import SceneUpload from './components/SceneUpload'
+import RoadClosureAlert from './components/RoadClosureAlert'
 import SeverityGauge from './components/SeverityGauge'
 import SurvivalCard from './components/SurvivalCard'
 import HospitalCard from './components/HospitalCard'
@@ -88,14 +90,15 @@ function normalizeResult(data) {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab]       = useState('dispatch')
-  const [result, setResult]             = useState(null)
-  const [rawResult, setRawResult]       = useState(null)
-  const [isLoading, setIsLoading]       = useState(false)
-  const [pickupLocation, setPickupLocation] = useState(PICKUP_LOCATIONS[0])
-  const [vitalsFromAI, setVitalsFromAI] = useState(null)
+  const [activeTab, setActiveTab]           = useState('dispatch')
+  const [result, setResult]                 = useState(null)
+  const [rawResult, setRawResult]           = useState(null)
+  const [isLoading, setIsLoading]           = useState(false)
+  const [pickupLocation, setPickupLocation] = useState(PICKUP_LOCATIONS.find((l) => l.name === 'Kothrud') ?? PICKUP_LOCATIONS[0])
+  const [vitalsFromAI, setVitalsFromAI]     = useState(null)
+  const [lastPayload, setLastPayload]       = useState(null)
 
-  async function handleAnalyze({ vitals, symptoms, location }) {
+  async function handleAnalyze({ vitals, symptoms, location, traumaOnly = false }) {
     setPickupLocation(location)
     setIsLoading(true)
     try {
@@ -112,7 +115,10 @@ export default function App() {
         spo2_trend_per_min: 0,
         hr_trend_per_min: 0,
         symptoms: symptoms.join('|'),
+        trauma_only: traumaOnly,
+        closed_roads: [],
       }
+      setLastPayload(payload)
       const res = await fetch('http://localhost:8000/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -167,7 +173,7 @@ export default function App() {
 
       <main className="flex-1 overflow-hidden">
         {activeTab === 'dispatch' && (
-          <DispatchView result={result} isLoading={isLoading} pickupLocation={pickupLocation} onAnalyze={handleAnalyze} vitalsFromAI={vitalsFromAI} onVitalsExtracted={setVitalsFromAI} />
+          <DispatchView result={result} isLoading={isLoading} pickupLocation={pickupLocation} onAnalyze={handleAnalyze} vitalsFromAI={vitalsFromAI} onVitalsExtracted={setVitalsFromAI} lastPayload={lastPayload} />
         )}
         {activeTab === 'mass' && (
           <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
@@ -184,15 +190,31 @@ export default function App() {
   )
 }
 
-function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFromAI, onVitalsExtracted }) {
+function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFromAI, onVitalsExtracted, lastPayload }) {
   const hasAnalyzed = !!result
+  const [traumaOnly, setTraumaOnly] = useState(false)
+
+  function handleSceneAnalyzed(sceneResult) {
+    setTraumaOnly(!!sceneResult.trauma_only)
+  }
+
+  function handleAnalyzeWithScene(formData) {
+    onAnalyze({ ...formData, traumaOnly })
+  }
 
   return (
     <div className="flex gap-0 overflow-hidden" style={{ height: 'calc(100vh - 56px)' }}>
-      <aside className="flex-shrink-0 flex flex-col p-4 overflow-y-auto"
-        style={{ width: 280, borderRight: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        <PatientForm onAnalyze={onAnalyze} isLoading={isLoading} prefillVitals={vitalsFromAI} />
-        <EMTAssistant onVitalsExtracted={onVitalsExtracted} />
+      <aside className="flex-shrink-0 flex flex-col"
+        style={{ width: 290, borderRight: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
+        {/* Patient form — scrollable top section */}
+        <div className="flex-1 overflow-y-auto p-4" style={{ minHeight: 0 }}>
+          <SceneUpload onSceneAnalyzed={handleSceneAnalyzed} />
+          <PatientForm onAnalyze={handleAnalyzeWithScene} isLoading={isLoading} prefillVitals={vitalsFromAI} />
+        </div>
+        {/* ARIA — fixed bottom section */}
+        <div className="flex-shrink-0 px-3 pb-3" style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+          <EMTAssistant onVitalsExtracted={onVitalsExtracted} />
+        </div>
       </aside>
 
       <div className="flex-1 relative" style={{ minWidth: 0 }}>
@@ -225,7 +247,7 @@ function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFrom
 
       <aside className="flex-shrink-0 flex flex-col overflow-y-auto"
         style={{ width: 320, borderLeft: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} />}
+        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} />}
       </aside>
     </div>
   )
@@ -250,10 +272,17 @@ function EmptyRightPanel() {
   )
 }
 
-function ResultPanel({ result }) {
+function ResultPanel({ result, lastPayload }) {
   if (!result) return null
   return (
     <div className="flex flex-col gap-4 p-4 animate-fade-in">
+      {result._raw?.routing?.trauma_only && (
+        <div className="rounded-xl px-3 py-2.5 flex items-center gap-2"
+          style={{ background: 'rgba(255,59,48,0.08)', border: '1px solid rgba(255,59,48,0.2)' }}>
+          <span style={{ fontSize: 13 }}>⚠️</span>
+          <p className="text-xs font-semibold" style={{ color: '#FF3B30' }}>Level 1 Trauma Centers only — scene override active</p>
+        </div>
+      )}
       <div className="card p-4">
         <SeverityGauge
           severity={result.severity}
@@ -280,6 +309,10 @@ function ResultPanel({ result }) {
       <div className="card p-4">
         <RejectedList infeasibleHospitals={result._raw?.routing?.infeasible ?? []} />
       </div>
+      <RoadClosureAlert
+        currentPatientPayload={lastPayload}
+        currentHospital={result.selectedHospital?.name}
+      />
     </div>
   )
 }

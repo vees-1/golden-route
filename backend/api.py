@@ -12,6 +12,7 @@ from orchestrator import run_pipeline
 from orchestrator import run_pipeline_fast
 from voice import transcribe_and_extract
 from emt_assistant import chat as emt_chat_fn
+from scene_analyzer import analyze_scene
 
 app = FastAPI(title="GoldenRoute API")
 
@@ -35,13 +36,47 @@ class PatientInput(BaseModel):
     respiratory_rate: int
     spo2_trend_per_min: float = 0.0
     hr_trend_per_min: float = 0.0
-    symptoms: str  # pipe-separated: "chest_pain|shortness_of_breath"
+    symptoms: str
+    trauma_only: bool = False
+    closed_roads: List[str] = []
 
 
 @app.post("/analyze")
 def analyze(patient: PatientInput):
     try:
-        result = run_pipeline(patient.model_dump())
+        d = patient.model_dump()
+        trauma_only = d.pop("trauma_only", False)
+        closed_roads = d.pop("closed_roads", [])
+        result = run_pipeline(d, trauma_only=trauma_only, closed_roads=closed_roads)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/analyze-scene")
+async def analyze_scene_endpoint(file: UploadFile = File(...)):
+    try:
+        image_bytes = await file.read()
+        media_type = file.content_type or "image/jpeg"
+        result = analyze_scene(image_bytes, media_type)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class RoadClosureRequest(BaseModel):
+    patient: PatientInput
+    closed_roads: List[str]
+
+
+@app.post("/road-closure")
+def road_closure(req: RoadClosureRequest):
+    try:
+        d = req.patient.model_dump()
+        d.pop("trauma_only", None)
+        d.pop("closed_roads", None)
+        result = run_pipeline_fast(d, closed_roads=req.closed_roads)
+        result["closed_roads"] = req.closed_roads
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

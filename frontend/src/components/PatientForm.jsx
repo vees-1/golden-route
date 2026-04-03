@@ -98,7 +98,7 @@ export default function PatientForm({ onAnalyze, isLoading, prefillVitals }) {
     Object.fromEntries(VITAL_CONFIG.map((v) => [v.id, v.default]))
   )
   const [symptoms, setSymptoms] = useState([])
-  const [location, setLocation] = useState(PICKUP_LOCATIONS[0])
+  const [location, setLocation] = useState(PICKUP_LOCATIONS.find((l) => l.name === 'Kothrud') ?? PICKUP_LOCATIONS[0])
   const [jsonText, setJsonText] = useState('')
   const [jsonError, setJsonError] = useState('')
 

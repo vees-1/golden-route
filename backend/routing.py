@@ -86,24 +86,73 @@ def _score(hospital: dict, dist_km: float, severity_result: dict, max_dist_km: f
     }
 
 
+# Road closure definitions: each closure adds penalty_minutes to hospitals that route via that road
+# Affected hospital IDs derived from geographic proximity to each arterial
+ROAD_CLOSURES = {
+    "expressway": {
+        "name": "Pune-Mumbai Expressway",
+        "affected_hospital_ids": ["H07", "H08", "H13"],  # Hinjewadi / Wakad side
+        "penalty_minutes": 18,
+    },
+    "fc_road": {
+        "name": "FC Road / Ganeshkhind Road",
+        "affected_hospital_ids": ["H02", "H03", "H05"],  # North Pune
+        "penalty_minutes": 14,
+    },
+    "sh60": {
+        "name": "SH-60 Solapur Road",
+        "affected_hospital_ids": ["H10", "H11", "H14"],  # East Pune
+        "penalty_minutes": 16,
+    },
+}
+
+
 def rank_hospitals(
     patient_lat: float,
     patient_lng: float,
     severity_result: dict,
     top_n: int = 5,
+    trauma_only: bool = False,
+    closed_roads: list = None,
 ) -> dict:
+    hospital_pool = HOSPITALS
+    if trauma_only:
+        hospital_pool = [h for h in HOSPITALS if h.get("trauma_center_level") == 1]
+        if not hospital_pool:
+            hospital_pool = HOSPITALS  # fallback if no Level 1 exists
+
     distances = {
         h["id"]: _haversine_km(patient_lat, patient_lng, h["lat"], h["lng"])
-        for h in HOSPITALS
+        for h in hospital_pool
     }
     max_dist = max(distances.values())
     nearest_id = min(distances, key=distances.get)
 
+    # Build per-hospital road closure penalty map
+    closure_penalties = {}
+    for road_key in (closed_roads or []):
+        road = ROAD_CLOSURES.get(road_key)
+        if not road:
+            continue
+        for hid in road["affected_hospital_ids"]:
+            closure_penalties[hid] = closure_penalties.get(hid, 0) + road["penalty_minutes"]
+
     scored = []
-    for h in HOSPITALS:
+    for h in hospital_pool:
         dist = distances[h["id"]]
         unmet = _check_constraints(h, severity_result)
         sc = _score(h, dist, severity_result, max_dist)
+
+        # Apply road closure penalty to travel score
+        extra_minutes = closure_penalties.get(h["id"], 0)
+        if extra_minutes:
+            effective_travel = sc["est_travel_minutes"] + extra_minutes
+            travel_penalty = (extra_minutes / 60) * WEIGHTS["travel_time"]
+            sc["total"] = max(0.0, sc["total"] - travel_penalty)
+            sc["est_travel_minutes"] = effective_travel
+            sc["road_closure_penalty_min"] = extra_minutes
+        else:
+            sc["road_closure_penalty_min"] = 0
 
         if unmet:
             sc["total"] = max(0.0, sc["total"] - 0.5)  # hard penalty, not exclusion
@@ -125,8 +174,9 @@ def rank_hospitals(
             "score_breakdown":   sc["breakdown"],
             "est_travel_minutes": sc["est_travel_minutes"],
             "dist_km":           sc["dist_km"],
-            "unmet_constraints": unmet,
-            "is_feasible":       len(unmet) == 0,
+            "unmet_constraints":        unmet,
+            "is_feasible":              len(unmet) == 0,
+            "road_closure_penalty_min": sc["road_closure_penalty_min"],
         })
 
     scored.sort(key=lambda x: x["score"], reverse=True)
@@ -138,11 +188,13 @@ def rank_hospitals(
     optimal = feasible[0] if feasible else scored[0]
 
     return {
-        "recommended":     feasible[:top_n],
-        "infeasible":      infeasible,
+        "recommended":      feasible[:top_n],
+        "infeasible":       infeasible,
         "nearest_hospital": nearest_name,
         "optimal_hospital": optimal["name"],
-        "same_as_nearest": nearest_id == optimal["id"],
+        "same_as_nearest":  nearest_id == optimal["id"],
+        "trauma_only":      trauma_only,
+        "closed_roads":     closed_roads or [],
     }
 
 

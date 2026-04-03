@@ -1,0 +1,1001 @@
+patient_id,age,gender,heart_rate,bp_systolic,bp_diastolic,spo2,gcs,respiratory_rate,spo2_trend_per_min,hr_trend_per_min,symptoms,primary_category,condition,severity,pickup_area,pickup_lat,pickup_lng,hour_of_day,minute
+P0001,74,M,80,121,76,96,15,19,-0.03,-0.05,fracture_closed,orthopedic,minor_fracture,2,Wakad,18.593114,73.762071,23,40
+P0002,47,M,103,104,56,87,12,40,-0.48,0.54,severe_breathing_difficulty|shortness_of_breath|vomiting_blood,respiratory,respiratory_failure,4,Katraj,18.451402,73.864988,21,41
+P0003,55,F,145,77,38,89,7,37,-0.69,0.41,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.559152,73.780255,3,7
+P0004,48,F,128,114,82,94,12,25,-0.19,0.25,seizure|loss_of_consciousness,neurological,seizure_episode,3,Koregaon Park,18.539085,73.887033,21,48
+P0005,67,M,27,10,29,50,5,4,-0.13,1.4,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Camp,18.514744,73.874445,19,34
+P0006,39,M,109,100,70,93,13,21,0.01,-0.11,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.594911,73.743056,23,34
+P0007,74,M,120,110,76,94,15,21,-0.76,0.23,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Pimpri,18.62691,73.801181,7,14
+P0008,22,M,108,97,55,90,12,21,-0.01,0.2,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Shivajinagar,18.534104,73.840028,7,59
+P0009,60,F,140,85,43,81,3,27,-0.29,1.24,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Kothrud,18.510174,73.815447,6,25
+P0010,46,F,12,12,34,64,3,6,-0.34,0.9,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Hinjewadi,18.59029,73.743782,16,3
+P0011,71,F,105,99,64,85,13,28,-0.25,0.57,chest_pain_radiating_left_arm|shortness_of_breath|fracture_open,cardiac,STEMI,5,Viman Nagar,18.565964,73.922065,10,50
+P0012,33,M,125,152,92,95,9,21,-0.1,0.4,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.457975,73.886018,3,30
+P0013,78,M,32,5,11,52,5,1,-0.34,0.93,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Magarpatta,18.509939,73.928512,17,26
+P0014,34,F,126,66,51,89,5,31,-0.1,1.49,blunt_trauma_head|severe_bleeding|loss_of_consciousness|allergic_reaction_severe,trauma,severe_trauma,5,Katraj,18.462864,73.871972,0,39
+P0015,55,F,113,86,48,84,14,23,-0.33,0.92,chest_pain_radiating_left_arm|shortness_of_breath|severe_bleeding,cardiac,STEMI,5,Deccan,18.517587,73.848796,17,0
+P0016,67,M,93,120,59,95,13,17,-0.2,0.44,abdominal_pain_severe|vomiting_blood|diabetic_emergency,general,abdominal_emergency,3,Katraj,18.451258,73.867148,10,31
+P0017,48,F,140,83,48,82,12,27,-0.17,0.91,chest_pain_radiating_left_arm|shortness_of_breath|severe_bleeding,cardiac,STEMI,5,Swargate,18.502475,73.85739,22,44
+P0018,34,F,93,127,69,98,15,14,-0.06,0.19,fracture_closed,orthopedic,minor_fracture,2,Kothrud,18.513783,73.803061,9,6
+P0019,66,M,94,133,69,96,15,20,-0.24,0.29,fracture_closed,orthopedic,minor_fracture,3,Swargate,18.506336,73.869425,19,17
+P0020,49,M,102,120,62,78,13,39,-0.35,0.72,severe_breathing_difficulty|shortness_of_breath|drowning,respiratory,respiratory_failure,4,Katraj,18.452458,73.858111,19,22
+P0021,67,F,129,106,50,92,10,22,-0.07,-0.02,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Katraj,18.454982,73.872748,7,57
+P0022,37,M,110,86,57,92,13,29,-0.45,1.07,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Yerawada,18.555023,73.892568,18,19
+P0023,73,M,118,125,59,78,13,40,-0.39,1.05,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kondhwa,18.47034,73.885862,9,50
+P0024,45,F,113,143,73,94,15,20,-0.64,0.46,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Katraj,18.449494,73.872232,9,19
+P0025,80,M,115,85,59,83,15,28,-0.2,1.35,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Aundh,18.553904,73.810197,0,48
+P0026,53,M,67,85,70,96,11,14,0.06,0.23,spinal_injury|blunt_trauma_head,trauma,spinal_injury,3,Bibwewadi,18.480681,73.870806,16,48
+P0027,40,F,142,83,57,89,13,35,-0.49,1.13,allergic_reaction_severe|severe_breathing_difficulty|loss_of_consciousness,general,allergic_anaphylaxis,4,Shivajinagar,18.535653,73.844941,17,17
+P0028,59,F,101,180,124,89,7,18,-0.66,0.75,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Hinjewadi,18.589838,73.735294,14,3
+P0029,20,F,108,120,55,97,14,23,-0.21,-0.05,abdominal_pain_severe|vomiting_blood|fracture_open,general,abdominal_emergency,3,Swargate,18.502112,73.867354,19,57
+P0030,69,M,86,124,81,95,15,20,-0.71,0.8,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Aundh,18.55947,73.810308,6,27
+P0031,64,F,124,80,46,89,14,27,-0.1,0.65,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.536759,73.844125,19,3
+P0032,54,M,92,158,70,91,9,18,-0.23,0.23,seizure|loss_of_consciousness|burns_major,neurological,seizure_episode,3,Magarpatta,18.521164,73.926441,9,23
+P0033,11,F,117,94,45,86,12,33,-0.22,0.52,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Aundh,18.556346,73.81114,5,44
+P0034,17,F,109,153,89,89,12,30,-0.1,0.1,seizure|loss_of_consciousness,neurological,seizure_episode,3,Hinjewadi,18.591295,73.73546,20,52
+P0035,71,F,129,99,68,77,15,44,-0.2,1.28,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wanowrie,18.487438,73.898212,16,20
+P0036,41,F,128,77,64,89,15,27,-0.31,0.56,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.550677,73.936134,10,38
+P0037,55,F,112,72,47,88,15,30,-0.34,0.68,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Koregaon Park,18.529689,73.888746,18,19
+P0038,35,F,101,103,72,92,14,25,-0.22,0.32,blunt_trauma_chest|fracture_open|severe_breathing_difficulty,trauma,moderate_trauma,3,Katraj,18.449913,73.865574,19,11
+P0039,30,F,147,84,46,87,5,27,-0.31,0.36,blunt_trauma_head|severe_bleeding|loss_of_consciousness|sudden_weakness_one_side,trauma,severe_trauma,5,Kondhwa,18.459025,73.881728,4,18
+P0040,45,F,90,113,65,99,15,17,-0.05,0.2,fracture_closed,orthopedic,minor_fracture,2,Shivajinagar,18.538457,73.844244,20,25
+P0041,22,F,99,119,95,92,8,21,0.04,0.49,seizure|loss_of_consciousness,neurological,seizure_episode,3,Wakad,18.602911,73.762086,21,19
+P0042,58,M,149,61,49,89,3,30,-0.38,0.58,blunt_trauma_head|severe_bleeding|loss_of_consciousness|shortness_of_breath,trauma,severe_trauma,5,Viman Nagar,18.568732,73.908805,13,44
+P0043,61,M,98,204,119,89,11,19,-0.25,0.97,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Baner,18.565535,73.792026,5,10
+P0044,40,F,84,124,68,98,15,19,-0.07,-0.14,fracture_closed,orthopedic,minor_fracture,2,Hinjewadi,18.592769,73.744231,18,38
+P0045,41,F,96,102,68,92,14,32,0.09,0.13,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Shivajinagar,18.526304,73.845965,17,31
+P0046,66,F,105,142,66,96,14,23,-0.12,0.73,chest_pain|shortness_of_breath|fracture_open,cardiac,chest_pain_unstable_angina,4,Kondhwa,18.457587,73.882409,9,7
+P0047,30,F,90,111,72,93,15,18,-0.18,0.42,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Bibwewadi,18.48216,73.858257,16,59
+P0048,75,M,86,140,75,95,14,22,-0.01,0.16,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Bibwewadi,18.485153,73.865363,7,59
+P0049,42,M,140,75,37,85,7,28,-0.56,1.22,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.564824,73.78322,19,26
+P0050,27,F,110,69,53,82,7,39,-0.67,1.11,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Kondhwa,18.469206,73.887035,22,55
+P0051,63,F,97,117,68,90,14,25,-0.17,-0.13,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Baner,18.558925,73.779392,15,37
+P0052,70,M,78,126,79,95,15,17,-0.05,0.47,fracture_closed|seizure,orthopedic,minor_fracture,2,Aundh,18.560397,73.813328,20,54
+P0053,58,F,121,144,71,89,9,28,-0.12,0.29,seizure|loss_of_consciousness,neurological,seizure_episode,3,Swargate,18.509153,73.867766,18,6
+P0054,47,M,91,100,56,95,14,21,-0.03,0.15,abdominal_pain_severe|vomiting_blood|fracture_closed,general,abdominal_emergency,3,Viman Nagar,18.56262,73.907563,20,39
+P0055,60,M,97,104,75,92,15,22,0.1,0.01,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Deccan,18.518642,73.835528,14,22
+P0056,36,M,111,114,59,93,11,27,-0.14,-0.19,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Deccan,18.523683,73.837724,23,42
+P0057,72,F,99,133,66,99,15,20,-0.03,0.26,fracture_closed,orthopedic,minor_fracture,2,Pimpri,18.623404,73.795942,9,48
+P0058,43,M,95,113,85,95,15,20,-0.09,0.18,fracture_closed,orthopedic,minor_fracture,2,Hinjewadi,18.597754,73.735228,13,12
+P0059,60,F,128,117,58,98,9,24,0.04,0.31,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Hadapsar,18.501293,73.919205,19,14
+P0060,46,M,130,108,52,98,11,20,-0.03,0.13,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Shivajinagar,18.532753,73.849759,22,6
+P0061,22,F,120,107,65,94,13,28,-0.25,-0.04,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Swargate,18.495367,73.856326,2,31
+P0062,65,M,102,104,66,95,15,27,-0.15,0.11,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wanowrie,18.48985,73.900025,10,44
+P0063,52,M,118,91,71,94,12,30,-0.04,0.22,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Hadapsar,18.508984,73.931187,6,13
+P0064,75,M,150,80,47,84,13,23,-0.61,1.48,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.595757,73.758361,21,0
+P0065,31,M,129,101,75,93,8,30,-0.25,-0.16,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Koregaon Park,18.530988,73.886038,19,33
+P0066,73,F,108,132,66,93,14,18,-0.46,1.38,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kothrud,18.515377,73.813257,13,6
+P0067,57,F,105,80,59,84,12,24,-0.72,1.05,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Deccan,18.515059,73.842687,6,44
+P0068,41,F,92,133,71,98,15,15,-0.03,0.13,fracture_closed,orthopedic,minor_fracture,2,Hadapsar,18.498801,73.923,9,9
+P0069,48,M,105,72,53,83,14,34,-0.5,1.39,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.45872,73.863573,20,48
+P0070,72,M,118,89,49,87,12,31,-0.4,1.25,chest_pain_radiating_left_arm|shortness_of_breath|burns_major,cardiac,STEMI,5,Hadapsar,18.499402,73.9269,7,17
+P0071,74,F,99,136,84,99,15,18,-0.04,0.08,fracture_closed|seizure,orthopedic,minor_fracture,2,Deccan,18.522545,73.838616,8,9
+P0072,59,F,40,1,5,73,5,3,-0.18,0.4,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.519346,73.845429,16,5
+P0073,45,F,61,101,47,92,11,24,-0.33,0.97,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Kharadi,18.557079,73.933821,13,18
+P0074,31,F,99,91,62,93,12,18,-0.23,0.07,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Shivajinagar,18.528031,73.83852,15,27
+P0075,57,M,142,87,51,83,15,37,-0.35,0.58,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Hinjewadi,18.596994,73.739212,16,45
+P0076,67,M,105,110,89,96,15,19,-0.25,0.3,chest_pain|shortness_of_breath|vomiting_blood,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.589532,73.734964,11,21
+P0077,56,M,123,142,76,93,10,29,0.08,0.24,seizure|loss_of_consciousness|headache_severe,neurological,seizure_episode,3,Viman Nagar,18.569538,73.918463,17,11
+P0078,68,M,113,143,80,96,15,20,-0.48,0.27,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Shivajinagar,18.532863,73.842231,5,29
+P0079,52,M,77,130,67,99,15,17,-0.05,0.37,fracture_closed,orthopedic,minor_fracture,2,Kharadi,18.550144,73.93961,7,3
+P0080,60,F,97,112,81,96,15,15,-0.02,0.28,fracture_closed,orthopedic,minor_fracture,2,Yerawada,18.55254,73.884966,10,26
+P0081,75,F,140,90,50,83,14,23,-0.16,0.6,chest_pain_radiating_left_arm|shortness_of_breath|stroke_symptoms,cardiac,STEMI,5,Yerawada,18.563972,73.884334,16,9
+P0082,39,F,115,118,89,89,10,26,-0.15,-0.07,seizure|loss_of_consciousness,neurological,seizure_episode,3,Camp,18.506495,73.882727,15,1
+P0083,63,M,111,172,104,90,7,17,-0.38,0.4,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Camp,18.505604,73.877388,19,8
+P0084,68,M,119,211,100,95,6,22,-0.47,1.29,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Bibwewadi,18.473744,73.858827,22,50
+P0085,62,F,136,118,69,87,12,40,-0.54,1.41,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Yerawada,18.552214,73.883,17,55
+P0086,38,M,143,73,49,83,13,28,-0.1,-0.03,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,3,Bibwewadi,18.484154,73.869888,13,25
+P0087,71,F,118,99,50,94,8,31,-0.37,1.38,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,4,Wanowrie,18.491137,73.887221,18,28
+P0088,58,M,113,96,44,90,15,23,-0.42,1.02,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Yerawada,18.557314,73.880774,21,38
+P0089,40,M,112,94,64,93,12,27,-0.1,0.49,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.591576,73.73577,22,34
+P0090,34,M,102,117,70,90,15,23,-0.06,0.04,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Hadapsar,18.506144,73.929763,11,2
+P0091,60,F,119,154,85,90,9,19,-0.05,-0.02,seizure|loss_of_consciousness|slurred_speech,neurological,seizure_episode,2,Kothrud,18.50445,73.804661,13,52
+P0092,39,F,66,89,56,88,14,24,-0.45,0.85,spinal_injury|blunt_trauma_head|blunt_trauma_abdomen,trauma,spinal_injury,4,Aundh,18.561893,73.814014,12,11
+P0093,47,M,106,98,57,98,14,17,-0.13,0.28,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.588447,73.73473,14,45
+P0094,34,F,102,112,74,81,12,29,-0.49,0.36,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Viman Nagar,18.575145,73.908584,17,50
+P0095,73,F,103,183,114,88,10,18,-0.63,0.35,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Magarpatta,18.508203,73.924871,11,17
+P0096,59,F,141,86,52,90,12,28,-0.7,0.3,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Yerawada,18.554569,73.893664,15,7
+P0097,80,F,108,165,110,93,11,17,-0.25,0.51,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Viman Nagar,18.572599,73.91444,7,12
+P0098,44,F,108,135,83,93,14,19,-0.71,0.61,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Wanowrie,18.488411,73.897307,20,4
+P0099,75,M,129,91,56,87,13,35,-0.3,0.65,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,4,Hadapsar,18.50209,73.922866,8,59
+P0100,37,M,118,99,57,95,13,24,-0.23,0.24,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.591241,73.732698,22,9
+P0101,22,F,100,116,73,93,13,17,-0.18,0.47,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Swargate,18.50339,73.856085,21,34
+P0102,68,F,110,119,89,90,14,20,-0.56,0.72,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Yerawada,18.552299,73.892784,11,55
+P0103,25,F,76,97,48,93,9,21,0.06,0.37,spinal_injury|blunt_trauma_head,trauma,spinal_injury,3,Deccan,18.522926,73.846827,13,55
+P0104,49,F,113,100,61,94,14,24,-0.07,-0.17,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.598324,73.738087,22,13
+P0105,52,M,148,88,50,88,6,33,-0.76,0.93,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Shivajinagar,18.53504,73.848822,12,25
+P0106,47,M,118,94,67,83,13,45,-0.44,0.85,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Katraj,18.456925,73.86285,7,38
+P0107,78,M,108,92,50,89,15,24,-0.56,1.28,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.566187,73.916164,20,37
+P0108,39,M,112,108,64,93,12,23,-0.07,-0.04,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Koregaon Park,18.537751,73.889448,17,49
+P0109,55,M,130,75,56,92,15,24,-0.66,0.85,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.545303,73.937019,7,44
+P0110,31,F,105,117,56,95,13,26,-0.08,0.27,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Aundh,18.55502,73.802471,21,21
+P0111,30,F,96,130,90,97,15,15,-0.07,0.04,fracture_closed,orthopedic,minor_fracture,2,Deccan,18.520139,73.844278,18,31
+P0112,44,F,115,113,63,95,13,24,0.07,0.26,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Baner,18.555647,73.783402,18,22
+P0113,16,M,123,76,57,86,14,26,-0.47,1.09,allergic_reaction_severe|severe_breathing_difficulty|drowning,general,allergic_anaphylaxis,4,Wakad,18.600707,73.75684,13,45
+P0114,65,M,35,59,10,63,5,7,-0.64,1.16,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.518134,73.847527,6,36
+P0115,68,F,76,139,70,98,15,14,-0.01,0.03,fracture_closed,orthopedic,minor_fracture,2,Deccan,18.521828,73.833148,16,6
+P0116,52,M,119,133,91,91,15,22,-0.4,1.18,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Shivajinagar,18.534898,73.836825,11,18
+P0117,50,F,120,217,115,94,10,21,-0.64,1.18,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Baner,18.558639,73.793773,0,24
+P0118,45,M,114,85,58,97,10,31,0.01,0.28,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Viman Nagar,18.566387,73.91434,21,45
+P0119,45,M,108,133,89,91,9,20,0.02,0.38,seizure|loss_of_consciousness,neurological,seizure_episode,3,Pimpri,18.626554,73.801688,14,34
+P0120,51,F,81,104,64,89,12,21,-0.25,-0.06,spinal_injury|blunt_trauma_head|vomiting_blood,trauma,spinal_injury,3,Magarpatta,18.514587,73.921633,20,28
+P0121,26,F,92,118,71,93,12,25,-0.65,0.29,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,4,Deccan,18.519372,73.839335,20,47
+P0122,58,F,89,134,63,90,15,18,-0.17,0.69,chest_pain|shortness_of_breath|headache_severe,cardiac,chest_pain_unstable_angina,4,Swargate,18.499491,73.869861,14,58
+P0123,49,F,124,118,90,93,8,20,-0.03,0.18,seizure|loss_of_consciousness,neurological,seizure_episode,3,Wakad,18.603857,73.768099,23,29
+P0124,35,M,116,97,62,93,14,20,0.05,-0.19,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hadapsar,18.494315,73.928563,17,59
+P0125,48,M,86,198,92,95,10,26,-0.45,0.58,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wakad,18.599136,73.76807,19,8
+P0126,34,M,98,128,75,99,15,15,-0.03,-0.08,fracture_closed,orthopedic,minor_fracture,2,Swargate,18.498308,73.856575,22,56
+P0127,39,F,125,141,71,93,13,28,-0.21,0.4,seizure|loss_of_consciousness,neurological,seizure_episode,3,Deccan,18.513823,73.845071,14,54
+P0128,70,M,29,58,3,67,4,6,-0.43,1.28,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Katraj,18.458347,73.871756,20,5
+P0129,44,M,124,91,59,91,12,35,-0.13,0.22,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.460472,73.884342,21,19
+P0130,64,M,120,113,58,98,14,19,-0.18,0.05,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Katraj,18.460408,73.863091,15,22
+P0131,40,F,104,93,70,95,13,21,-0.18,-0.06,abdominal_pain_severe|vomiting_blood|loss_of_consciousness,general,abdominal_emergency,3,Koregaon Park,18.532372,73.900156,16,26
+P0132,66,F,116,213,105,95,10,26,-0.3,0.83,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wanowrie,18.487373,73.896724,11,8
+P0133,62,M,107,110,56,97,13,17,-0.15,0.23,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wakad,18.591587,73.758416,9,29
+P0134,49,F,129,140,91,95,8,18,-0.13,0.46,seizure|loss_of_consciousness|burns_minor,neurological,seizure_episode,3,Kondhwa,18.47264,73.881274,20,43
+P0135,78,F,86,193,99,91,7,25,-0.11,0.49,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Aundh,18.551264,73.815049,14,15
+P0136,39,F,95,151,97,88,8,24,-0.04,0.4,seizure|loss_of_consciousness,neurological,seizure_episode,2,Viman Nagar,18.561223,73.919825,17,21
+P0137,76,F,133,99,41,85,13,35,-0.2,0.22,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.537789,73.845616,2,59
+P0138,81,M,89,208,115,89,8,18,-0.29,0.85,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kondhwa,18.462308,73.89309,7,44
+P0139,51,F,98,91,63,93,14,21,0.08,0.1,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Shivajinagar,18.535937,73.843809,9,35
+P0140,19,M,114,115,94,92,9,29,0.08,0.11,seizure|loss_of_consciousness|fracture_open,neurological,seizure_episode,3,Baner,18.562834,73.783867,6,0
+P0141,53,F,63,84,47,90,11,21,-0.6,0.7,spinal_injury|blunt_trauma_head|shortness_of_breath,trauma,spinal_injury,4,Hinjewadi,18.592751,73.742551,20,0
+P0142,64,M,135,98,47,91,13,32,-0.25,0.67,chest_pain_radiating_left_arm|shortness_of_breath|blunt_trauma_head,cardiac,STEMI,5,Baner,18.552012,73.785755,13,30
+P0143,49,M,113,110,70,97,15,19,-0.17,0.37,abdominal_pain_severe|vomiting_blood|chest_pain,general,abdominal_emergency,3,Katraj,18.461466,73.863078,20,28
+P0144,35,M,94,114,74,97,15,17,-0.08,0.06,fracture_closed,orthopedic,minor_fracture,2,Deccan,18.519558,73.843126,22,50
+P0145,49,M,87,121,68,99,15,18,-0.03,0.37,fracture_closed,orthopedic,minor_fracture,2,Bibwewadi,18.485088,73.858354,19,53
+P0146,33,F,73,101,60,90,13,18,-0.43,1.4,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Aundh,18.551183,73.815551,14,25
+P0147,64,M,88,127,66,97,15,14,-0.0,0.03,fracture_closed,orthopedic,minor_fracture,2,Yerawada,18.550709,73.894738,18,25
+P0148,51,M,63,80,48,92,9,22,-0.73,0.74,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Magarpatta,18.517047,73.921412,23,30
+P0149,43,F,102,94,61,94,10,27,-0.21,1.04,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,4,Katraj,18.449075,73.857715,18,1
+P0150,25,F,100,157,77,96,9,26,-0.13,-0.18,seizure|loss_of_consciousness,neurological,seizure_episode,3,Wakad,18.603264,73.766076,8,42
+P0151,63,M,96,104,73,93,15,18,-0.17,0.12,blunt_trauma_chest|fracture_open|spinal_injury,trauma,moderate_trauma,3,Hinjewadi,18.592438,73.742792,15,23
+P0152,57,F,141,76,50,83,7,36,-0.16,0.97,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Bibwewadi,18.479878,73.86802,18,19
+P0153,38,M,110,117,77,92,8,20,-0.02,0.25,seizure|loss_of_consciousness,neurological,seizure_episode,3,Baner,18.560197,73.785569,14,34
+P0154,50,F,130,95,65,94,9,22,-0.1,0.15,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Koregaon Park,18.535954,73.888322,12,35
+P0155,20,M,116,155,96,95,11,20,-0.07,0.34,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kothrud,18.503798,73.808302,8,29
+P0156,42,F,117,107,67,92,15,26,-0.1,0.78,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.505576,73.928459,9,55
+P0157,77,F,105,118,58,87,11,34,-0.24,0.94,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Swargate,18.496156,73.857828,8,13
+P0158,54,F,109,107,60,92,14,22,0.1,0.41,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hadapsar,18.495969,73.930002,13,3
+P0159,83,F,8,15,9,72,4,3,-0.18,0.32,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.533445,73.842603,5,50
+P0160,55,M,98,112,66,93,15,23,0.04,0.36,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.594895,73.737335,17,22
+P0161,51,M,127,103,70,79,12,37,-0.25,0.8,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Katraj,18.462306,73.869196,3,40
+P0162,79,M,10,28,29,50,4,3,-0.17,0.42,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.524893,73.842367,5,42
+P0163,30,M,119,104,68,85,10,31,-0.25,0.4,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,3,Camp,18.51588,73.872149,18,52
+P0164,21,M,120,114,77,94,8,29,0.1,-0.1,seizure|loss_of_consciousness,neurological,seizure_episode,3,Baner,18.557124,73.791814,20,41
+P0165,64,M,90,109,75,91,15,23,-0.26,0.33,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Swargate,18.503357,73.862678,9,57
+P0166,35,M,102,101,68,92,13,21,-0.04,0.01,blunt_trauma_chest|fracture_open|diabetic_emergency,trauma,moderate_trauma,3,Yerawada,18.554559,73.89406,1,54
+P0167,49,F,106,96,67,92,12,21,-0.17,0.07,blunt_trauma_chest|fracture_open|burns_major,trauma,moderate_trauma,3,Hinjewadi,18.591653,73.745643,23,59
+P0168,19,M,88,121,82,96,15,20,-0.04,0.15,fracture_closed,orthopedic,minor_fracture,1,Kothrud,18.514161,73.814879,13,18
+P0169,45,F,110,105,94,94,14,22,-0.35,1.04,chest_pain|shortness_of_breath|slurred_speech,cardiac,chest_pain_unstable_angina,4,Baner,18.559582,73.785052,17,53
+P0170,45,M,137,83,37,78,4,26,-0.3,1.11,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Deccan,18.518457,73.843529,8,0
+P0171,53,F,102,193,123,92,7,21,-0.12,1.02,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Katraj,18.460914,73.861352,5,45
+P0172,50,F,117,123,63,93,14,23,-0.79,0.26,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.497454,73.926141,3,55
+P0173,44,F,109,101,56,83,15,41,-0.67,1.25,severe_breathing_difficulty|shortness_of_breath|stroke_symptoms,respiratory,respiratory_failure,4,Hinjewadi,18.592345,73.73191,18,3
+P0174,49,F,120,89,64,98,10,32,-0.06,0.48,diabetic_emergency|loss_of_consciousness|severe_bleeding,metabolic,diabetic_crisis,2,Deccan,18.516821,73.837863,17,29
+P0175,30,F,107,119,74,98,9,22,-0.0,0.02,diabetic_emergency|loss_of_consciousness|abdominal_pain_severe,metabolic,diabetic_crisis,3,Koregaon Park,18.543416,73.885223,17,54
+P0176,62,M,95,186,121,88,7,27,-0.74,0.32,sudden_weakness_one_side|slurred_speech|stroke_symptoms|loss_of_consciousness,neurological,acute_stroke,5,Camp,18.511609,73.886329,14,47
+P0177,50,F,25,4,3,63,5,2,-0.64,1.43,cardiac_arrest|loss_of_consciousness|blunt_trauma_chest,cardiac,cardiac_arrest,5,Aundh,18.561212,73.811466,11,17
+P0178,64,F,37,6,9,53,3,7,-0.69,1.09,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Kharadi,18.552231,73.939414,20,5
+P0179,20,M,97,129,66,96,15,15,-0.0,0.4,fracture_closed,orthopedic,minor_fracture,2,Kothrud,18.510235,73.803863,23,1
+P0180,25,M,107,97,58,93,12,20,-0.27,0.21,blunt_trauma_chest|fracture_open|spinal_injury,trauma,moderate_trauma,3,Baner,18.55417,73.785209,18,41
+P0181,28,M,92,90,57,94,15,23,-0.07,0.38,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Katraj,18.44996,73.872076,3,59
+P0182,43,M,101,114,76,81,11,39,-0.51,0.92,severe_breathing_difficulty|shortness_of_breath|severe_bleeding,respiratory,respiratory_failure,4,Kothrud,18.509226,73.809572,17,31
+P0183,73,M,117,82,44,88,13,32,-0.25,0.65,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Koregaon Park,18.54403,73.897711,12,34
+P0184,56,M,100,102,63,91,12,23,-0.26,0.26,blunt_trauma_chest|fracture_open|spinal_injury,trauma,moderate_trauma,3,Wanowrie,18.488471,73.897269,23,10
+P0185,40,M,160,89,53,78,4,36,-0.41,0.93,blunt_trauma_head|severe_bleeding|loss_of_consciousness|vomiting_blood,trauma,severe_trauma,5,Pimpri,18.634524,73.793351,18,36
+P0186,50,M,111,194,109,90,9,16,-0.3,1.39,sudden_weakness_one_side|slurred_speech|stroke_symptoms|loss_of_consciousness,neurological,acute_stroke,5,Koregaon Park,18.533508,73.895026,19,21
+P0187,22,F,85,111,65,96,15,20,-0.03,0.11,fracture_closed,orthopedic,minor_fracture,2,Aundh,18.559376,73.805085,11,10
+P0188,59,F,121,151,80,90,13,26,-0.3,0.29,seizure|loss_of_consciousness|vomiting_blood,neurological,seizure_episode,3,Aundh,18.554909,73.810716,7,46
+P0189,38,M,117,114,73,90,13,27,-0.68,1.35,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,4,Baner,18.556299,73.780045,11,20
+P0190,56,M,145,91,60,87,15,22,-0.12,1.35,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Hadapsar,18.505327,73.91877,14,26
+P0191,54,M,109,122,94,93,14,25,-0.56,1.35,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kothrud,18.504119,73.804799,22,4
+P0192,75,M,84,195,95,93,10,25,-0.12,0.73,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Yerawada,18.564236,73.881514,6,13
+P0193,33,M,119,113,72,92,14,22,0.03,0.24,blunt_trauma_chest|fracture_open|vomiting_blood,trauma,moderate_trauma,3,Wanowrie,18.482457,73.890773,13,18
+P0194,70,M,91,101,73,91,15,19,-0.67,1.35,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Wanowrie,18.494318,73.88924,17,24
+P0195,44,F,128,92,63,82,13,36,-0.39,0.92,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Hadapsar,18.495171,73.923501,15,48
+P0196,34,M,91,123,82,98,15,17,-0.0,-0.1,fracture_closed,orthopedic,minor_fracture,2,Kothrud,18.507434,73.814107,19,43
+P0197,22,F,104,95,60,94,13,18,0.02,-0.14,abdominal_pain_severe|vomiting_blood|drowning,general,abdominal_emergency,3,Baner,18.564346,73.782926,21,58
+P0198,68,F,107,100,63,94,15,18,-0.01,0.41,blunt_trauma_chest|fracture_open|headache_severe,trauma,moderate_trauma,2,Hadapsar,18.502803,73.919616,10,34
+P0199,29,F,151,75,48,87,6,25,-0.77,0.82,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Aundh,18.550621,73.813933,11,15
+P0200,35,F,133,60,40,90,5,33,-0.58,1.15,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Wakad,18.59265,73.771588,14,52
+P0201,66,F,92,96,69,91,15,25,0.04,0.42,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Viman Nagar,18.56095,73.917653,13,49
+P0202,69,M,112,98,46,82,13,22,-0.71,0.24,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.529294,73.844027,13,59
+P0203,52,F,138,118,60,88,13,45,-0.25,0.48,severe_breathing_difficulty|shortness_of_breath|seizure,respiratory,respiratory_failure,4,Hinjewadi,18.587761,73.736185,8,36
+P0204,77,M,94,203,103,92,11,22,-0.79,0.53,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Koregaon Park,18.535786,73.887317,8,51
+P0205,69,F,84,132,87,97,15,17,-0.1,0.5,fracture_closed,orthopedic,minor_fracture,2,Deccan,18.518635,73.846189,13,6
+P0206,49,M,118,120,70,96,12,24,0.08,0.26,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Shivajinagar,18.53365,73.850384,10,45
+P0207,83,F,113,208,105,88,12,28,-0.52,1.16,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Koregaon Park,18.538686,73.90116,9,26
+P0208,52,F,108,116,61,92,13,28,-0.23,-0.13,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Camp,18.509803,73.87472,17,35
+P0209,76,M,16,46,35,74,3,5,-0.59,1.31,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.514528,73.847189,12,37
+P0210,73,F,89,130,72,94,14,24,-0.18,1.48,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Baner,18.553198,73.782005,13,36
+P0211,55,M,11,49,5,65,4,2,-0.74,1.0,cardiac_arrest|loss_of_consciousness|seizure,cardiac,cardiac_arrest,5,Viman Nagar,18.56912,73.908835,19,49
+P0212,17,M,115,137,100,95,11,18,-0.05,-0.03,seizure|loss_of_consciousness,neurological,seizure_episode,3,Katraj,18.46011,73.865497,0,0
+P0213,52,F,112,129,74,89,11,26,0.06,0.5,seizure|loss_of_consciousness|chest_pain_radiating_left_arm,neurological,seizure_episode,3,Deccan,18.515095,73.841325,15,27
+P0214,31,M,131,112,79,78,11,40,-0.25,0.69,severe_breathing_difficulty|shortness_of_breath|headache_severe,respiratory,respiratory_failure,4,Koregaon Park,18.537635,73.887904,12,41
+P0215,56,M,124,149,71,88,13,19,-0.02,0.24,seizure|loss_of_consciousness|severe_breathing_difficulty,neurological,seizure_episode,3,Aundh,18.551978,73.803744,18,13
+P0216,44,M,152,63,51,86,5,28,-0.26,1.28,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Deccan,18.509624,73.8347,8,12
+P0217,61,M,117,111,59,93,8,28,-0.07,0.15,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Wakad,18.590544,73.766746,21,53
+P0218,36,M,114,106,57,98,15,17,0.04,0.05,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Shivajinagar,18.530828,73.838197,8,2
+P0219,23,M,117,157,73,89,8,18,-0.23,0.08,seizure|loss_of_consciousness,neurological,seizure_episode,3,Yerawada,18.554293,73.890729,12,21
+P0220,56,M,112,109,72,98,11,32,-0.03,-0.07,diabetic_emergency|loss_of_consciousness|cardiac_arrest,metabolic,diabetic_crisis,3,Viman Nagar,18.561559,73.92088,14,36
+P0221,60,F,122,129,55,88,15,32,-0.43,1.17,severe_breathing_difficulty|shortness_of_breath|fracture_closed,respiratory,respiratory_failure,4,Hinjewadi,18.587386,73.735028,18,43
+P0222,52,M,124,91,50,90,12,30,-0.76,1.04,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Aundh,18.552378,73.812923,21,39
+P0223,55,M,30,54,31,55,3,7,-0.74,0.78,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Camp,18.508563,73.882293,13,15
+P0224,49,M,92,117,70,93,14,19,-0.05,-0.06,blunt_trauma_chest|fracture_open|fracture_closed,trauma,moderate_trauma,2,Hinjewadi,18.595869,73.745411,17,56
+P0225,36,F,111,133,96,88,9,25,-0.16,0.24,seizure|loss_of_consciousness,neurological,seizure_episode,3,Bibwewadi,18.471824,73.867149,9,21
+P0226,49,M,77,96,56,89,8,16,-0.2,0.48,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Swargate,18.495211,73.865374,8,59
+P0227,74,M,81,132,75,95,15,14,-0.03,0.19,fracture_closed,orthopedic,minor_fracture,2,Magarpatta,18.521299,73.921154,15,33
+P0228,48,M,115,159,92,96,14,20,-0.32,0.52,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Katraj,18.456066,73.863155,23,58
+P0229,56,F,121,108,69,87,11,32,-0.65,1.13,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Katraj,18.45939,73.871968,17,12
+P0230,59,F,98,155,90,90,12,26,-0.03,0.43,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.464686,73.89013,18,26
+P0231,24,M,118,117,68,96,12,26,-0.07,0.39,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Kharadi,18.549272,73.944569,23,43
+P0232,43,M,108,123,94,96,8,23,-0.1,0.36,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.470837,73.892879,16,15
+P0233,50,M,93,134,82,94,13,23,-0.15,0.21,seizure|loss_of_consciousness,neurological,seizure_episode,3,Bibwewadi,18.48328,73.869584,18,41
+P0234,53,M,122,94,46,86,15,26,-0.69,1.3,allergic_reaction_severe|severe_breathing_difficulty|sudden_weakness_one_side,general,allergic_anaphylaxis,4,Hadapsar,18.499835,73.924856,16,8
+P0235,78,M,129,92,44,82,13,27,-0.3,0.88,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Deccan,18.515649,73.842163,12,50
+P0236,64,F,128,89,75,96,9,26,-0.09,0.5,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Katraj,18.453297,73.861697,22,39
+P0237,72,M,95,110,68,97,15,15,-0.05,-0.0,fracture_closed,orthopedic,minor_fracture,2,Katraj,18.454102,73.869739,6,16
+P0238,51,M,116,114,66,97,15,23,-0.08,-0.19,abdominal_pain_severe|vomiting_blood|allergic_reaction_severe,general,abdominal_emergency,3,Camp,18.506318,73.873535,23,49
+P0239,46,M,142,90,64,85,15,35,-0.78,1.13,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.503845,73.870636,19,9
+P0240,54,F,104,71,45,86,12,31,-0.8,1.14,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Aundh,18.556928,73.79997,18,34
+P0241,46,F,147,88,41,83,14,30,-0.34,0.82,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Hinjewadi,18.587704,73.744827,12,52
+P0242,27,F,94,113,67,96,14,28,-0.25,-0.2,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.635218,73.793078,20,9
+P0243,31,F,107,107,57,92,13,23,-0.25,0.27,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Baner,18.553575,73.782333,20,12
+P0244,60,M,91,117,72,93,12,22,-0.26,0.23,blunt_trauma_chest|fracture_open|slurred_speech,trauma,moderate_trauma,3,Wanowrie,18.495225,73.890714,18,15
+P0245,64,M,100,105,69,95,15,20,-0.21,0.32,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Katraj,18.463339,73.859698,11,50
+P0246,62,F,108,108,81,93,15,25,-0.01,0.24,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Shivajinagar,18.537139,73.83884,15,16
+P0247,47,M,111,86,60,82,15,36,-0.54,0.49,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kondhwa,18.471304,73.889635,17,9
+P0248,50,M,83,107,54,90,11,22,-0.27,0.38,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Wakad,18.604068,73.768905,17,10
+P0249,57,M,36,60,9,73,5,7,-0.25,0.7,cardiac_arrest|loss_of_consciousness|burns_major,cardiac,cardiac_arrest,5,Shivajinagar,18.529311,73.837285,8,58
+P0250,65,F,118,91,56,98,14,17,-0.04,0.38,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Kondhwa,18.466123,73.887027,12,37
+P0251,70,F,102,119,62,94,15,23,-0.27,0.25,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.550106,73.893113,14,14
+P0252,71,F,91,170,113,89,11,19,-0.78,0.26,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wanowrie,18.487664,73.894453,17,26
+P0253,27,M,95,94,75,94,12,27,-0.01,0.37,blunt_trauma_chest|fracture_open|sudden_weakness_one_side,trauma,moderate_trauma,3,Aundh,18.55959,73.808718,0,46
+P0254,34,F,96,104,74,96,14,18,-0.16,0.12,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Viman Nagar,18.569871,73.914473,8,43
+P0255,30,F,97,102,67,91,12,18,-0.09,0.33,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Viman Nagar,18.567514,73.916136,2,50
+P0256,67,F,142,74,59,90,12,34,-0.39,1.16,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.605515,73.763714,19,22
+P0257,48,M,82,98,48,94,9,18,-0.43,0.88,spinal_injury|blunt_trauma_head,trauma,spinal_injury,5,Shivajinagar,18.526424,73.847946,19,36
+P0258,57,F,113,110,68,80,10,32,-0.51,1.22,severe_breathing_difficulty|shortness_of_breath|abdominal_pain_severe,respiratory,respiratory_failure,4,Pimpri,18.62969,73.808769,13,13
+P0259,62,F,108,135,95,93,15,22,-0.73,0.86,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.505765,73.925146,18,10
+P0260,18,M,85,97,64,88,9,20,-0.37,1.14,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Yerawada,18.556966,73.880025,9,5
+P0261,69,M,102,109,75,97,14,16,-0.29,0.22,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Kharadi,18.558609,73.946892,15,12
+P0262,33,M,97,109,60,95,12,23,-0.79,1.11,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,4,Aundh,18.55565,73.806022,16,33
+P0263,37,M,107,99,72,97,14,21,-0.08,0.15,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Aundh,18.559199,73.803878,13,6
+P0264,74,F,107,122,63,83,14,36,-0.17,1.32,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wakad,18.60262,73.77138,14,29
+P0265,60,F,101,104,84,95,14,21,-0.33,1.27,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Koregaon Park,18.539413,73.889414,10,25
+P0266,57,M,111,85,50,87,13,31,-0.61,0.5,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.552984,73.935195,18,55
+P0267,58,F,94,121,69,95,15,14,-0.05,0.49,fracture_closed,orthopedic,minor_fracture,2,Kondhwa,18.472328,73.894568,12,20
+P0268,45,M,117,98,70,94,15,20,-0.32,0.43,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,4,Wanowrie,18.495034,73.885521,11,55
+P0269,73,M,128,114,60,97,8,20,-0.47,1.0,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,4,Yerawada,18.563789,73.881994,10,17
+P0270,53,F,131,117,61,81,15,39,-0.63,0.76,severe_breathing_difficulty|shortness_of_breath|sudden_weakness_one_side,respiratory,respiratory_failure,4,Magarpatta,18.516976,73.932027,18,51
+P0271,56,F,109,99,70,87,10,33,-0.77,0.33,severe_breathing_difficulty|shortness_of_breath|allergic_reaction_severe,respiratory,respiratory_failure,4,Katraj,18.460565,73.861801,16,36
+P0272,51,F,93,212,106,95,12,26,-0.51,0.66,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Pimpri,18.628866,73.80781,9,1
+P0273,33,F,128,122,88,96,9,30,0.08,0.41,seizure|loss_of_consciousness,neurological,seizure_episode,3,Bibwewadi,18.484234,73.861097,10,40
+P0274,25,F,111,136,90,94,8,19,0.05,0.05,seizure|loss_of_consciousness|blunt_trauma_chest,neurological,seizure_episode,3,Shivajinagar,18.533086,73.842927,21,49
+P0275,26,M,120,104,68,91,13,18,0.05,0.18,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.586569,73.736353,6,59
+P0276,79,M,125,86,64,83,12,26,-0.21,0.24,chest_pain_radiating_left_arm|shortness_of_breath|fracture_open,cardiac,STEMI,5,Wakad,18.602301,73.763091,7,33
+P0277,43,M,110,140,84,96,10,26,-0.07,0.17,seizure|loss_of_consciousness,neurological,seizure_episode,3,Viman Nagar,18.569353,73.913605,19,56
+P0278,20,F,109,132,85,96,9,30,-0.25,0.0,seizure|loss_of_consciousness,neurological,seizure_episode,3,Baner,18.555857,73.778801,20,54
+P0279,18,F,112,119,70,96,15,22,-0.14,-0.09,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Koregaon Park,18.536971,73.888217,21,27
+P0280,50,M,134,82,47,86,12,30,-0.43,0.55,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Yerawada,18.562921,73.889954,10,47
+P0281,74,F,84,171,98,92,6,26,-0.12,0.57,sudden_weakness_one_side|slurred_speech|stroke_symptoms|diabetic_emergency,neurological,acute_stroke,5,Katraj,18.44831,73.857794,15,11
+P0282,35,F,28,46,0,57,3,2,-0.74,1.18,cardiac_arrest|loss_of_consciousness|fracture_closed,cardiac,cardiac_arrest,5,Wanowrie,18.495967,73.892419,19,21
+P0283,46,M,17,49,25,52,5,7,-0.53,1.47,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Aundh,18.563252,73.801651,19,15
+P0284,60,M,112,66,44,89,3,40,-0.14,0.88,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Deccan,18.522779,73.835538,18,47
+P0285,25,M,150,69,36,83,3,30,-0.79,0.25,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Viman Nagar,18.57261,73.915655,12,15
+P0286,33,M,75,102,64,90,10,15,-0.55,0.4,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Katraj,18.462894,73.872952,17,3
+P0287,68,F,93,94,70,91,14,26,0.06,0.14,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Kharadi,18.545342,73.938044,18,16
+P0288,62,F,103,134,91,91,14,26,-0.49,1.27,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Yerawada,18.564632,73.887872,5,9
+P0289,19,F,104,90,75,94,15,20,-0.03,0.34,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.593733,73.738623,12,33
+P0290,41,M,18,20,26,70,4,1,-0.35,0.71,cardiac_arrest|loss_of_consciousness|headache_severe,cardiac,cardiac_arrest,5,Kothrud,18.502633,73.807466,6,36
+P0291,53,F,101,103,83,91,14,18,-0.51,0.68,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Bibwewadi,18.482816,73.855971,16,56
+P0292,29,M,149,78,56,82,12,37,-0.43,0.52,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Hadapsar,18.49542,73.921696,12,12
+P0293,21,F,101,145,93,96,11,29,-0.1,0.26,seizure|loss_of_consciousness,neurological,seizure_episode,3,Swargate,18.507625,73.858269,8,25
+P0294,44,F,109,104,66,92,14,23,-0.0,0.05,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wakad,18.59951,73.759423,19,59
+P0295,48,F,110,100,62,92,14,26,-0.16,0.86,chest_pain|shortness_of_breath|loss_of_consciousness,cardiac,chest_pain_unstable_angina,4,Katraj,18.448347,73.870151,18,17
+P0296,27,M,108,94,58,90,15,23,-0.21,-0.15,blunt_trauma_chest|fracture_open|vomiting_blood,trauma,moderate_trauma,3,Shivajinagar,18.536377,73.83807,13,58
+P0297,68,F,130,101,70,88,15,31,-0.51,1.33,severe_breathing_difficulty|shortness_of_breath|vomiting_blood,respiratory,respiratory_failure,4,Kothrud,18.51415,73.80505,21,27
+P0298,64,F,82,133,85,99,15,19,-0.0,0.48,fracture_closed|burns_minor,orthopedic,minor_fracture,1,Katraj,18.456038,73.860533,3,46
+P0299,43,M,78,96,47,91,11,18,-0.26,0.37,spinal_injury|blunt_trauma_head|shortness_of_breath,trauma,spinal_injury,4,Kothrud,18.50817,73.803901,13,27
+P0300,70,M,35,12,31,62,5,3,-0.5,0.65,cardiac_arrest|loss_of_consciousness|seizure,cardiac,cardiac_arrest,5,Katraj,18.458956,73.866216,6,26
+P0301,69,F,138,91,79,79,11,39,-0.74,1.16,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wakad,18.593695,73.761981,19,54
+P0302,62,M,149,89,34,82,3,34,-0.27,0.91,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Katraj,18.451344,73.865608,8,33
+P0303,57,M,99,154,92,88,11,27,-0.14,-0.01,seizure|loss_of_consciousness|chest_pain_radiating_left_arm,neurological,seizure_episode,3,Yerawada,18.554341,73.886439,22,4
+P0304,71,F,96,121,68,95,15,20,-0.08,0.15,fracture_closed|fracture_open,orthopedic,minor_fracture,2,Hadapsar,18.508262,73.925755,16,5
+P0305,71,F,86,102,75,94,15,23,-0.61,0.28,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Pimpri,18.629904,73.796679,23,32
+P0306,27,F,134,88,30,86,5,31,-0.36,0.5,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hinjewadi,18.594878,73.738331,18,55
+P0307,52,M,119,73,39,87,5,38,-0.16,0.76,blunt_trauma_head|severe_bleeding|loss_of_consciousness|headache_severe,trauma,severe_trauma,5,Kharadi,18.558801,73.936944,18,33
+P0308,24,M,114,94,75,97,13,21,-0.0,0.38,abdominal_pain_severe|vomiting_blood|headache_severe,general,abdominal_emergency,3,Katraj,18.462082,73.863625,13,28
+P0309,26,M,107,119,94,91,8,20,-0.03,0.05,seizure|loss_of_consciousness,neurological,seizure_episode,3,Shivajinagar,18.53309,73.846398,16,14
+P0310,38,M,120,118,86,95,13,28,0.07,0.47,seizure|loss_of_consciousness,neurological,seizure_episode,3,Baner,18.553621,73.78242,13,0
+P0311,84,F,92,208,103,89,7,23,-0.53,0.61,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wakad,18.597341,73.768419,17,52
+P0312,24,F,113,108,74,94,12,26,-0.15,0.34,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wakad,18.598799,73.76233,18,35
+P0313,48,F,107,103,64,95,10,32,-0.12,0.31,diabetic_emergency|loss_of_consciousness|blunt_trauma_head,metabolic,diabetic_crisis,3,Kothrud,18.510439,73.814159,14,41
+P0314,55,F,37,60,34,54,4,6,-0.16,1.24,cardiac_arrest|loss_of_consciousness|severe_bleeding,cardiac,cardiac_arrest,5,Kharadi,18.559121,73.933443,11,41
+P0315,43,F,117,72,43,89,14,25,-0.68,0.64,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Yerawada,18.565196,73.885059,12,49
+P0316,34,F,79,115,69,96,15,17,-0.1,0.34,fracture_closed,orthopedic,minor_fracture,2,Deccan,18.517823,73.834881,7,12
+P0317,71,M,131,97,55,90,12,31,-0.42,1.01,chest_pain_radiating_left_arm|shortness_of_breath|drowning,cardiac,STEMI,5,Swargate,18.50057,73.865219,0,56
+P0318,59,F,116,96,56,91,13,18,0.1,-0.09,blunt_trauma_chest|fracture_open|chest_pain_radiating_left_arm,trauma,moderate_trauma,3,Yerawada,18.554775,73.893726,3,26
+P0319,47,F,152,82,52,87,7,29,-0.21,0.28,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Katraj,18.453897,73.863063,5,27
+P0320,53,M,92,144,77,92,15,26,-0.19,0.23,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Wanowrie,18.491585,73.894676,19,45
+P0321,51,F,143,78,49,83,4,39,-0.78,1.01,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Yerawada,18.553724,73.883648,8,7
+P0322,57,M,13,51,26,63,3,5,-0.26,0.35,cardiac_arrest|loss_of_consciousness|slurred_speech,cardiac,cardiac_arrest,5,Shivajinagar,18.536043,73.841524,15,20
+P0323,51,F,125,126,74,75,11,34,-0.48,1.32,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wanowrie,18.492756,73.89533,14,40
+P0324,39,F,104,115,68,98,13,24,-0.11,1.01,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,4,Pimpri,18.620959,73.795289,20,21
+P0325,65,F,93,129,77,96,15,20,-0.05,0.47,fracture_closed,orthopedic,minor_fracture,2,Kothrud,18.503744,73.801089,21,23
+P0326,57,M,99,171,97,93,12,16,-0.43,1.21,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Camp,18.507465,73.877442,14,55
+P0327,81,M,6,52,33,71,3,3,-0.38,0.31,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Camp,18.506853,73.876976,3,54
+P0328,59,M,87,106,93,96,15,18,-0.7,0.56,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Shivajinagar,18.531916,73.848965,18,17
+P0329,62,F,139,87,56,83,13,30,-0.42,0.27,chest_pain_radiating_left_arm|shortness_of_breath|cardiac_arrest,cardiac,STEMI,5,Magarpatta,18.509917,73.92014,17,21
+P0330,67,F,143,71,43,88,12,23,-0.27,1.25,chest_pain_radiating_left_arm|shortness_of_breath|diabetic_emergency,cardiac,STEMI,5,Bibwewadi,18.479861,73.859999,20,45
+P0331,69,M,148,94,54,91,13,23,-0.37,1.39,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Bibwewadi,18.477529,73.870159,7,57
+P0332,60,M,121,110,69,82,10,30,-0.73,1.26,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Viman Nagar,18.564416,73.911878,16,32
+P0333,52,F,70,97,65,89,14,18,-0.56,1.26,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Yerawada,18.553899,73.881544,14,4
+P0334,62,M,115,103,73,96,14,26,-0.49,0.6,blunt_trauma_chest|fracture_open|drowning,trauma,moderate_trauma,4,Hadapsar,18.503275,73.925407,16,52
+P0335,45,M,91,143,84,92,15,18,-0.53,0.95,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Koregaon Park,18.540313,73.895774,14,18
+P0336,67,M,100,179,126,92,9,27,-0.17,1.46,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Camp,18.511467,73.874041,10,23
+P0337,41,M,135,96,51,83,14,35,-0.34,0.82,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.459388,73.863497,13,13
+P0338,53,M,104,213,113,94,7,20,-0.51,0.79,sudden_weakness_one_side|slurred_speech|stroke_symptoms|allergic_reaction_severe,neurological,acute_stroke,5,Swargate,18.5091,73.857772,7,51
+P0339,45,F,79,109,58,90,11,22,-0.3,0.55,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Swargate,18.503173,73.864847,20,15
+P0340,65,F,108,101,56,93,15,23,0.01,0.13,abdominal_pain_severe|vomiting_blood|burns_major,general,abdominal_emergency,3,Hinjewadi,18.585473,73.741701,23,48
+P0341,80,F,139,72,47,89,12,32,-0.4,0.63,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.469456,73.888502,15,30
+P0342,76,F,118,108,60,75,15,37,-0.78,0.83,severe_breathing_difficulty|shortness_of_breath|burns_major,respiratory,respiratory_failure,4,Magarpatta,18.506826,73.934846,19,39
+P0343,52,F,4,54,17,58,3,4,-0.62,1.11,cardiac_arrest|loss_of_consciousness|severe_breathing_difficulty,cardiac,cardiac_arrest,5,Magarpatta,18.517823,73.929546,12,11
+P0344,49,F,118,155,62,92,14,20,-0.4,1.29,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Aundh,18.553807,73.806743,17,13
+P0345,65,F,116,94,43,82,13,29,-0.7,1.33,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.460739,73.891936,12,16
+P0346,74,F,128,82,61,87,12,23,-0.39,0.8,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.528759,73.840873,6,41
+P0347,58,M,105,156,91,91,12,23,-0.06,0.31,seizure|loss_of_consciousness,neurological,seizure_episode,2,Hinjewadi,18.583391,73.731563,6,28
+P0348,56,M,112,60,49,79,3,30,-0.17,1.1,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,4,Aundh,18.560502,73.814098,16,11
+P0349,45,F,139,81,32,88,6,32,-0.61,0.77,blunt_trauma_head|severe_bleeding|loss_of_consciousness|spinal_injury,trauma,severe_trauma,4,Aundh,18.556217,73.815635,9,52
+P0350,49,F,97,139,85,91,15,19,-0.26,0.22,chest_pain|shortness_of_breath|allergic_reaction_severe,cardiac,chest_pain_unstable_angina,5,Shivajinagar,18.525053,73.837767,16,16
+P0351,49,F,85,159,62,95,15,22,-0.21,1.22,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Camp,18.516322,73.884336,14,25
+P0352,25,F,77,87,45,94,13,21,-0.2,0.64,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Kothrud,18.509516,73.815041,6,34
+P0353,17,F,99,134,74,96,15,18,-0.01,0.11,fracture_closed,orthopedic,minor_fracture,2,Aundh,18.564343,73.80979,12,5
+P0354,49,F,82,172,91,91,9,22,-0.25,0.26,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Bibwewadi,18.485465,73.855263,11,21
+P0355,39,M,33,29,34,54,5,3,-0.35,0.22,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Koregaon Park,18.53574,73.899888,3,44
+P0356,52,M,109,160,73,95,12,20,-0.56,1.29,seizure|loss_of_consciousness,neurological,seizure_episode,4,Yerawada,18.562787,73.882529,19,27
+P0357,60,M,135,80,43,92,13,29,-0.31,0.92,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Katraj,18.449012,73.861382,19,10
+P0358,41,F,87,108,66,96,15,20,-0.23,1.2,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.594508,73.7395,10,44
+P0359,41,M,103,119,90,92,12,25,-0.05,0.35,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kothrud,18.50894,73.811175,17,5
+P0360,36,F,100,125,62,78,10,44,-0.76,0.35,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Camp,18.508508,73.884325,17,17
+P0361,38,F,30,31,11,55,5,0,-0.76,0.9,cardiac_arrest|loss_of_consciousness|fracture_closed,cardiac,cardiac_arrest,5,Yerawada,18.562882,73.891135,3,47
+P0362,81,F,1,31,32,53,3,3,-0.57,0.33,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Kharadi,18.556953,73.946374,9,7
+P0363,41,M,122,82,47,83,15,33,-0.55,0.55,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,5,Viman Nagar,18.566097,73.908482,18,40
+P0364,59,F,102,126,56,79,11,31,-0.13,1.38,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wakad,18.604683,73.765658,19,40
+P0365,49,M,107,117,62,90,15,26,-0.17,0.21,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Shivajinagar,18.523632,73.84345,20,15
+P0366,22,M,108,120,59,97,13,22,-0.02,-0.13,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Camp,18.505538,73.880498,14,51
+P0367,48,F,90,135,60,95,15,21,-0.4,0.96,chest_pain|shortness_of_breath|allergic_reaction_severe,cardiac,chest_pain_unstable_angina,4,Koregaon Park,18.535877,73.890077,18,54
+P0368,53,F,124,93,72,95,9,32,-0.02,0.29,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,2,Aundh,18.564295,73.805026,2,27
+P0369,39,M,108,115,61,96,12,27,-0.28,0.06,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.634108,73.794675,12,39
+P0370,30,M,94,145,92,91,9,23,-0.21,0.05,seizure|loss_of_consciousness,neurological,seizure_episode,3,Magarpatta,18.519938,73.930245,19,48
+P0371,40,F,153,73,38,78,3,35,-0.6,1.01,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hadapsar,18.501323,73.92651,20,57
+P0372,23,M,90,102,70,89,9,21,-0.69,0.47,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Hinjewadi,18.58495,73.734415,18,31
+P0373,60,F,96,103,63,97,12,22,0.03,0.16,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Koregaon Park,18.532864,73.886207,20,14
+P0374,67,F,137,111,75,85,12,43,-0.26,0.26,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Deccan,18.510548,73.83716,14,18
+P0375,48,M,129,100,74,77,15,45,-0.71,0.54,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Baner,18.55358,73.780671,23,36
+P0376,68,F,115,205,92,93,8,18,-0.7,0.8,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Deccan,18.509744,73.833399,22,49
+P0377,60,F,100,124,71,80,15,37,-0.49,1.1,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Magarpatta,18.51667,73.931793,18,59
+P0378,35,M,112,74,57,83,14,24,0.01,-0.06,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,3,Yerawada,18.560261,73.888335,9,59
+P0379,71,F,128,91,61,83,15,25,-0.5,0.7,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kothrud,18.513935,73.805477,7,54
+P0380,68,F,122,81,49,89,12,25,-0.74,0.47,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.505158,73.862227,20,38
+P0381,40,F,118,121,64,94,15,19,-0.66,1.28,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.568793,73.917664,19,8
+P0382,53,F,141,61,39,87,5,39,-0.33,0.57,blunt_trauma_head|severe_bleeding|loss_of_consciousness|chest_pain,trauma,severe_trauma,5,Deccan,18.523096,73.846348,14,41
+P0383,83,F,95,161,97,92,9,17,-0.54,1.15,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Shivajinagar,18.533448,73.844217,18,7
+P0384,69,M,116,75,58,82,13,27,-0.43,1.42,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.50368,73.870883,3,18
+P0385,66,M,114,110,60,96,12,27,-0.07,0.38,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Deccan,18.512143,73.844167,12,34
+P0386,50,M,133,79,51,89,15,27,-0.21,1.13,chest_pain_radiating_left_arm|shortness_of_breath|burns_minor,cardiac,STEMI,5,Kharadi,18.557722,73.940938,18,33
+P0387,18,M,117,83,54,83,12,37,-0.27,0.64,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Pimpri,18.622124,73.799971,23,33
+P0388,54,M,111,93,43,85,13,37,-0.72,0.22,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kharadi,18.547083,73.933258,18,50
+P0389,43,F,112,102,72,90,14,26,-0.39,0.46,chest_pain|shortness_of_breath|seizure,cardiac,chest_pain_unstable_angina,5,Koregaon Park,18.540273,73.897718,21,13
+P0390,37,M,91,115,74,92,12,23,0.01,0.17,seizure|loss_of_consciousness,neurological,seizure_episode,3,Yerawada,18.553869,73.888124,6,37
+P0391,23,F,128,75,57,82,12,38,-0.5,0.87,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Bibwewadi,18.480776,73.856717,20,24
+P0392,63,F,105,107,89,90,14,25,-0.32,1.29,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Wanowrie,18.481852,73.889538,16,19
+P0393,75,F,106,178,117,91,12,17,-0.7,0.72,sudden_weakness_one_side|slurred_speech|stroke_symptoms|drowning,neurological,acute_stroke,5,Hadapsar,18.500142,73.926363,18,7
+P0394,39,M,93,113,60,90,14,21,-0.01,0.21,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hadapsar,18.497526,73.924795,15,48
+P0395,60,F,160,85,50,84,5,39,-0.64,1.43,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.563288,73.780529,9,31
+P0396,64,F,147,71,42,89,12,24,-0.66,1.06,chest_pain_radiating_left_arm|shortness_of_breath|diabetic_emergency,cardiac,STEMI,5,Hinjewadi,18.593777,73.738319,15,29
+P0397,67,M,101,134,81,96,14,18,-0.2,0.59,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Aundh,18.557081,73.800276,8,42
+P0398,58,M,141,83,44,86,15,31,-0.69,0.27,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kondhwa,18.467966,73.890155,14,54
+P0399,38,M,147,72,49,88,5,33,-0.56,0.33,blunt_trauma_head|severe_bleeding|loss_of_consciousness|chest_pain_radiating_left_arm,trauma,severe_trauma,5,Pimpri,18.632853,73.802243,19,40
+P0400,45,M,122,116,66,75,15,35,-0.57,0.8,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Hinjewadi,18.597103,73.731832,8,34
+P0401,45,M,93,126,78,97,15,19,-0.03,0.04,fracture_closed,orthopedic,minor_fracture,2,Aundh,18.555159,73.801264,14,44
+P0402,45,M,114,111,65,91,14,23,-0.18,0.2,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.596646,73.738573,10,3
+P0403,36,F,94,133,67,99,15,18,-0.02,0.1,fracture_closed|burns_minor,orthopedic,minor_fracture,2,Kharadi,18.550557,73.933227,20,32
+P0404,66,M,96,103,67,92,15,28,-0.0,0.13,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Camp,18.518803,73.881229,9,52
+P0405,53,M,107,115,74,96,15,16,-0.09,-0.06,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,2,Deccan,18.521306,73.839564,20,58
+P0406,55,M,103,141,70,92,14,24,-0.17,0.46,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Deccan,18.515227,73.841957,13,41
+P0407,59,M,111,68,55,90,5,29,-0.19,1.37,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Koregaon Park,18.529085,73.899544,11,19
+P0408,47,M,108,142,65,93,14,21,-0.26,0.61,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Camp,18.509029,73.886153,9,7
+P0409,24,M,98,122,90,96,15,15,-0.01,0.02,fracture_closed|seizure,orthopedic,minor_fracture,2,Shivajinagar,18.537206,73.837495,15,44
+P0410,59,M,100,117,69,92,15,23,-0.16,1.07,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kothrud,18.512864,73.810296,22,44
+P0411,52,M,134,69,50,89,5,27,-0.22,0.51,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Aundh,18.56484,73.814387,10,59
+P0412,71,M,90,218,118,93,12,28,-0.5,1.39,sudden_weakness_one_side|slurred_speech|stroke_symptoms|shortness_of_breath,neurological,acute_stroke,5,Wanowrie,18.487537,73.891607,20,45
+P0413,61,F,10,44,16,66,3,5,-0.66,0.6,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,4,Viman Nagar,18.569983,73.918956,7,25
+P0414,61,F,93,95,62,94,13,27,0.03,0.36,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wanowrie,18.493976,73.887136,8,37
+P0415,59,M,106,183,101,94,9,25,-0.62,1.31,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Yerawada,18.560026,73.89351,23,12
+P0416,63,M,139,83,59,86,13,23,-0.67,1.32,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Bibwewadi,18.483236,73.862906,9,13
+P0417,31,M,69,103,60,94,9,20,-0.12,0.51,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Kharadi,18.551693,73.938536,7,18
+P0418,48,F,100,123,89,90,14,25,-0.75,0.92,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kharadi,18.556413,73.943335,18,16
+P0419,56,F,115,85,51,91,12,22,-0.62,0.85,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Pimpri,18.622016,73.807176,2,11
+P0420,47,M,118,104,59,93,14,24,-0.06,0.43,abdominal_pain_severe|vomiting_blood|blunt_trauma_chest,general,abdominal_emergency,2,Wanowrie,18.493947,73.898357,19,59
+P0421,28,F,158,89,38,86,5,37,-0.76,0.39,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.559891,73.793566,17,28
+P0422,72,M,82,190,106,90,11,23,-0.45,1.3,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kothrud,18.506464,73.815521,16,29
+P0423,68,M,78,121,67,96,15,15,-0.05,0.2,fracture_closed,orthopedic,minor_fracture,2,Magarpatta,18.520254,73.928371,16,0
+P0424,41,F,89,115,91,95,14,23,-0.69,0.31,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Aundh,18.555977,73.814566,6,20
+P0425,17,F,96,125,79,97,15,16,-0.07,-0.16,fracture_closed,orthopedic,minor_fracture,2,Magarpatta,18.508069,73.932812,19,18
+P0426,55,F,138,82,42,88,14,24,-0.59,1.24,chest_pain_radiating_left_arm|shortness_of_breath|slurred_speech,cardiac,STEMI,5,Aundh,18.554559,73.811741,17,7
+P0427,16,F,129,91,59,84,14,34,-0.5,0.68,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Aundh,18.557623,73.808709,13,48
+P0428,74,M,120,187,95,88,10,21,-0.49,1.38,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wanowrie,18.488436,73.895356,6,29
+P0429,67,F,94,108,79,96,14,26,-0.34,0.94,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kothrud,18.507615,73.80787,13,29
+P0430,25,F,126,78,32,90,7,24,-0.29,1.18,blunt_trauma_head|severe_bleeding|loss_of_consciousness|sudden_weakness_one_side,trauma,severe_trauma,5,Kothrud,18.500733,73.813728,10,37
+P0431,56,M,101,121,71,91,14,19,-0.19,1.46,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Hadapsar,18.494013,73.928493,14,25
+P0432,62,F,105,99,74,96,14,28,-0.01,-0.05,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Koregaon Park,18.531253,73.898255,18,12
+P0433,34,F,105,137,96,96,9,19,-0.01,0.21,seizure|loss_of_consciousness|fracture_closed,neurological,seizure_episode,2,Baner,18.56282,73.785924,14,1
+P0434,51,F,116,213,115,88,8,16,-0.52,0.87,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Magarpatta,18.515533,73.927869,10,31
+P0435,46,F,141,77,41,90,12,30,-0.56,1.11,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Swargate,18.507726,73.857471,17,41
+P0436,54,M,118,93,46,89,14,29,-0.59,1.12,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Yerawada,18.563655,73.890443,14,56
+P0437,43,F,118,115,75,98,9,29,-0.51,1.49,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,4,Baner,18.553773,73.781301,15,50
+P0438,40,M,123,77,31,78,5,32,-0.46,1.49,blunt_trauma_head|severe_bleeding|loss_of_consciousness|burns_minor,trauma,severe_trauma,4,Katraj,18.45489,73.866881,7,14
+P0439,50,M,84,81,69,96,10,16,-0.25,0.99,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Bibwewadi,18.482784,73.870402,19,6
+P0440,55,M,78,136,82,95,15,15,-0.03,-0.13,fracture_closed,orthopedic,minor_fracture,2,Viman Nagar,18.571554,73.917631,19,31
+P0441,64,M,111,118,73,91,11,24,-0.16,0.27,seizure|loss_of_consciousness|burns_major,neurological,seizure_episode,3,Camp,18.50774,73.876256,18,26
+P0442,61,F,33,26,14,54,4,6,-0.24,1.43,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Pimpri,18.635,73.799981,19,45
+P0443,65,M,120,82,64,84,15,22,-0.19,1.46,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Magarpatta,18.506925,73.929106,18,42
+P0444,40,F,120,155,79,95,15,23,-0.36,1.0,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Baner,18.562205,73.785939,8,34
+P0445,45,M,107,156,85,96,14,22,-0.41,0.88,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Baner,18.559328,73.787453,9,32
+P0446,33,F,65,80,45,96,12,18,-0.55,0.26,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Hadapsar,18.505512,73.931465,9,32
+P0447,30,M,97,138,79,88,11,23,-0.26,0.16,seizure|loss_of_consciousness,neurological,seizure_episode,3,Magarpatta,18.516759,73.93043,15,15
+P0448,71,M,103,189,96,90,11,22,-0.39,0.87,sudden_weakness_one_side|slurred_speech|stroke_symptoms|fracture_closed,neurological,acute_stroke,5,Wanowrie,18.483437,73.886249,18,25
+P0449,74,F,116,127,70,85,13,42,-0.12,0.87,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Viman Nagar,18.56221,73.908334,18,8
+P0450,53,F,112,96,69,93,12,20,-0.72,0.6,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,4,Hadapsar,18.495734,73.927148,2,9
+P0451,80,F,118,121,55,87,11,32,-0.56,1.33,severe_breathing_difficulty|shortness_of_breath|blunt_trauma_head,respiratory,respiratory_failure,4,Kharadi,18.547929,73.943835,0,35
+P0452,48,M,104,136,88,92,15,25,-0.24,1.06,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Bibwewadi,18.480676,73.857384,18,5
+P0453,57,M,99,157,85,92,14,25,-0.71,0.93,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Magarpatta,18.516082,73.931346,10,41
+P0454,57,F,119,194,126,88,10,24,-0.18,0.78,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Koregaon Park,18.532599,73.888493,20,53
+P0455,70,M,94,120,77,99,15,17,-0.0,0.18,fracture_closed,orthopedic,minor_fracture,2,Koregaon Park,18.541954,73.890278,9,7
+P0456,44,M,121,68,54,79,4,33,-0.57,0.69,blunt_trauma_head|severe_bleeding|loss_of_consciousness|blunt_trauma_chest,trauma,severe_trauma,5,Kothrud,18.504168,73.80128,7,57
+P0457,47,F,78,111,71,96,15,17,-0.04,0.44,fracture_closed,orthopedic,minor_fracture,2,Katraj,18.455437,73.863513,14,26
+P0458,75,M,135,100,58,92,12,25,-0.54,1.48,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Hinjewadi,18.59674,73.738007,19,9
+P0459,18,F,77,110,58,96,11,14,-0.62,1.08,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Viman Nagar,18.559909,73.921236,14,38
+P0460,64,M,108,117,59,92,9,31,-0.13,0.23,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Hadapsar,18.507088,73.929601,23,56
+P0461,58,F,115,106,70,94,14,31,-0.04,-0.2,diabetic_emergency|loss_of_consciousness|blunt_trauma_chest,metabolic,diabetic_crisis,3,Bibwewadi,18.485344,73.860255,21,8
+P0462,74,M,85,143,71,93,15,24,-0.33,0.66,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.591818,73.744281,20,28
+P0463,44,F,94,121,77,96,15,14,-0.06,-0.14,fracture_closed,orthopedic,minor_fracture,2,Wakad,18.60239,73.768135,18,45
+P0464,20,F,99,115,62,91,15,23,-0.26,-0.01,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.553345,73.882137,20,25
+P0465,55,M,95,107,61,95,13,19,-0.0,0.29,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Camp,18.516662,73.876389,20,1
+P0466,59,M,98,111,72,93,12,24,-0.09,-0.17,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Swargate,18.497885,73.866483,14,23
+P0467,10,F,113,78,53,90,15,29,-0.16,0.46,allergic_reaction_severe|severe_breathing_difficulty|shortness_of_breath,general,allergic_anaphylaxis,4,Koregaon Park,18.544044,73.88881,18,4
+P0468,57,M,104,130,75,76,10,43,-0.22,1.27,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Katraj,18.461448,73.860954,14,21
+P0469,58,F,97,120,57,96,15,19,-0.09,0.44,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Kothrud,18.505438,73.813941,18,50
+P0470,75,M,104,139,87,90,14,18,-0.36,0.79,chest_pain|shortness_of_breath|fracture_open,cardiac,chest_pain_unstable_angina,4,Yerawada,18.562031,73.88273,16,42
+P0471,73,F,112,156,66,92,14,25,-0.07,0.25,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Yerawada,18.561413,73.888486,20,57
+P0472,33,M,136,75,53,87,6,29,-0.39,0.9,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Magarpatta,18.512974,73.934356,19,19
+P0473,68,M,30,19,21,59,4,0,-0.35,0.46,cardiac_arrest|loss_of_consciousness|burns_minor,cardiac,cardiac_arrest,5,Kondhwa,18.470739,73.887753,8,12
+P0474,77,F,112,91,55,89,14,35,-0.65,0.2,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.561578,73.920318,21,31
+P0475,66,F,94,189,129,91,7,23,-0.7,0.77,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Koregaon Park,18.534005,73.88638,1,7
+P0476,26,M,113,112,70,91,9,22,0.04,0.44,seizure|loss_of_consciousness,neurological,seizure_episode,3,Katraj,18.461561,73.860935,8,11
+P0477,53,F,143,74,52,92,12,27,-0.18,1.34,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Pimpri,18.630475,73.807959,23,39
+P0478,64,F,109,98,44,85,13,30,-0.43,1.23,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.605236,73.768209,16,54
+P0479,67,F,103,130,80,79,11,44,-0.27,0.69,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Yerawada,18.551038,73.887138,19,41
+P0480,48,F,95,100,66,94,15,25,0.05,0.08,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Magarpatta,18.516396,73.922315,21,28
+P0481,26,M,134,78,35,83,5,26,-0.47,0.73,blunt_trauma_head|severe_bleeding|loss_of_consciousness|burns_minor,trauma,severe_trauma,5,Magarpatta,18.506658,73.927196,11,28
+P0482,29,F,85,118,77,95,15,17,-0.02,0.45,fracture_closed,orthopedic,minor_fracture,2,Hinjewadi,18.587912,73.738028,16,5
+P0483,52,F,104,81,41,90,13,27,-0.27,1.16,chest_pain_radiating_left_arm|shortness_of_breath|stroke_symptoms,cardiac,STEMI,5,Shivajinagar,18.52645,73.846265,7,54
+P0484,45,M,90,114,64,95,14,22,-0.11,0.16,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Baner,18.564847,73.782441,18,13
+P0485,38,M,84,94,68,95,10,15,-0.7,1.34,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Swargate,18.496853,73.8628,16,23
+P0486,39,M,157,60,45,90,8,35,-0.78,1.22,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Aundh,18.562205,73.810748,10,37
+P0487,44,M,94,120,65,97,15,22,-0.17,0.32,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,4,Kharadi,18.552596,73.937261,22,40
+P0488,36,M,35,11,2,72,5,7,-0.44,0.42,cardiac_arrest|loss_of_consciousness|fracture_open,cardiac,cardiac_arrest,5,Wakad,18.595158,73.76439,14,23
+P0489,41,F,88,122,70,95,15,18,-0.03,-0.09,fracture_closed,orthopedic,minor_fracture,2,Kharadi,18.547079,73.935291,13,45
+P0490,30,M,99,108,61,94,15,22,0.05,0.12,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Aundh,18.559678,73.803649,11,36
+P0491,62,F,113,92,64,95,15,23,-0.12,0.44,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Viman Nagar,18.566541,73.909173,17,27
+P0492,62,F,116,166,115,88,7,18,-0.75,0.34,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Wanowrie,18.48658,73.89719,7,23
+P0493,50,M,70,93,59,90,10,17,-0.79,0.35,spinal_injury|blunt_trauma_head,trauma,spinal_injury,5,Aundh,18.555499,73.806089,8,2
+P0494,25,M,100,111,69,96,14,17,-0.06,-0.08,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wanowrie,18.493127,73.898465,8,1
+P0495,44,F,25,10,4,71,3,4,-0.21,1.25,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Kothrud,18.513683,73.808217,14,3
+P0496,53,M,96,134,92,92,11,18,-0.29,-0.19,seizure|loss_of_consciousness|fracture_open,neurological,seizure_episode,3,Wakad,18.596494,73.759817,6,26
+P0497,68,M,96,131,67,96,15,20,-0.05,0.46,fracture_closed,orthopedic,minor_fracture,1,Katraj,18.453163,73.867029,17,59
+P0498,60,F,13,6,22,60,3,0,-0.75,0.48,cardiac_arrest|loss_of_consciousness|slurred_speech,cardiac,cardiac_arrest,5,Hinjewadi,18.593727,73.734455,17,2
+P0499,34,M,148,75,33,89,7,29,-0.68,1.19,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Aundh,18.560846,73.815258,18,21
+P0500,43,F,120,114,80,88,12,27,0.0,-0.11,seizure|loss_of_consciousness,neurological,seizure_episode,3,Camp,18.514399,73.887814,9,39
+P0501,68,F,107,208,105,89,6,18,-0.28,0.63,sudden_weakness_one_side|slurred_speech|stroke_symptoms|headache_severe,neurological,acute_stroke,5,Kothrud,18.503209,73.811305,23,28
+P0502,59,F,151,85,54,78,7,37,-0.33,0.52,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Katraj,18.453484,73.860293,4,58
+P0503,26,F,104,148,97,94,12,23,-0.71,0.43,seizure|loss_of_consciousness,neurological,seizure_episode,4,Hinjewadi,18.598459,73.730834,23,13
+P0504,64,F,115,119,61,91,12,24,-0.12,0.24,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wakad,18.597284,73.765694,10,36
+P0505,28,F,160,75,32,83,6,36,-0.27,0.76,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Swargate,18.505665,73.868714,19,1
+P0506,64,F,119,89,57,84,13,26,-0.66,1.39,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.466696,73.882151,7,30
+P0507,66,F,132,93,63,87,15,28,-0.77,1.4,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wanowrie,18.484925,73.9008,5,56
+P0508,79,F,136,100,61,87,13,36,-0.63,0.82,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Pimpri,18.631043,73.803315,21,47
+P0509,36,F,101,110,55,98,15,18,-0.02,0.25,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,2,Yerawada,18.559253,73.889602,8,7
+P0510,47,M,102,112,73,93,15,19,-0.18,0.09,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Deccan,18.51581,73.841531,21,37
+P0511,24,F,98,137,67,95,15,20,-0.1,-0.15,fracture_closed,orthopedic,minor_fracture,2,Aundh,18.561184,73.799803,8,31
+P0512,25,M,123,136,90,92,13,24,0.03,-0.07,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kharadi,18.552784,73.940042,6,36
+P0513,66,F,111,95,64,85,14,35,-0.56,0.96,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.561177,73.907671,7,4
+P0514,46,M,91,100,63,92,14,18,-0.32,0.65,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Wanowrie,18.487572,73.890392,13,23
+P0515,57,M,125,90,41,88,6,36,-0.18,0.38,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hadapsar,18.493849,73.931929,13,53
+P0516,46,F,117,106,63,95,13,23,-0.05,0.41,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Koregaon Park,18.543979,73.900521,20,1
+P0517,69,M,115,113,57,96,11,26,-0.15,0.23,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Wanowrie,18.49579,73.898714,21,46
+P0518,60,M,143,88,56,82,13,31,-0.46,0.9,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kondhwa,18.472796,73.888469,21,7
+P0519,45,M,120,84,51,89,3,27,-0.33,1.07,blunt_trauma_head|severe_bleeding|loss_of_consciousness|blunt_trauma_chest,trauma,severe_trauma,5,Shivajinagar,18.526926,73.840722,14,57
+P0520,34,M,110,113,70,93,15,21,0.02,-0.04,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Aundh,18.560463,73.812261,22,27
+P0521,82,M,5,7,5,60,5,3,-0.67,0.7,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Aundh,18.559231,73.799727,4,34
+P0522,65,M,108,151,68,94,14,19,-0.48,0.98,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Baner,18.564058,73.783549,9,43
+P0523,52,F,2,38,20,59,5,1,-0.69,1.13,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.519066,73.839027,23,21
+P0524,46,F,100,117,87,95,15,20,-0.05,0.04,fracture_closed|drowning,orthopedic,minor_fracture,2,Viman Nagar,18.575757,73.915067,11,43
+P0525,74,F,104,123,78,79,12,34,-0.48,0.41,severe_breathing_difficulty|shortness_of_breath|blunt_trauma_chest,respiratory,respiratory_failure,4,Magarpatta,18.519854,73.919866,22,19
+P0526,82,M,30,18,9,56,3,3,-0.32,0.42,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Hadapsar,18.504653,73.933816,7,27
+P0527,61,F,122,85,45,82,12,30,-0.32,1.44,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Aundh,18.55392,73.801601,13,19
+P0528,39,F,114,159,92,89,11,28,0.06,-0.04,seizure|loss_of_consciousness,neurological,seizure_episode,3,Koregaon Park,18.53012,73.886522,14,42
+P0529,29,F,108,105,63,95,12,27,0.06,0.36,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Swargate,18.498274,73.857604,11,45
+P0530,78,F,81,185,125,96,12,28,-0.67,0.98,sudden_weakness_one_side|slurred_speech|stroke_symptoms|vomiting_blood,neurological,acute_stroke,5,Hadapsar,18.505856,73.921319,17,7
+P0531,81,M,115,188,110,89,6,18,-0.68,1.47,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kothrud,18.500754,73.801695,10,34
+P0532,49,F,105,129,71,96,10,28,-0.22,-0.13,seizure|loss_of_consciousness|burns_major,neurological,seizure_episode,3,Camp,18.519573,73.887949,17,32
+P0533,68,M,82,111,71,96,15,20,-0.09,-0.02,fracture_closed,orthopedic,minor_fracture,2,Kharadi,18.554469,73.936438,18,27
+P0534,74,M,110,115,69,76,12,41,-0.38,0.75,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Kharadi,18.556431,73.941018,17,32
+P0535,52,M,27,24,1,69,3,1,-0.26,0.39,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Swargate,18.494555,73.865843,12,21
+P0536,24,M,68,80,48,94,9,20,-0.4,0.57,spinal_injury|blunt_trauma_head|stroke_symptoms,trauma,spinal_injury,4,Magarpatta,18.519141,73.926834,15,44
+P0537,29,F,116,88,31,80,5,36,-0.71,0.21,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Kondhwa,18.465827,73.895112,13,37
+P0538,65,F,94,111,59,91,15,27,-0.12,0.11,blunt_trauma_chest|fracture_open|stroke_symptoms,trauma,moderate_trauma,3,Pimpri,18.63122,73.796886,17,45
+P0539,75,M,129,122,64,79,13,44,-0.75,0.51,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Deccan,18.514304,73.838004,6,5
+P0540,40,F,136,71,42,86,15,34,-0.43,0.36,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Baner,18.558674,73.78704,23,56
+P0541,74,F,112,99,63,82,15,33,-0.33,1.35,chest_pain_radiating_left_arm|shortness_of_breath|stroke_symptoms,cardiac,STEMI,5,Camp,18.515945,73.872678,14,10
+P0542,40,M,97,95,57,92,13,26,-0.08,0.34,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.635416,73.798307,18,53
+P0543,82,F,19,30,18,58,3,0,-0.21,0.27,cardiac_arrest|loss_of_consciousness|blunt_trauma_head,cardiac,cardiac_arrest,5,Camp,18.518212,73.872567,14,39
+P0544,62,M,129,80,49,87,12,22,-0.71,0.83,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wanowrie,18.483161,73.893466,21,26
+P0545,58,F,16,14,30,62,4,4,-0.7,1.17,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.525139,73.843617,20,10
+P0546,48,F,145,76,43,85,14,22,-0.11,0.35,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kothrud,18.501965,73.802884,14,42
+P0547,64,M,116,151,68,92,15,26,-0.76,1.28,chest_pain|shortness_of_breath|severe_breathing_difficulty,cardiac,chest_pain_unstable_angina,4,Baner,18.553489,73.7868,19,15
+P0548,45,F,85,127,90,92,15,25,-0.63,1.27,chest_pain|shortness_of_breath|headache_severe,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.563891,73.918568,20,44
+P0549,85,M,86,204,122,90,7,25,-0.66,1.32,sudden_weakness_one_side|slurred_speech|stroke_symptoms|headache_severe,neurological,acute_stroke,5,Shivajinagar,18.539246,73.851466,13,39
+P0550,51,F,133,109,77,85,11,35,-0.3,0.52,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kothrud,18.504269,73.804008,10,22
+P0551,33,F,95,91,55,93,15,21,-0.18,-0.13,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hadapsar,18.500695,73.922036,15,21
+P0552,63,F,135,94,44,87,14,33,-0.72,0.96,chest_pain_radiating_left_arm|shortness_of_breath|seizure,cardiac,STEMI,5,Aundh,18.551396,73.801402,17,38
+P0553,26,M,110,116,61,94,15,23,-0.24,-0.11,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Deccan,18.519406,73.848834,8,46
+P0554,47,F,101,157,95,92,15,25,-0.6,1.44,chest_pain|shortness_of_breath|fracture_closed,cardiac,chest_pain_unstable_angina,4,Camp,18.517654,73.874671,10,8
+P0555,74,M,144,76,63,88,15,32,-0.8,0.94,chest_pain_radiating_left_arm|shortness_of_breath|spinal_injury,cardiac,STEMI,5,Kondhwa,18.46947,73.887414,10,11
+P0556,32,F,90,118,71,93,14,22,-0.24,0.42,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Viman Nagar,18.563483,73.914837,10,40
+P0557,54,M,98,117,56,98,13,19,-0.01,0.09,abdominal_pain_severe|vomiting_blood|blunt_trauma_abdomen,general,abdominal_emergency,3,Pimpri,18.625093,73.808043,21,16
+P0558,32,F,100,91,75,96,12,23,-0.2,0.24,blunt_trauma_chest|fracture_open|chest_pain,trauma,moderate_trauma,3,Magarpatta,18.507703,73.930932,12,41
+P0559,31,F,96,116,69,91,14,22,-0.12,0.37,blunt_trauma_chest|fracture_open|loss_of_consciousness,trauma,moderate_trauma,3,Swargate,18.499398,73.870035,6,11
+P0560,55,M,116,191,101,92,6,20,-0.35,0.72,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kharadi,18.546111,73.933153,9,58
+P0561,34,M,118,93,40,91,12,30,-0.38,1.23,allergic_reaction_severe|severe_breathing_difficulty|chest_pain,general,allergic_anaphylaxis,4,Kothrud,18.501515,73.812022,10,40
+P0562,48,F,150,73,57,87,12,25,-0.32,1.02,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.564818,73.913963,9,34
+P0563,61,M,2,6,34,59,3,8,-0.32,1.09,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Aundh,18.552358,73.810186,9,56
+P0564,28,F,117,85,45,83,13,25,-0.23,0.1,allergic_reaction_severe|severe_breathing_difficulty|blunt_trauma_chest,general,allergic_anaphylaxis,3,Kothrud,18.509072,73.802549,15,38
+P0565,37,F,111,99,74,95,14,17,-0.04,0.02,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.595822,73.743787,23,49
+P0566,39,M,130,94,58,84,13,36,-0.38,1.03,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Pimpri,18.625009,73.799681,18,26
+P0567,69,F,15,24,26,67,4,8,-0.31,1.17,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Aundh,18.551338,73.811139,15,49
+P0568,45,F,125,81,40,85,12,29,-0.23,0.58,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kothrud,18.513982,73.805474,20,49
+P0569,38,M,35,59,26,57,3,3,-0.31,1.06,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Aundh,18.561729,73.810838,13,3
+P0570,49,M,138,97,45,82,13,27,-0.43,1.43,chest_pain_radiating_left_arm|shortness_of_breath|chest_pain,cardiac,STEMI,5,Swargate,18.495895,73.858519,19,47
+P0571,43,M,106,128,60,92,14,20,-0.48,1.12,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.560074,73.919623,18,56
+P0572,28,F,146,76,39,89,4,37,-0.67,1.17,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.56289,73.785206,4,25
+P0573,59,F,116,92,69,93,14,28,-0.15,0.35,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.630246,73.796016,6,4
+P0574,43,M,115,108,60,83,10,30,-0.12,0.93,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kondhwa,18.460228,73.895867,9,5
+P0575,37,M,115,105,56,90,14,19,0.09,0.29,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Aundh,18.558003,73.804732,12,22
+P0576,49,M,126,98,63,90,12,30,-0.48,1.35,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Magarpatta,18.519901,73.919599,8,43
+P0577,50,F,145,77,46,92,13,34,-0.26,0.7,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Pimpri,18.629876,73.807942,2,45
+P0578,76,M,119,198,94,90,10,26,-0.73,0.61,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kondhwa,18.470881,73.893758,21,31
+P0579,25,M,95,92,63,97,14,21,-0.24,-0.11,abdominal_pain_severe|vomiting_blood|spinal_injury,general,abdominal_emergency,3,Wanowrie,18.495656,73.89721,14,59
+P0580,61,M,91,101,64,93,15,27,-0.12,0.41,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.565233,73.884979,18,32
+P0581,65,M,97,88,73,98,9,31,-0.12,-0.13,diabetic_emergency|loss_of_consciousness|severe_breathing_difficulty,metabolic,diabetic_crisis,3,Viman Nagar,18.569022,73.919961,9,55
+P0582,46,F,119,157,89,90,14,20,-0.31,0.82,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Katraj,18.449032,73.862479,17,13
+P0583,38,M,112,77,34,85,4,30,-0.65,0.47,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Kothrud,18.514383,73.805484,13,30
+P0584,51,M,148,91,53,86,14,32,-0.33,0.54,chest_pain_radiating_left_arm|shortness_of_breath|seizure,cardiac,STEMI,5,Deccan,18.52178,73.840223,13,13
+P0585,27,F,77,138,78,97,15,15,-0.01,0.2,fracture_closed,orthopedic,minor_fracture,2,Kondhwa,18.468021,73.883571,18,22
+P0586,57,M,92,135,84,96,15,19,-0.01,-0.12,fracture_closed,orthopedic,minor_fracture,2,Katraj,18.448227,73.871344,22,31
+P0587,38,F,121,101,66,97,8,27,0.01,0.22,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Kothrud,18.502898,73.815365,13,34
+P0588,46,F,93,220,102,88,8,21,-0.55,1.28,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Hadapsar,18.504989,73.928383,14,26
+P0589,51,M,106,107,71,93,15,23,-0.2,1.49,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Swargate,18.503646,73.866833,22,57
+P0590,46,M,78,112,85,95,15,14,-0.05,0.07,fracture_closed,orthopedic,minor_fracture,2,Kothrud,18.510083,73.813327,9,49
+P0591,71,F,110,220,97,93,12,23,-0.17,1.38,sudden_weakness_one_side|slurred_speech|stroke_symptoms|blunt_trauma_abdomen,neurological,acute_stroke,5,Camp,18.509538,73.886074,10,53
+P0592,65,F,90,136,71,88,8,20,-0.2,0.48,seizure|loss_of_consciousness,neurological,seizure_episode,3,Yerawada,18.55508,73.881727,16,27
+P0593,69,M,105,213,93,94,7,26,-0.72,0.95,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Viman Nagar,18.566898,73.907893,19,32
+P0594,35,M,140,106,72,77,12,34,-0.4,0.23,severe_breathing_difficulty|shortness_of_breath|chest_pain,respiratory,respiratory_failure,4,Magarpatta,18.508449,73.92889,16,5
+P0595,51,M,139,90,60,87,13,27,-0.7,0.23,allergic_reaction_severe|severe_breathing_difficulty|abdominal_pain_severe,general,allergic_anaphylaxis,4,Aundh,18.562326,73.810248,10,59
+P0596,39,F,101,92,64,96,8,21,-0.78,0.3,diabetic_emergency|loss_of_consciousness|sudden_weakness_one_side,metabolic,diabetic_crisis,4,Pimpri,18.634504,73.796228,6,50
+P0597,70,F,99,98,71,95,11,25,-0.29,0.48,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Koregaon Park,18.542658,73.895755,17,54
+P0598,46,M,125,119,50,93,12,31,0.06,-0.18,diabetic_emergency|loss_of_consciousness|chest_pain,metabolic,diabetic_crisis,3,Camp,18.513188,73.874438,20,7
+P0599,47,M,5,46,8,58,4,7,-0.15,0.53,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.515273,73.845944,13,25
+P0600,58,F,97,185,96,92,7,28,-0.53,0.46,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Yerawada,18.561953,73.892054,17,38
+P0601,46,F,140,94,69,77,10,44,-0.5,0.44,severe_breathing_difficulty|shortness_of_breath|allergic_reaction_severe,respiratory,respiratory_failure,4,Camp,18.510636,73.872479,8,20
+P0602,25,M,123,81,41,83,4,34,-0.75,0.57,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Kharadi,18.552446,73.944724,21,35
+P0603,49,F,93,166,125,92,11,25,-0.11,0.75,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Katraj,18.45117,73.857795,15,2
+P0604,71,M,10,38,20,68,4,3,-0.12,0.25,cardiac_arrest|loss_of_consciousness|allergic_reaction_severe,cardiac,cardiac_arrest,5,Magarpatta,18.521807,73.933586,10,53
+P0605,48,M,106,91,65,95,12,19,0.01,0.15,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Deccan,18.512195,73.845059,13,35
+P0606,63,M,119,92,54,89,12,35,-0.64,0.31,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Baner,18.552682,73.783966,18,27
+P0607,60,M,133,87,40,82,14,38,-0.7,0.8,allergic_reaction_severe|severe_breathing_difficulty|blunt_trauma_head,general,allergic_anaphylaxis,5,Yerawada,18.562666,73.885073,18,59
+P0608,68,M,9,48,26,70,4,1,-0.26,1.12,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.528551,73.848294,9,16
+P0609,33,M,115,103,77,76,10,43,-0.27,0.87,severe_breathing_difficulty|shortness_of_breath|slurred_speech,respiratory,respiratory_failure,4,Aundh,18.553007,73.801373,9,37
+P0610,24,M,129,82,44,88,4,40,-0.75,0.75,blunt_trauma_head|severe_bleeding|loss_of_consciousness|blunt_trauma_abdomen,trauma,severe_trauma,5,Bibwewadi,18.483886,73.863215,19,12
+P0611,62,M,126,151,73,90,11,19,0.07,-0.14,seizure|loss_of_consciousness|severe_bleeding,neurological,seizure_episode,3,Koregaon Park,18.53582,73.893694,11,7
+P0612,68,F,94,125,92,93,15,18,-0.43,0.84,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Swargate,18.496603,73.858631,8,17
+P0613,43,M,88,141,75,90,14,19,-0.52,0.71,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kondhwa,18.458617,73.884623,17,45
+P0614,67,F,97,191,103,90,12,19,-0.28,1.31,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Koregaon Park,18.529708,73.893252,18,30
+P0615,36,F,100,130,91,89,9,20,-0.23,0.33,seizure|loss_of_consciousness|chest_pain,neurological,seizure_episode,3,Swargate,18.498845,73.85844,10,4
+P0616,55,F,122,85,58,82,15,35,-0.26,0.33,chest_pain_radiating_left_arm|shortness_of_breath|chest_pain,cardiac,STEMI,5,Deccan,18.521166,73.841404,8,9
+P0617,46,F,85,124,80,97,15,19,0.05,0.39,fracture_closed,orthopedic,minor_fracture,3,Deccan,18.519163,73.847262,19,54
+P0618,66,M,102,143,93,95,14,20,-0.66,0.32,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Koregaon Park,18.53211,73.897056,23,23
+P0619,48,M,102,110,58,95,15,24,-0.22,0.21,abdominal_pain_severe|vomiting_blood|drowning,general,abdominal_emergency,3,Katraj,18.454256,73.863677,23,19
+P0620,17,M,149,73,53,89,14,28,-0.33,0.59,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Bibwewadi,18.480895,73.863371,10,35
+P0621,55,M,128,60,44,78,4,33,-0.2,1.06,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Koregaon Park,18.528998,73.887404,21,50
+P0622,45,M,64,110,47,92,9,17,-0.12,0.33,spinal_injury|blunt_trauma_head|chest_pain_radiating_left_arm,trauma,spinal_injury,4,Pimpri,18.62388,73.803756,12,25
+P0623,61,F,129,79,39,80,7,37,-0.59,1.41,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,4,Shivajinagar,18.525571,73.845469,10,5
+P0624,68,F,96,124,87,90,14,26,-0.48,1.39,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Pimpri,18.627394,73.799743,13,26
+P0625,55,F,149,83,42,84,14,34,-0.8,1.25,chest_pain_radiating_left_arm|shortness_of_breath|abdominal_pain_severe,cardiac,STEMI,5,Deccan,18.508657,73.846522,7,42
+P0626,68,M,89,136,66,95,15,16,-0.07,0.16,fracture_closed,orthopedic,minor_fracture,3,Magarpatta,18.513703,73.924301,4,47
+P0627,24,M,123,86,44,90,15,26,-0.8,0.98,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Koregaon Park,18.54109,73.895179,8,4
+P0628,67,F,6,15,13,53,4,0,-0.21,0.54,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Deccan,18.514273,73.848723,20,53
+P0629,58,M,104,117,74,90,15,20,-0.18,0.27,blunt_trauma_chest|fracture_open|stroke_symptoms,trauma,moderate_trauma,3,Viman Nagar,18.568084,73.917494,8,30
+P0630,74,M,126,108,71,94,11,26,-0.07,-0.18,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Baner,18.551448,73.786113,16,0
+P0631,61,F,129,138,71,93,9,25,-0.27,0.26,seizure|loss_of_consciousness|sudden_weakness_one_side,neurological,seizure_episode,3,Camp,18.508372,73.886441,15,32
+P0632,80,F,136,111,69,86,11,36,-0.15,1.21,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Aundh,18.565401,73.809393,8,45
+P0633,57,F,94,112,65,94,14,27,-0.11,0.33,blunt_trauma_chest|fracture_open|chest_pain,trauma,moderate_trauma,3,Viman Nagar,18.563607,73.916944,15,43
+P0634,56,M,110,91,55,97,11,32,-0.08,-0.12,diabetic_emergency|loss_of_consciousness|seizure,metabolic,diabetic_crisis,2,Bibwewadi,18.482214,73.864705,20,59
+P0635,71,F,93,140,95,91,14,22,-0.39,1.02,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.566845,73.914756,19,5
+P0636,64,F,103,112,95,90,8,23,-0.09,-0.07,seizure|loss_of_consciousness,neurological,seizure_episode,3,Katraj,18.450965,73.86868,21,41
+P0637,53,M,110,192,112,93,10,24,-0.72,0.5,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Hinjewadi,18.592306,73.732035,15,6
+P0638,42,F,100,90,62,96,14,22,-0.1,0.08,blunt_trauma_chest|fracture_open|sudden_weakness_one_side,trauma,moderate_trauma,3,Hinjewadi,18.591751,73.733862,15,39
+P0639,41,M,144,98,43,91,15,26,-0.29,1.4,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.462208,73.85795,8,52
+P0640,59,M,93,125,85,89,12,27,-0.14,0.55,seizure|loss_of_consciousness,neurological,seizure_episode,4,Yerawada,18.561829,73.89387,21,30
+P0641,70,F,102,85,56,85,14,28,-0.66,0.99,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.590843,73.756886,19,51
+P0642,74,M,101,125,70,75,13,40,-0.54,0.45,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Baner,18.552849,73.780688,17,57
+P0643,66,M,88,115,74,90,14,21,-0.17,0.22,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Kothrud,18.500626,73.801727,8,2
+P0644,62,M,99,94,74,96,14,17,0.08,0.35,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Pimpri,18.634262,73.80664,14,19
+P0645,24,M,151,67,46,82,5,40,-0.12,0.5,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Yerawada,18.557779,73.880255,21,53
+P0646,54,F,123,73,51,84,12,27,-0.53,1.28,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Hadapsar,18.494141,73.931381,10,37
+P0647,64,F,117,97,59,88,15,22,-0.78,1.19,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Aundh,18.552951,73.806597,4,19
+P0648,68,M,119,109,65,95,15,19,-0.28,-0.12,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Swargate,18.507352,73.868122,22,48
+P0649,46,M,118,124,69,81,14,44,-0.74,0.52,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wakad,18.59261,73.756243,19,17
+P0650,35,F,100,108,67,90,14,23,-0.19,-0.07,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.550197,73.88391,17,53
+P0651,75,M,113,100,89,90,15,25,-0.49,0.54,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.587623,73.739765,11,4
+P0652,29,M,68,107,60,90,9,24,-0.49,0.61,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Wakad,18.592331,73.756616,18,55
+P0653,40,M,97,91,63,92,12,28,-0.17,0.06,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hinjewadi,18.591311,73.731811,5,13
+P0654,16,F,88,112,85,98,15,15,-0.04,-0.09,fracture_closed,orthopedic,minor_fracture,2,Swargate,18.507858,73.861595,22,18
+P0655,53,F,109,99,58,82,12,31,-0.22,0.24,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Camp,18.517535,73.883405,22,24
+P0656,24,F,134,94,60,83,12,38,-0.22,0.2,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,3,Yerawada,18.557557,73.887391,14,17
+P0657,67,M,100,97,66,94,14,21,-0.16,0.14,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Swargate,18.49929,73.861232,15,58
+P0658,71,M,106,174,126,90,10,19,-0.4,1.02,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Katraj,18.453022,73.858304,13,9
+P0659,44,F,88,85,59,88,9,15,-0.78,0.42,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Wanowrie,18.491886,73.887022,2,27
+P0660,48,F,132,97,56,88,15,27,-0.37,0.34,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Deccan,18.509704,73.847359,21,37
+P0661,38,F,114,93,51,89,15,34,-0.74,1.36,allergic_reaction_severe|severe_breathing_difficulty|burns_major,general,allergic_anaphylaxis,4,Viman Nagar,18.571479,73.915733,20,32
+P0662,46,M,101,111,75,93,15,23,0.06,0.21,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hadapsar,18.497516,73.925893,3,33
+P0663,26,M,88,119,75,98,15,20,-0.09,-0.0,fracture_closed|stroke_symptoms,orthopedic,minor_fracture,2,Kharadi,18.551889,73.936452,21,20
+P0664,51,M,17,31,28,57,3,4,-0.78,1.37,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Baner,18.552536,73.787635,15,10
+P0665,31,F,129,119,75,93,8,27,-0.01,0.44,diabetic_emergency|loss_of_consciousness|vomiting_blood,metabolic,diabetic_crisis,3,Bibwewadi,18.478334,73.868297,10,7
+P0666,81,M,27,31,16,52,3,4,-0.48,1.16,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Wakad,18.602138,73.761234,15,17
+P0667,21,F,94,155,92,93,8,24,-0.15,0.46,seizure|loss_of_consciousness|abdominal_pain_severe,neurological,seizure_episode,3,Kothrud,18.514587,73.809737,9,37
+P0668,46,F,106,140,74,95,9,29,-0.1,0.23,seizure|loss_of_consciousness|allergic_reaction_severe,neurological,seizure_episode,3,Camp,18.518715,73.883991,0,4
+P0669,47,M,112,83,48,91,15,34,-0.46,1.24,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Viman Nagar,18.573946,73.919751,21,42
+P0670,37,F,122,124,70,79,10,35,-0.34,0.65,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Wakad,18.601099,73.757853,14,20
+P0671,73,M,108,120,80,88,13,41,-0.51,1.25,severe_breathing_difficulty|shortness_of_breath|seizure,respiratory,respiratory_failure,4,Swargate,18.494473,73.867949,10,20
+P0672,61,M,101,158,63,92,15,21,-0.14,1.0,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Magarpatta,18.52001,73.927576,19,7
+P0673,35,F,138,124,55,86,10,40,-0.66,0.4,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kondhwa,18.458015,73.881787,9,34
+P0674,39,F,117,112,62,92,13,23,-0.1,0.35,blunt_trauma_chest|fracture_open|stroke_symptoms,trauma,moderate_trauma,3,Koregaon Park,18.528777,73.88552,22,6
+P0675,57,M,118,79,40,85,13,22,-0.75,0.86,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Aundh,18.552099,73.811548,10,5
+P0676,57,F,136,70,40,90,13,25,-0.66,0.54,allergic_reaction_severe|severe_breathing_difficulty|diabetic_emergency,general,allergic_anaphylaxis,4,Katraj,18.454802,73.868896,10,29
+P0677,41,F,120,134,79,94,8,21,-0.14,0.06,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.465105,73.887119,23,46
+P0678,67,M,93,104,62,94,12,24,-0.26,-0.08,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Hadapsar,18.504085,73.923319,19,5
+P0679,54,F,90,128,72,95,15,17,-0.07,-0.09,fracture_closed,orthopedic,minor_fracture,2,Wakad,18.591443,73.763895,13,47
+P0680,74,M,136,128,68,88,10,36,-0.3,0.87,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kondhwa,18.464997,73.896352,9,29
+P0681,23,M,98,112,68,98,15,17,-0.08,0.36,fracture_closed|stroke_symptoms,orthopedic,minor_fracture,1,Bibwewadi,18.483916,73.856819,21,31
+P0682,67,F,120,126,85,90,15,19,-0.68,0.58,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Shivajinagar,18.53176,73.846442,12,41
+P0683,45,F,129,155,81,96,12,22,-0.13,-0.09,seizure|loss_of_consciousness|blunt_trauma_chest,neurological,seizure_episode,3,Baner,18.553628,73.790241,14,20
+P0684,46,F,100,79,62,85,13,33,-0.56,0.22,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Yerawada,18.552503,73.884607,16,14
+P0685,70,F,98,212,117,92,8,25,-0.68,0.93,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kharadi,18.54624,73.934439,18,17
+P0686,82,F,33,37,24,60,5,4,-0.47,0.2,cardiac_arrest|loss_of_consciousness|chest_pain,cardiac,cardiac_arrest,5,Kharadi,18.546461,73.944854,7,10
+P0687,70,F,103,74,56,89,15,32,-0.55,1.29,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.599462,73.762037,12,30
+P0688,63,M,115,88,49,81,4,32,-0.5,0.65,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Wanowrie,18.491122,73.889009,7,57
+P0689,67,M,123,97,54,92,14,33,-0.66,0.67,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.551119,73.934864,19,0
+P0690,77,M,117,179,111,89,8,20,-0.36,1.46,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wanowrie,18.486373,73.900932,18,17
+P0691,26,F,97,139,80,99,15,17,-0.03,0.29,fracture_closed,orthopedic,minor_fracture,2,Kondhwa,18.469919,73.881611,1,57
+P0692,85,M,88,165,116,89,6,23,-0.57,1.07,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Shivajinagar,18.539134,73.839707,17,1
+P0693,53,M,118,112,60,97,15,21,-0.19,-0.08,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Kothrud,18.500439,73.812901,15,46
+P0694,80,M,138,76,62,90,15,24,-0.15,0.31,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Hadapsar,18.499263,73.927091,18,36
+P0695,69,M,95,113,57,94,14,16,0.03,0.25,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Pimpri,18.627266,73.806935,22,19
+P0696,65,F,96,113,59,95,13,22,0.09,-0.02,abdominal_pain_severe|vomiting_blood|headache_severe,general,abdominal_emergency,3,Swargate,18.497115,73.858612,21,11
+P0697,73,F,90,131,82,94,15,23,-0.4,1.49,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.560488,73.919656,12,34
+P0698,72,M,103,113,81,95,15,19,-0.39,0.68,chest_pain|shortness_of_breath|severe_bleeding,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.502072,73.928098,14,29
+P0699,30,M,137,92,65,86,10,39,-0.67,0.23,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Hadapsar,18.496794,73.923728,8,34
+P0700,68,M,89,128,83,98,15,17,-0.08,0.45,fracture_closed|blunt_trauma_abdomen,orthopedic,minor_fracture,2,Wanowrie,18.490857,73.889803,23,56
+P0701,57,M,93,103,68,95,15,22,0.0,-0.11,abdominal_pain_severe|vomiting_blood|sudden_weakness_one_side,general,abdominal_emergency,3,Yerawada,18.565444,73.894086,8,36
+P0702,59,F,103,95,64,87,11,39,-0.2,0.77,severe_breathing_difficulty|shortness_of_breath|chest_pain,respiratory,respiratory_failure,4,Kharadi,18.559127,73.936821,5,15
+P0703,20,F,119,91,57,87,12,31,-0.63,1.39,allergic_reaction_severe|severe_breathing_difficulty|abdominal_pain_severe,general,allergic_anaphylaxis,4,Kharadi,18.559605,73.942695,20,45
+P0704,73,F,120,98,67,87,12,37,-0.18,0.43,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Pimpri,18.627713,73.804747,16,14
+P0705,70,M,103,181,122,88,10,25,-0.67,0.4,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Kothrud,18.50278,73.806666,11,41
+P0706,29,M,153,86,45,78,5,37,-0.34,0.73,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hadapsar,18.501239,73.919322,18,6
+P0707,44,M,80,120,69,99,15,19,-0.04,0.22,fracture_closed,orthopedic,minor_fracture,2,Aundh,18.556759,73.800572,13,47
+P0708,49,F,89,126,76,98,15,20,-0.07,0.45,fracture_closed|sudden_weakness_one_side,orthopedic,minor_fracture,2,Kondhwa,18.469154,73.894925,5,0
+P0709,21,F,96,106,74,95,15,24,-0.13,0.27,blunt_trauma_chest|fracture_open|severe_breathing_difficulty,trauma,moderate_trauma,3,Bibwewadi,18.475874,73.869227,18,16
+P0710,44,M,60,97,53,90,10,19,-0.52,0.43,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Kothrud,18.508932,73.805416,2,47
+P0711,35,F,94,113,59,95,15,24,-0.09,0.12,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wakad,18.6052,73.770457,22,52
+P0712,72,M,123,71,44,91,12,28,-0.29,1.17,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Deccan,18.51456,73.833358,22,16
+P0713,79,M,127,100,43,85,14,26,-0.67,0.85,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.557172,73.938991,19,49
+P0714,40,F,125,99,45,92,14,26,-0.73,0.49,chest_pain_radiating_left_arm|shortness_of_breath|fracture_closed,cardiac,STEMI,5,Shivajinagar,18.527673,73.846185,23,20
+P0715,36,F,124,72,59,86,15,33,-0.69,1.31,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kondhwa,18.457201,73.88645,11,28
+P0716,65,M,119,144,70,95,15,22,-0.28,0.89,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.593302,73.738981,11,13
+P0717,27,M,158,70,44,88,6,24,-0.28,1.49,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Swargate,18.509433,73.855975,23,35
+P0718,55,M,134,98,67,84,10,31,-0.41,0.66,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Viman Nagar,18.573738,73.91857,23,25
+P0719,85,F,118,177,110,93,11,17,-0.15,0.4,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wakad,18.604245,73.763917,14,52
+P0720,44,M,87,119,65,99,15,20,-0.06,0.15,fracture_closed,orthopedic,minor_fracture,3,Swargate,18.500065,73.865783,17,8
+P0721,55,M,136,93,53,82,14,31,-0.34,0.92,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Hinjewadi,18.59843,73.730364,16,50
+P0722,74,M,80,124,76,96,15,17,-0.06,-0.03,fracture_closed,orthopedic,minor_fracture,2,Koregaon Park,18.531512,73.892579,9,38
+P0723,60,F,109,192,97,93,12,18,-0.25,1.44,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Swargate,18.507373,73.871529,20,4
+P0724,48,F,107,93,74,98,15,16,-0.49,1.22,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,4,Kothrud,18.505214,73.811166,15,41
+P0725,61,F,16,48,7,73,3,5,-0.17,0.84,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Kharadi,18.549232,73.93728,18,29
+P0726,46,F,126,70,39,89,6,34,-0.41,1.13,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.553368,73.783415,9,23
+P0727,63,F,155,65,48,88,5,39,-0.64,1.31,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.553344,73.783477,12,40
+P0728,65,F,94,108,55,92,14,26,-0.15,0.41,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.630202,73.802294,15,33
+P0729,64,M,95,155,93,93,14,25,0.02,0.25,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Deccan,18.511103,73.835401,17,46
+P0730,44,M,129,126,75,75,15,44,-0.0,0.41,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,3,Katraj,18.456119,73.861344,22,54
+P0731,46,M,98,113,68,96,9,23,-0.19,-0.01,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Wakad,18.594153,73.767478,8,38
+P0732,24,M,114,74,56,86,12,27,-0.36,0.46,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Bibwewadi,18.471572,73.869106,3,50
+P0733,73,F,5,30,12,53,5,3,-0.24,1.0,cardiac_arrest|loss_of_consciousness|chest_pain,cardiac,cardiac_arrest,5,Hadapsar,18.50532,73.925082,17,37
+P0734,51,F,85,116,86,94,15,25,-0.41,0.6,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Deccan,18.512027,73.841515,11,43
+P0735,50,M,96,131,60,92,15,25,-0.22,0.45,chest_pain|shortness_of_breath|fracture_closed,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.508605,73.925091,17,34
+P0736,84,F,14,13,19,66,4,5,-0.52,0.42,cardiac_arrest|loss_of_consciousness|blunt_trauma_head,cardiac,cardiac_arrest,5,Kharadi,18.554136,73.934474,8,49
+P0737,84,F,10,20,33,65,5,6,-0.28,0.78,cardiac_arrest|loss_of_consciousness|seizure,cardiac,cardiac_arrest,5,Deccan,18.513733,73.8379,18,53
+P0738,66,F,110,148,86,90,15,18,-0.62,1.28,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Shivajinagar,18.523712,73.847869,9,45
+P0739,53,F,127,95,52,87,13,34,-0.13,1.43,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,4,Viman Nagar,18.565108,73.913975,18,30
+P0740,55,F,72,102,67,95,9,18,-0.71,1.17,spinal_injury|blunt_trauma_head|chest_pain_radiating_left_arm,trauma,spinal_injury,4,Shivajinagar,18.532006,73.84361,10,30
+P0741,65,M,126,99,59,84,12,34,-0.32,0.38,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Kondhwa,18.469205,73.885172,15,18
+P0742,46,M,87,105,67,93,14,19,-0.38,1.41,spinal_injury|blunt_trauma_head|severe_bleeding,trauma,spinal_injury,4,Pimpri,18.625228,73.803743,18,16
+P0743,68,M,26,27,25,75,4,0,-0.24,1.23,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Koregaon Park,18.537251,73.90113,22,55
+P0744,75,M,106,140,64,95,14,19,-0.27,1.2,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.592383,73.737495,17,12
+P0745,44,M,102,129,88,95,14,23,-0.78,0.95,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Camp,18.517498,73.883831,22,56
+P0746,49,F,124,70,40,85,14,28,-0.4,0.66,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.456518,73.867458,8,52
+P0747,39,M,117,108,59,94,13,19,0.05,0.45,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Kothrud,18.511871,73.808341,22,20
+P0748,28,F,102,129,75,94,10,21,-0.77,0.77,seizure|loss_of_consciousness|severe_bleeding,neurological,seizure_episode,4,Koregaon Park,18.535303,73.897103,19,24
+P0749,82,M,104,197,97,89,7,24,-0.11,1.24,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Yerawada,18.555734,73.894926,13,13
+P0750,54,F,116,122,58,82,10,28,-0.34,0.5,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Pimpri,18.625666,73.79786,5,54
+P0751,19,M,134,85,40,86,14,24,-0.22,0.32,allergic_reaction_severe|severe_breathing_difficulty|chest_pain,general,allergic_anaphylaxis,3,Baner,18.562121,73.790997,4,51
+P0752,51,M,149,73,35,84,4,29,-0.45,0.6,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Viman Nagar,18.565741,73.921099,19,1
+P0753,16,F,106,149,80,88,8,23,-0.24,-0.19,seizure|loss_of_consciousness|headache_severe,neurological,seizure_episode,3,Kothrud,18.508032,73.8119,18,10
+P0754,46,F,92,103,57,93,14,23,-0.17,0.18,abdominal_pain_severe|vomiting_blood|diabetic_emergency,general,abdominal_emergency,3,Koregaon Park,18.533183,73.892712,21,8
+P0755,42,M,101,115,65,97,14,29,-0.19,0.23,diabetic_emergency|loss_of_consciousness|headache_severe,metabolic,diabetic_crisis,3,Baner,18.554609,73.780115,6,25
+P0756,63,F,126,65,53,88,5,34,-0.5,1.06,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Magarpatta,18.521802,73.923268,21,20
+P0757,21,M,119,117,56,95,15,28,-0.01,-0.07,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Wakad,18.59309,73.761161,16,30
+P0758,31,F,93,122,79,96,15,18,-0.07,0.41,fracture_closed|seizure,orthopedic,minor_fracture,2,Camp,18.519782,73.877396,21,16
+P0759,34,M,74,101,48,93,14,22,-0.22,0.36,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Koregaon Park,18.543636,73.88722,9,29
+P0760,15,M,118,81,49,89,15,32,-0.66,1.17,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Camp,18.508118,73.88544,9,1
+P0761,41,M,114,94,73,96,12,26,0.04,-0.04,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Viman Nagar,18.565892,73.907902,8,40
+P0762,37,M,112,94,72,97,14,19,-0.11,-0.1,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Deccan,18.514036,73.841348,13,30
+P0763,33,M,90,92,63,98,15,20,-0.53,0.41,abdominal_pain_severe|vomiting_blood|fracture_closed,general,abdominal_emergency,4,Viman Nagar,18.572133,73.919212,22,15
+P0764,48,F,97,115,82,90,14,22,-0.79,0.35,chest_pain|shortness_of_breath|stroke_symptoms,cardiac,chest_pain_unstable_angina,4,Baner,18.554293,73.781079,10,20
+P0765,60,F,116,84,50,87,6,31,-0.3,1.34,blunt_trauma_head|severe_bleeding|loss_of_consciousness|severe_breathing_difficulty,trauma,severe_trauma,5,Yerawada,18.55727,73.880126,23,58
+P0766,47,M,91,102,63,93,15,23,-0.06,0.22,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wanowrie,18.492135,73.888594,6,46
+P0767,79,F,131,117,68,75,15,31,-0.11,0.31,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Shivajinagar,18.533644,73.841861,18,16
+P0768,77,F,31,15,31,57,5,6,-0.19,1.07,cardiac_arrest|loss_of_consciousness|spinal_injury,cardiac,cardiac_arrest,5,Wanowrie,18.488971,73.898399,12,33
+P0769,46,M,106,88,65,92,12,31,-0.3,0.25,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Magarpatta,18.516762,73.933461,13,25
+P0770,55,F,118,139,88,96,8,24,-0.02,0.31,seizure|loss_of_consciousness,neurological,seizure_episode,2,Koregaon Park,18.538288,73.890463,10,26
+P0771,32,F,83,121,86,97,15,15,-0.05,0.03,fracture_closed,orthopedic,minor_fracture,2,Shivajinagar,18.535698,73.839169,16,55
+P0772,61,F,107,149,71,96,15,19,-0.35,0.61,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Wakad,18.595565,73.760893,21,5
+P0773,62,F,96,148,84,91,15,25,-0.58,0.86,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.575249,73.911464,6,37
+P0774,54,M,108,158,87,96,9,24,-0.14,0.44,seizure|loss_of_consciousness|shortness_of_breath,neurological,seizure_episode,3,Aundh,18.563635,73.802032,11,22
+P0775,37,M,18,39,5,60,3,7,-0.63,0.49,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.523822,73.840191,18,14
+P0776,54,F,103,119,70,92,9,18,-0.07,0.24,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.472974,73.884076,8,33
+P0777,47,F,102,113,63,98,14,20,-0.17,0.38,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wakad,18.595622,73.761713,22,8
+P0778,30,M,144,88,44,83,15,32,-0.47,0.95,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Pimpri,18.631381,73.803219,16,14
+P0779,50,M,139,84,55,91,15,23,-0.32,0.29,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kothrud,18.513733,73.807326,18,4
+P0780,55,M,146,78,40,91,15,30,-0.4,1.34,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Bibwewadi,18.474957,73.866155,10,14
+P0781,20,M,94,114,72,98,15,21,-0.01,0.31,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hadapsar,18.506194,73.919136,5,26
+P0782,59,F,148,84,54,80,4,24,-0.24,0.7,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hadapsar,18.508938,73.927184,22,24
+P0783,67,F,106,111,66,92,15,20,-0.56,1.18,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Aundh,18.55321,73.805319,17,5
+P0784,41,M,90,118,74,90,12,28,-0.2,1.44,blunt_trauma_chest|fracture_open|burns_minor,trauma,moderate_trauma,4,Aundh,18.5549,73.812501,16,23
+P0785,51,M,119,191,101,96,7,21,-0.23,0.78,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Bibwewadi,18.481302,73.869075,8,9
+P0786,21,F,124,160,100,89,10,22,0.07,0.46,seizure|loss_of_consciousness,neurological,seizure_episode,3,Viman Nagar,18.574304,73.914262,16,39
+P0787,24,F,107,116,67,96,13,24,0.09,0.14,abdominal_pain_severe|vomiting_blood|headache_severe,general,abdominal_emergency,3,Wanowrie,18.483013,73.891469,12,58
+P0788,48,M,96,132,89,99,15,20,-0.05,-0.06,fracture_closed,orthopedic,minor_fracture,2,Camp,18.514008,73.883235,15,48
+P0789,57,F,128,102,64,85,13,40,-0.26,1.2,severe_breathing_difficulty|shortness_of_breath|chest_pain,respiratory,respiratory_failure,4,Katraj,18.45698,73.866755,10,50
+P0790,62,M,123,112,76,89,10,27,0.09,-0.16,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.457447,73.896468,12,22
+P0791,38,M,88,133,81,99,15,18,-0.04,0.23,fracture_closed,orthopedic,minor_fracture,1,Wakad,18.601899,73.757167,8,13
+P0792,55,F,124,76,62,83,14,22,-0.38,1.01,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Wakad,18.596449,73.769405,3,9
+P0793,31,F,137,81,48,89,8,33,-0.62,0.21,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Aundh,18.554449,73.814117,20,31
+P0794,59,M,92,154,94,95,9,28,-0.13,1.13,seizure|loss_of_consciousness|severe_breathing_difficulty,neurological,seizure_episode,4,Hinjewadi,18.586134,73.735238,22,16
+P0795,21,M,108,144,79,92,12,22,-0.09,-0.18,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kharadi,18.560203,73.940876,15,8
+P0796,45,M,92,114,62,96,15,20,-0.26,0.45,chest_pain|shortness_of_breath|diabetic_emergency,cardiac,chest_pain_unstable_angina,4,Baner,18.558072,73.791106,17,32
+P0797,61,M,100,162,126,88,7,21,-0.64,1.02,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kothrud,18.505661,73.80215,10,4
+P0798,48,M,128,91,69,76,11,44,0.07,0.06,severe_breathing_difficulty|shortness_of_breath|blunt_trauma_chest,respiratory,respiratory_failure,3,Swargate,18.501789,73.855879,18,46
+P0799,71,M,6,43,14,50,4,0,-0.75,1.04,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Hadapsar,18.507512,73.930195,2,34
+P0800,48,M,119,108,75,96,14,22,-0.24,0.18,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Pimpri,18.635582,73.803087,14,57
+P0801,46,M,109,108,75,86,11,40,-0.64,0.72,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Baner,18.551681,73.785366,21,54
+P0802,61,F,86,116,77,98,15,17,-0.08,-0.05,fracture_closed,orthopedic,minor_fracture,2,Pimpri,18.625305,73.803546,7,33
+P0803,71,F,92,220,129,93,9,24,-0.22,1.21,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Baner,18.558524,73.787485,14,57
+P0804,57,F,93,122,76,93,12,20,-0.19,0.32,seizure|loss_of_consciousness,neurological,seizure_episode,3,Bibwewadi,18.470381,73.858303,16,11
+P0805,44,F,94,110,67,94,13,20,-0.06,0.31,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Baner,18.563202,73.786587,17,48
+P0806,15,M,96,113,90,95,15,14,-0.15,0.44,fracture_closed,orthopedic,minor_fracture,3,Kharadi,18.556897,73.947327,10,4
+P0807,37,M,116,104,70,92,13,22,-0.24,0.19,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Baner,18.553612,73.780695,21,26
+P0808,46,M,102,144,75,90,14,25,-0.55,0.77,chest_pain|shortness_of_breath|fracture_open,cardiac,chest_pain_unstable_angina,4,Wanowrie,18.482727,73.885319,18,52
+P0809,23,F,104,118,55,93,14,23,-0.22,0.24,blunt_trauma_chest|fracture_open|headache_severe,trauma,moderate_trauma,3,Aundh,18.564668,73.801476,22,42
+P0810,19,F,160,90,55,79,5,39,-0.78,0.61,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Shivajinagar,18.526472,73.841084,15,58
+P0811,66,M,95,204,109,92,9,22,-0.36,1.16,sudden_weakness_one_side|slurred_speech|stroke_symptoms|spinal_injury,neurological,acute_stroke,5,Hinjewadi,18.588527,73.730502,20,59
+P0812,57,F,124,76,55,88,15,22,-0.62,0.45,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.500015,73.861074,22,46
+P0813,50,M,115,89,44,88,3,34,-0.24,1.21,blunt_trauma_head|severe_bleeding|loss_of_consciousness|headache_severe,trauma,severe_trauma,5,Hadapsar,18.497687,73.920834,5,36
+P0814,52,F,75,133,65,97,15,15,-0.03,-0.14,fracture_closed,orthopedic,minor_fracture,2,Hadapsar,18.503601,73.918899,7,58
+P0815,43,M,105,70,53,92,13,25,-0.31,0.81,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.552617,73.935157,23,38
+P0816,21,M,147,71,54,84,12,25,-0.21,1.18,allergic_reaction_severe|severe_breathing_difficulty|abdominal_pain_severe,general,allergic_anaphylaxis,4,Kharadi,18.556199,73.943246,5,11
+P0817,77,F,105,200,127,92,10,22,-0.6,0.41,sudden_weakness_one_side|slurred_speech|stroke_symptoms|seizure,neurological,acute_stroke,5,Wakad,18.598989,73.766477,22,16
+P0818,68,M,131,81,63,82,15,23,-0.38,1.45,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.45741,73.871661,12,43
+P0819,41,F,113,116,65,93,14,25,-0.02,0.09,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Kondhwa,18.472986,73.884045,16,2
+P0820,72,F,85,139,90,98,15,20,0.1,0.24,fracture_closed,orthopedic,minor_fracture,3,Swargate,18.508694,73.869574,19,24
+P0821,39,M,100,117,80,88,15,33,-0.59,1.44,severe_breathing_difficulty|shortness_of_breath|chest_pain,respiratory,respiratory_failure,4,Baner,18.555334,73.781964,15,10
+P0822,45,M,97,96,70,94,15,24,-0.06,-0.1,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.635283,73.79397,11,30
+P0823,37,M,105,115,61,93,15,18,-0.16,0.06,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.556864,73.88095,7,18
+P0824,43,F,98,133,88,95,8,18,0.07,0.48,seizure|loss_of_consciousness,neurological,seizure_episode,3,Katraj,18.459013,73.871562,21,40
+P0825,26,F,77,90,63,93,13,17,-0.46,0.81,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Wakad,18.60183,73.76575,20,15
+P0826,60,M,132,98,43,88,13,31,-0.61,0.39,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.524471,73.842833,8,49
+P0827,37,F,76,125,72,96,15,16,-0.02,0.25,fracture_closed,orthopedic,minor_fracture,2,Katraj,18.455755,73.862027,21,12
+P0828,63,F,102,103,73,92,13,23,-0.04,0.33,diabetic_emergency|loss_of_consciousness|fracture_open,metabolic,diabetic_crisis,3,Koregaon Park,18.532971,73.888468,10,1
+P0829,50,F,129,94,44,89,15,30,-0.39,0.62,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Bibwewadi,18.474415,73.866301,14,10
+P0830,49,F,103,97,50,90,15,27,-0.37,1.19,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Koregaon Park,18.538262,73.895541,12,20
+P0831,61,M,110,146,94,88,12,18,-0.26,0.05,seizure|loss_of_consciousness,neurological,seizure_episode,3,Baner,18.553425,73.787164,22,15
+P0832,55,M,105,116,65,87,10,43,-0.49,0.35,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Aundh,18.561113,73.80847,6,13
+P0833,21,M,98,97,62,93,15,24,0.08,-0.1,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wanowrie,18.480678,73.888504,9,9
+P0834,50,F,134,84,50,88,6,24,-0.64,0.84,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Swargate,18.5023,73.856242,16,13
+P0835,43,M,105,127,66,83,11,40,-0.22,1.18,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Yerawada,18.554503,73.8879,15,10
+P0836,46,M,122,70,38,84,3,33,-0.24,1.17,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Camp,18.51732,73.875273,6,24
+P0837,67,F,81,134,83,97,15,18,-0.07,-0.05,fracture_closed,orthopedic,minor_fracture,1,Magarpatta,18.520243,73.932497,9,1
+P0838,74,F,101,173,121,94,11,21,-0.2,0.52,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Wanowrie,18.487683,73.894548,19,42
+P0839,35,M,118,90,55,94,12,18,-0.22,0.1,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Magarpatta,18.521379,73.920556,12,41
+P0840,17,M,77,118,78,95,15,20,-0.1,0.45,fracture_closed,orthopedic,minor_fracture,2,Kharadi,18.546925,73.942187,22,50
+P0841,75,F,85,107,65,95,14,25,-0.54,0.25,chest_pain|shortness_of_breath|cardiac_arrest,cardiac,chest_pain_unstable_angina,4,Hinjewadi,18.594903,73.732453,5,43
+P0842,57,F,114,126,71,90,14,19,-0.32,1.25,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Shivajinagar,18.523791,73.840951,20,15
+P0843,44,M,97,112,67,97,11,32,-0.15,0.19,diabetic_emergency|loss_of_consciousness|shortness_of_breath,metabolic,diabetic_crisis,3,Bibwewadi,18.483131,73.863713,12,57
+P0844,58,F,40,22,26,55,5,6,-0.51,1.45,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Baner,18.564028,73.790827,15,34
+P0845,69,F,116,98,44,87,14,32,-0.7,0.64,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.574136,73.911795,21,40
+P0846,20,F,100,146,74,91,13,24,-0.08,0.46,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kondhwa,18.457672,73.882661,0,59
+P0847,35,F,131,85,43,87,14,32,-0.17,0.44,allergic_reaction_severe|severe_breathing_difficulty|blunt_trauma_abdomen,general,allergic_anaphylaxis,4,Hadapsar,18.497413,73.928302,7,44
+P0848,44,F,150,86,65,83,15,24,-0.79,0.58,chest_pain_radiating_left_arm|shortness_of_breath|fracture_open,cardiac,STEMI,5,Kharadi,18.553671,73.933545,20,1
+P0849,67,F,84,164,106,95,6,22,-0.47,1.0,sudden_weakness_one_side|slurred_speech|stroke_symptoms|diabetic_emergency,neurological,acute_stroke,5,Aundh,18.555999,73.804561,17,58
+P0850,56,F,131,71,55,87,14,22,-0.55,1.46,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.469317,73.887763,16,56
+P0851,56,M,86,124,62,93,14,25,-0.78,0.6,chest_pain|shortness_of_breath|stroke_symptoms,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.501075,73.929985,9,30
+P0852,26,M,87,94,51,94,8,14,-0.15,1.05,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Camp,18.5079,73.876396,16,51
+P0853,68,F,137,73,62,90,15,24,-0.46,0.52,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.495255,73.858077,20,12
+P0854,51,F,111,114,56,79,11,35,-0.41,0.77,severe_breathing_difficulty|shortness_of_breath|severe_bleeding,respiratory,respiratory_failure,4,Hadapsar,18.495425,73.920227,19,38
+P0855,70,M,127,91,77,83,15,39,-0.14,0.66,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Kondhwa,18.468233,73.882071,6,56
+P0856,45,M,100,158,68,90,14,20,-0.34,0.96,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kondhwa,18.462973,73.885208,5,50
+P0857,82,F,2,14,12,54,4,2,-0.59,1.25,cardiac_arrest|loss_of_consciousness|chest_pain_radiating_left_arm,cardiac,cardiac_arrest,5,Koregaon Park,18.530004,73.895855,16,0
+P0858,60,F,125,87,45,90,4,30,-0.75,1.07,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Viman Nagar,18.566106,73.916434,15,51
+P0859,19,M,79,137,89,95,15,18,-0.06,0.41,fracture_closed|spinal_injury,orthopedic,minor_fracture,2,Pimpri,18.634902,73.806148,13,48
+P0860,32,M,60,86,66,93,11,21,-0.63,0.88,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Camp,18.51922,73.882337,19,10
+P0861,45,M,89,127,61,93,14,26,-0.59,0.9,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,5,Aundh,18.554493,73.810103,23,21
+P0862,73,M,119,120,71,82,13,45,-0.61,0.55,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Katraj,18.456524,73.866862,5,40
+P0863,40,F,142,67,40,83,4,30,-0.26,1.36,blunt_trauma_head|severe_bleeding|loss_of_consciousness|blunt_trauma_chest,trauma,severe_trauma,5,Swargate,18.497956,73.865164,18,12
+P0864,55,M,18,12,23,72,5,8,-0.66,1.23,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Viman Nagar,18.561775,73.917864,10,15
+P0865,40,F,80,138,85,98,15,15,-0.09,0.06,fracture_closed,orthopedic,minor_fracture,2,Bibwewadi,18.478599,73.857341,17,16
+P0866,47,F,102,90,57,91,14,25,-0.26,0.11,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Shivajinagar,18.524216,73.843443,23,38
+P0867,22,F,118,65,33,83,3,25,-0.34,0.28,blunt_trauma_head|severe_bleeding|loss_of_consciousness|abdominal_pain_severe,trauma,severe_trauma,5,Hadapsar,18.508612,73.928988,8,57
+P0868,49,M,39,46,17,59,4,3,-0.41,0.61,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Shivajinagar,18.538246,73.842257,9,1
+P0869,81,F,104,173,124,88,7,17,-0.16,0.56,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Swargate,18.497036,73.862952,8,11
+P0870,53,M,142,79,53,91,15,29,-0.27,0.23,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Bibwewadi,18.47708,73.866827,12,39
+P0871,39,F,66,108,66,95,11,22,-0.21,1.09,spinal_injury|blunt_trauma_head|burns_minor,trauma,spinal_injury,4,Bibwewadi,18.479705,73.860967,18,38
+P0872,62,M,105,173,103,93,8,22,-0.41,1.04,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Aundh,18.559607,73.807215,1,59
+P0873,64,M,145,95,40,88,14,27,-0.16,0.54,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Swargate,18.494931,73.859679,9,23
+P0874,37,F,14,54,33,69,5,3,-0.76,0.3,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Hinjewadi,18.594514,73.73254,17,35
+P0875,31,M,104,94,64,94,14,20,0.01,0.41,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hinjewadi,18.586909,73.731476,4,41
+P0876,72,M,98,115,74,99,15,17,-0.05,0.35,fracture_closed|slurred_speech,orthopedic,minor_fracture,2,Hinjewadi,18.584278,73.731624,20,11
+P0877,68,M,101,113,60,91,13,21,-0.14,-0.08,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Shivajinagar,18.531612,73.836931,15,3
+P0878,55,F,93,115,83,94,15,25,-0.7,0.57,chest_pain|shortness_of_breath|severe_breathing_difficulty,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.570142,73.918372,5,24
+P0879,47,F,105,111,67,94,15,26,0.04,-0.11,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Aundh,18.562026,73.808076,13,32
+P0880,66,F,104,89,51,86,12,31,-0.35,0.39,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Katraj,18.455796,73.869005,9,49
+P0881,30,M,100,134,88,96,15,17,-0.08,-0.11,fracture_closed|loss_of_consciousness,orthopedic,minor_fracture,2,Shivajinagar,18.531188,73.844062,14,56
+P0882,33,F,110,94,70,92,10,25,-0.11,0.45,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Swargate,18.49475,73.860303,20,35
+P0883,74,M,90,112,76,97,15,16,-0.12,0.03,fracture_closed|severe_breathing_difficulty,orthopedic,minor_fracture,3,Kothrud,18.499795,73.803199,15,1
+P0884,69,M,101,109,65,92,14,18,-0.0,0.15,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Swargate,18.505718,73.856178,19,46
+P0885,70,F,104,109,60,97,13,27,-0.18,0.47,diabetic_emergency|loss_of_consciousness|spinal_injury,metabolic,diabetic_crisis,3,Hinjewadi,18.59307,73.734412,9,2
+P0886,81,F,116,172,116,90,9,24,-0.75,0.81,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Hinjewadi,18.585814,73.730599,18,50
+P0887,51,F,126,92,52,97,11,32,-0.17,0.27,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Shivajinagar,18.532633,73.845367,21,47
+P0888,67,M,111,111,73,94,14,27,0.1,-0.16,blunt_trauma_chest|fracture_open|chest_pain,trauma,moderate_trauma,3,Shivajinagar,18.52865,73.844741,15,46
+P0889,32,M,115,117,63,90,13,26,-0.0,0.09,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Baner,18.565817,73.789958,15,26
+P0890,79,F,105,105,60,84,13,30,-0.72,0.51,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,5,Swargate,18.495965,73.863171,1,23
+P0891,42,M,90,139,77,99,15,17,-0.09,-0.14,fracture_closed|diabetic_emergency,orthopedic,minor_fracture,2,Katraj,18.450547,73.862234,12,5
+P0892,60,M,119,87,53,89,12,38,0.07,0.29,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,3,Kothrud,18.501536,73.815439,12,43
+P0893,17,M,95,112,75,92,10,19,-0.26,0.22,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kharadi,18.557633,73.946353,20,31
+P0894,47,F,106,92,74,92,13,19,0.04,0.27,blunt_trauma_chest|fracture_open|spinal_injury,trauma,moderate_trauma,3,Hadapsar,18.501743,73.921581,10,25
+P0895,56,F,118,132,100,96,10,22,-0.24,-0.14,seizure|loss_of_consciousness,neurological,seizure_episode,3,Deccan,18.51846,73.836369,14,45
+P0896,64,M,93,94,58,93,13,20,-0.04,0.46,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Magarpatta,18.509828,73.926706,13,59
+P0897,28,F,108,99,61,93,12,23,-0.25,1.32,blunt_trauma_chest|fracture_open|shortness_of_breath,trauma,moderate_trauma,4,Aundh,18.552985,73.807662,17,25
+P0898,40,M,105,147,87,95,15,20,-0.63,0.99,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Wanowrie,18.494008,73.890353,3,8
+P0899,70,F,107,96,63,92,14,20,-0.22,-0.1,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Pimpri,18.625295,73.794574,19,32
+P0900,54,M,122,127,86,94,12,27,0.1,0.12,seizure|loss_of_consciousness,neurological,seizure_episode,3,Kothrud,18.506679,73.811206,16,34
+P0901,44,F,111,73,48,88,3,39,-0.59,1.05,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Wakad,18.605269,73.769357,9,16
+P0902,40,M,114,91,58,86,15,26,-0.43,1.37,chest_pain_radiating_left_arm|shortness_of_breath|severe_bleeding,cardiac,STEMI,5,Koregaon Park,18.53508,73.900538,19,17
+P0903,51,M,90,106,75,95,15,16,-0.17,0.18,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Hadapsar,18.507484,73.93281,12,46
+P0904,51,M,107,165,111,91,9,16,-0.5,1.15,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Viman Nagar,18.570419,73.917049,13,57
+P0905,34,M,118,109,72,86,14,30,-0.14,1.45,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Koregaon Park,18.543457,73.886256,19,48
+P0906,67,M,28,21,7,66,5,7,-0.67,1.43,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Hinjewadi,18.5889,73.731472,8,51
+P0907,31,M,149,95,42,83,13,26,-0.56,0.71,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Kharadi,18.552659,73.946795,17,1
+P0908,30,F,63,105,61,94,9,16,-0.16,0.84,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Hinjewadi,18.598818,73.741914,20,59
+P0909,20,F,72,90,65,93,9,14,-0.2,0.31,spinal_injury|blunt_trauma_head|vomiting_blood,trauma,spinal_injury,4,Pimpri,18.630279,73.799549,20,20
+P0910,46,F,94,126,82,95,15,17,-0.01,-0.16,fracture_closed|chest_pain_radiating_left_arm,orthopedic,minor_fracture,2,Katraj,18.451937,73.865593,13,2
+P0911,39,F,118,82,38,84,4,32,-0.78,0.57,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Pimpri,18.621102,73.797834,10,1
+P0912,51,F,85,215,98,96,10,25,-0.74,0.26,sudden_weakness_one_side|slurred_speech|stroke_symptoms|seizure,neurological,acute_stroke,5,Katraj,18.462215,73.859922,9,51
+P0913,53,F,158,77,54,86,3,33,-0.61,0.27,blunt_trauma_head|severe_bleeding|loss_of_consciousness|fracture_open,trauma,severe_trauma,5,Kothrud,18.50439,73.813747,6,21
+P0914,63,F,137,70,43,89,12,29,-0.68,1.04,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Magarpatta,18.521035,73.93332,9,21
+P0915,31,M,117,93,75,96,12,25,-0.01,0.39,blunt_trauma_chest|fracture_open|drowning,trauma,moderate_trauma,3,Swargate,18.493585,73.863968,10,50
+P0916,73,F,100,103,87,91,15,21,-0.2,0.36,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Magarpatta,18.512585,73.928253,10,39
+P0917,48,M,116,100,67,93,14,22,-0.77,0.29,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Wakad,18.592619,73.756643,23,47
+P0918,75,M,113,107,58,84,10,34,-0.25,0.06,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,3,Katraj,18.451301,73.85931,18,50
+P0919,42,M,119,118,71,94,11,30,-0.3,0.12,diabetic_emergency|loss_of_consciousness|blunt_trauma_abdomen,metabolic,diabetic_crisis,3,Wakad,18.598339,73.771186,13,16
+P0920,66,M,103,93,54,90,14,25,-0.75,0.79,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Viman Nagar,18.566718,73.90652,19,33
+P0921,42,F,124,74,36,89,5,39,-0.11,0.92,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.551274,73.782551,14,14
+P0922,59,M,99,117,78,93,12,22,-0.26,0.43,seizure|loss_of_consciousness|drowning,neurological,seizure_episode,3,Deccan,18.519742,73.833325,16,56
+P0923,29,F,125,84,51,86,7,40,-0.8,0.45,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,4,Katraj,18.460296,73.869315,13,21
+P0924,72,M,19,46,27,58,5,4,-0.66,0.52,cardiac_arrest|loss_of_consciousness,cardiac,cardiac_arrest,5,Yerawada,18.559043,73.88471,12,39
+P0925,54,F,121,81,55,85,14,29,-0.66,0.74,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,4,Hadapsar,18.502843,73.920192,13,2
+P0926,38,M,99,91,71,96,11,31,0.1,0.25,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Hadapsar,18.494386,73.918187,16,7
+P0927,25,F,118,96,57,95,13,17,0.0,0.31,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Wakad,18.591207,73.767024,15,42
+P0928,25,M,105,116,61,96,14,17,-0.02,-0.18,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Swargate,18.504642,73.870554,19,35
+P0929,51,M,140,88,40,92,14,25,-0.34,0.49,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.558236,73.935162,10,3
+P0930,78,F,7,46,13,61,5,4,-0.68,1.3,cardiac_arrest|loss_of_consciousness|shortness_of_breath,cardiac,cardiac_arrest,5,Viman Nagar,18.56748,73.906422,12,34
+P0931,66,M,90,148,70,91,14,20,-0.43,1.37,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Viman Nagar,18.564158,73.914624,16,43
+P0932,56,M,120,119,73,92,15,20,-0.21,0.31,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Yerawada,18.563387,73.886121,11,38
+P0933,47,M,60,86,57,92,11,22,-0.08,0.08,spinal_injury|blunt_trauma_head,trauma,spinal_injury,3,Kothrud,18.503076,73.810904,22,7
+P0934,23,M,98,113,86,90,12,21,-0.16,0.18,seizure|loss_of_consciousness,neurological,seizure_episode,3,Yerawada,18.558699,73.880187,15,5
+P0935,49,M,131,77,34,80,3,37,-0.36,0.3,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hinjewadi,18.591487,73.739997,5,46
+P0936,19,M,74,85,66,92,14,19,-0.27,1.25,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Koregaon Park,18.542006,73.896769,6,10
+P0937,68,F,92,112,61,93,12,25,-0.03,0.36,blunt_trauma_chest|fracture_open|allergic_reaction_severe,trauma,moderate_trauma,3,Yerawada,18.550413,73.881396,11,24
+P0938,52,M,99,114,64,92,13,19,-0.23,0.33,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Wanowrie,18.484595,73.893356,19,9
+P0939,50,F,115,91,65,93,15,18,-0.07,0.05,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Koregaon Park,18.538793,73.899373,12,40
+P0940,44,M,106,94,67,93,12,21,0.01,0.06,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Katraj,18.453913,73.857784,10,10
+P0941,53,M,145,71,60,89,12,28,-0.36,1.03,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kondhwa,18.46436,73.886681,23,49
+P0942,37,M,119,106,60,94,13,16,-0.0,-0.02,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Shivajinagar,18.536758,73.838588,16,33
+P0943,22,F,121,87,55,89,13,32,-0.31,1.0,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Hinjewadi,18.589595,73.733876,18,9
+P0944,44,F,120,76,48,88,8,33,-0.73,1.45,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Baner,18.556892,73.790404,15,13
+P0945,28,F,139,87,31,84,5,36,-0.3,0.68,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Deccan,18.52166,73.833677,13,14
+P0946,23,F,95,99,61,96,12,28,-0.1,0.44,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Shivajinagar,18.537209,73.844808,22,33
+P0947,51,M,83,83,56,91,12,22,-0.56,0.58,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Baner,18.558451,73.792108,4,44
+P0948,37,M,108,125,76,91,9,30,-0.24,-0.13,seizure|loss_of_consciousness,neurological,seizure_episode,3,Katraj,18.462136,73.858955,18,51
+P0949,43,M,138,84,56,89,12,30,-0.77,0.73,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kharadi,18.552881,73.934155,17,14
+P0950,60,F,104,100,42,91,15,34,-0.67,1.27,chest_pain_radiating_left_arm|shortness_of_breath|burns_minor,cardiac,STEMI,5,Kondhwa,18.468525,73.889392,0,58
+P0951,65,M,96,91,60,98,11,21,-0.1,0.31,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Koregaon Park,18.53211,73.891237,14,44
+P0952,58,M,94,113,88,98,15,18,-0.02,0.41,fracture_closed,orthopedic,minor_fracture,2,Pimpri,18.622043,73.793827,10,4
+P0953,29,F,126,128,73,96,10,21,0.03,-0.09,seizure|loss_of_consciousness,neurological,seizure_episode,3,Koregaon Park,18.537585,73.897304,13,10
+P0954,62,F,118,192,99,89,7,23,-0.42,1.42,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Kothrud,18.510527,73.813416,10,33
+P0955,65,F,123,90,40,87,13,29,-0.25,0.22,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Kothrud,18.507709,73.801236,19,27
+P0956,64,F,112,97,41,90,13,27,-0.65,1.44,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,4,Aundh,18.552464,73.80699,11,47
+P0957,50,M,68,108,55,93,8,20,-0.11,1.28,spinal_injury|blunt_trauma_head,trauma,spinal_injury,5,Swargate,18.505709,73.865906,7,13
+P0958,51,F,112,63,37,82,7,24,-0.43,0.73,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Wakad,18.59813,73.766674,16,57
+P0959,68,F,103,199,97,88,6,26,-0.6,0.95,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,4,Camp,18.510892,73.881031,18,51
+P0960,68,F,112,104,63,97,13,22,-0.06,0.22,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Aundh,18.563913,73.810208,20,41
+P0961,60,F,139,72,56,86,13,32,-0.26,1.35,allergic_reaction_severe|severe_breathing_difficulty,general,allergic_anaphylaxis,4,Magarpatta,18.509971,73.924286,6,1
+P0962,29,M,115,117,61,91,13,19,-0.05,-0.18,blunt_trauma_chest|fracture_open|headache_severe,trauma,moderate_trauma,3,Swargate,18.499967,73.864558,22,26
+P0963,19,F,94,102,75,90,15,24,0.06,0.26,blunt_trauma_chest|fracture_open|slurred_speech,trauma,moderate_trauma,3,Wakad,18.59882,73.759526,18,38
+P0964,42,F,106,94,72,93,14,16,-0.02,0.08,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,2,Magarpatta,18.51576,73.924461,16,54
+P0965,23,F,77,101,49,94,13,18,-0.5,1.07,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Hinjewadi,18.597975,73.733466,16,51
+P0966,36,M,99,159,76,96,10,27,0.04,-0.01,seizure|loss_of_consciousness|slurred_speech,neurological,seizure_episode,3,Aundh,18.558663,73.80355,19,19
+P0967,20,F,117,90,60,96,13,16,-0.15,-0.06,abdominal_pain_severe|vomiting_blood,general,abdominal_emergency,3,Aundh,18.551002,73.800582,20,48
+P0968,44,F,112,96,59,87,12,22,-0.58,0.79,chest_pain_radiating_left_arm|shortness_of_breath,cardiac,STEMI,5,Shivajinagar,18.524682,73.846678,5,47
+P0969,46,F,87,100,61,91,14,23,-0.49,0.57,spinal_injury|blunt_trauma_head,trauma,spinal_injury,5,Wakad,18.6007,73.760322,21,28
+P0970,53,M,108,216,98,94,12,22,-0.15,1.4,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Hinjewadi,18.595134,73.737874,17,30
+P0971,64,F,99,101,50,95,12,30,-0.16,0.45,diabetic_emergency|loss_of_consciousness|slurred_speech,metabolic,diabetic_crisis,3,Bibwewadi,18.473714,73.869996,22,20
+P0972,45,M,105,166,119,96,6,23,-0.72,1.18,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Viman Nagar,18.570749,73.907558,8,24
+P0973,79,F,112,202,110,90,9,23,-0.39,1.14,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Bibwewadi,18.471189,73.865686,10,16
+P0974,63,M,117,180,93,90,12,22,-0.22,0.72,sudden_weakness_one_side|slurred_speech|stroke_symptoms,neurological,acute_stroke,5,Deccan,18.523719,73.836784,8,16
+P0975,50,M,119,94,69,95,15,28,-0.08,0.24,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,2,Hinjewadi,18.597251,73.744308,16,52
+P0976,64,F,136,65,48,86,5,39,-0.44,0.91,blunt_trauma_head|severe_bleeding|loss_of_consciousness|fracture_closed,trauma,severe_trauma,5,Wakad,18.604496,73.76463,21,54
+P0977,58,M,121,86,60,93,12,32,-0.12,0.29,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Kondhwa,18.468507,73.887859,18,7
+P0978,63,M,116,115,85,94,14,18,0.1,0.28,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,3,Viman Nagar,18.563483,73.911889,18,5
+P0979,58,F,90,159,80,96,11,19,-0.24,0.2,seizure|loss_of_consciousness,neurological,seizure_episode,3,Hinjewadi,18.591565,73.742321,8,36
+P0980,47,M,97,120,68,96,14,30,0.06,-0.17,diabetic_emergency|loss_of_consciousness,metabolic,diabetic_crisis,3,Deccan,18.520334,73.846889,22,8
+P0981,57,F,102,128,77,86,11,45,-0.44,1.02,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Baner,18.55577,73.78849,20,39
+P0982,63,M,108,132,84,96,12,25,-0.14,-0.06,seizure|loss_of_consciousness,neurological,seizure_episode,3,Pimpri,18.634678,73.796664,16,28
+P0983,22,M,81,85,45,95,10,20,-0.2,0.95,spinal_injury|blunt_trauma_head,trauma,spinal_injury,4,Bibwewadi,18.477918,73.863515,12,9
+P0984,73,M,116,145,69,96,14,23,-0.32,1.23,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Kondhwa,18.462092,73.88939,13,11
+P0985,54,F,117,91,76,88,12,40,-0.26,0.65,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Koregaon Park,18.538968,73.887887,21,11
+P0986,42,M,116,101,71,81,13,40,-0.43,0.95,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Deccan,18.510771,73.836946,22,43
+P0987,39,F,135,86,37,81,7,27,-0.46,1.39,blunt_trauma_head|severe_bleeding|loss_of_consciousness|shortness_of_breath,trauma,severe_trauma,5,Katraj,18.450986,73.869184,18,59
+P0988,74,M,110,126,60,81,14,35,-0.41,0.71,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Pimpri,18.621536,73.806667,22,6
+P0989,31,F,131,123,63,81,14,38,-0.36,1.34,severe_breathing_difficulty|shortness_of_breath,respiratory,respiratory_failure,4,Deccan,18.520998,73.836587,8,40
+P0990,30,M,116,108,57,93,14,23,-0.14,-0.14,abdominal_pain_severe|vomiting_blood|cardiac_arrest,general,abdominal_emergency,3,Wakad,18.594806,73.756603,20,13
+P0991,64,M,116,70,40,81,3,30,-0.24,0.78,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Swargate,18.501114,73.869134,15,15
+P0992,36,M,111,90,49,82,4,27,-0.43,0.93,blunt_trauma_head|severe_bleeding|loss_of_consciousness|blunt_trauma_abdomen,trauma,severe_trauma,5,Aundh,18.559852,73.814868,7,37
+P0993,26,M,116,94,70,90,14,23,0.02,0.37,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Pimpri,18.626335,73.807143,22,35
+P0994,68,F,88,120,92,93,15,26,-0.36,1.15,chest_pain|shortness_of_breath|sudden_weakness_one_side,cardiac,chest_pain_unstable_angina,5,Camp,18.510397,73.883853,18,34
+P0995,72,M,108,150,80,96,15,20,-0.78,1.41,chest_pain|shortness_of_breath,cardiac,chest_pain_unstable_angina,4,Hadapsar,18.509282,73.930999,13,21
+P0996,54,M,102,71,44,86,14,32,-0.46,0.88,chest_pain_radiating_left_arm|shortness_of_breath|loss_of_consciousness,cardiac,STEMI,4,Katraj,18.461896,73.858108,0,21
+P0997,33,F,117,145,93,90,13,19,-0.1,0.4,seizure|loss_of_consciousness|burns_minor,neurological,seizure_episode,3,Aundh,18.556173,73.809619,18,9
+P0998,48,F,109,112,64,97,14,27,-0.02,-0.08,diabetic_emergency|loss_of_consciousness|chest_pain,metabolic,diabetic_crisis,2,Pimpri,18.624507,73.808095,5,13
+P0999,30,M,116,93,59,91,12,20,-0.26,-0.03,blunt_trauma_chest|fracture_open,trauma,moderate_trauma,3,Deccan,18.517785,73.833944,18,56
+P1000,19,M,120,66,52,86,6,35,-0.46,0.62,blunt_trauma_head|severe_bleeding|loss_of_consciousness,trauma,severe_trauma,5,Hinjewadi,18.593843,73.732831,8,22

@@ -1,0 +1,105 @@
+{
+  "description": "Survival probability decay parameters per condition. Formula: survival_pct = base_survival * exp(-decay_rate * max(0, delay_minutes - grace_period_minutes))",
+  "conditions": {
+    "cardiac_arrest": {
+      "base_survival": 0.9,
+      "grace_period_minutes": 4,
+      "decay_rate": 0.1,
+      "critical_window_minutes": 10,
+      "notes": "Brain damage begins at 4 min without CPR. Survival drops ~10% per minute after."
+    },
+    "STEMI": {
+      "base_survival": 0.95,
+      "grace_period_minutes": 15,
+      "decay_rate": 0.025,
+      "critical_window_minutes": 90,
+      "notes": "Door-to-balloon target is 90 min. Every 30 min delay increases mortality by ~7.5%."
+    },
+    "acute_stroke": {
+      "base_survival": 0.92,
+      "grace_period_minutes": 30,
+      "decay_rate": 0.012,
+      "critical_window_minutes": 270,
+      "notes": "tPA window is 4.5 hours. 1.9 million neurons lost per minute without treatment."
+    },
+    "severe_trauma": {
+      "base_survival": 0.85,
+      "grace_period_minutes": 10,
+      "decay_rate": 0.035,
+      "critical_window_minutes": 60,
+      "notes": "Classic golden hour. Hemorrhagic shock is primary killer."
+    },
+    "respiratory_failure": {
+      "base_survival": 0.88,
+      "grace_period_minutes": 8,
+      "decay_rate": 0.05,
+      "critical_window_minutes": 30,
+      "notes": "Without ventilatory support, hypoxic damage accelerates rapidly."
+    },
+    "chest_pain_unstable_angina": {
+      "base_survival": 0.97,
+      "grace_period_minutes": 30,
+      "decay_rate": 0.008,
+      "critical_window_minutes": 180,
+      "notes": "Can progress to STEMI. Needs monitoring and cath lab access."
+    },
+    "moderate_trauma": {
+      "base_survival": 0.95,
+      "grace_period_minutes": 20,
+      "decay_rate": 0.015,
+      "critical_window_minutes": 120,
+      "notes": "Internal bleeding risk. CT scan needed to rule out organ damage."
+    },
+    "seizure_episode": {
+      "base_survival": 0.96,
+      "grace_period_minutes": 15,
+      "decay_rate": 0.01,
+      "critical_window_minutes": 60,
+      "notes": "Status epilepticus risk if prolonged. Need benzodiazepines and monitoring."
+    },
+    "allergic_anaphylaxis": {
+      "base_survival": 0.93,
+      "grace_period_minutes": 5,
+      "decay_rate": 0.06,
+      "critical_window_minutes": 30,
+      "notes": "Epinephrine needed within minutes. Airway compromise is main risk."
+    },
+    "spinal_injury": {
+      "base_survival": 0.9,
+      "grace_period_minutes": 15,
+      "decay_rate": 0.018,
+      "critical_window_minutes": 120,
+      "notes": "Immobilization critical. Secondary injury from swelling peaks at 2 hours."
+    },
+    "minor_fracture": {
+      "base_survival": 0.99,
+      "grace_period_minutes": 60,
+      "decay_rate": 0.002,
+      "critical_window_minutes": 360,
+      "notes": "Low urgency. Pain management primary concern."
+    },
+    "abdominal_emergency": {
+      "base_survival": 0.94,
+      "grace_period_minutes": 20,
+      "decay_rate": 0.012,
+      "critical_window_minutes": 120,
+      "notes": "Perforation or hemorrhage risk. Surgical intervention may be needed."
+    },
+    "diabetic_crisis": {
+      "base_survival": 0.95,
+      "grace_period_minutes": 20,
+      "decay_rate": 0.01,
+      "critical_window_minutes": 120,
+      "notes": "DKA or hypoglycemia. IV access and glucose/insulin management critical."
+    },
+    "drowning": {
+      "base_survival": 0.8,
+      "grace_period_minutes": 3,
+      "decay_rate": 0.12,
+      "critical_window_minutes": 10,
+      "notes": "Hypoxic brain injury begins within minutes. Aggressive airway management needed."
+    }
+  },
+  "formula": "survival_pct = base_survival * exp(-decay_rate * max(0, delay_minutes - grace_period_minutes))",
+  "example": "Cardiac arrest, 12 min delay: 0.90 * exp(-0.10 * max(0, 12-4)) = 0.90 * exp(-0.8) = 0.90 * 0.449 = 0.404 (40.4% survival)"
+}

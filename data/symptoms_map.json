@@ -1,0 +1,238 @@
+{
+  "symptoms": {
+    "chest_pain": {
+      "code": "SYM01",
+      "category": "cardiac",
+      "severity_weight": 0.85,
+      "requires_specialist": "cardiologist",
+      "requires_equipment": [
+        "cath_lab"
+      ]
+    },
+    "chest_pain_radiating_left_arm": {
+      "code": "SYM02",
+      "category": "cardiac",
+      "severity_weight": 0.95,
+      "requires_specialist": "cardiologist",
+      "requires_equipment": [
+        "cath_lab"
+      ]
+    },
+    "shortness_of_breath": {
+      "code": "SYM03",
+      "category": "respiratory",
+      "severity_weight": 0.7,
+      "requires_specialist": "pulmonologist",
+      "requires_equipment": [
+        "ventilator"
+      ]
+    },
+    "severe_breathing_difficulty": {
+      "code": "SYM04",
+      "category": "respiratory",
+      "severity_weight": 0.9,
+      "requires_specialist": "pulmonologist",
+      "requires_equipment": [
+        "ventilator"
+      ]
+    },
+    "headache_severe": {
+      "code": "SYM05",
+      "category": "neurological",
+      "severity_weight": 0.6,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan",
+        "mri"
+      ]
+    },
+    "sudden_weakness_one_side": {
+      "code": "SYM06",
+      "category": "neurological",
+      "severity_weight": 0.95,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan",
+        "mri"
+      ]
+    },
+    "slurred_speech": {
+      "code": "SYM07",
+      "category": "neurological",
+      "severity_weight": 0.9,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan"
+      ]
+    },
+    "loss_of_consciousness": {
+      "code": "SYM08",
+      "category": "neurological",
+      "severity_weight": 0.85,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan"
+      ]
+    },
+    "seizure": {
+      "code": "SYM09",
+      "category": "neurological",
+      "severity_weight": 0.88,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan"
+      ]
+    },
+    "blunt_trauma_head": {
+      "code": "SYM10",
+      "category": "trauma",
+      "severity_weight": 0.9,
+      "requires_specialist": "trauma_surgeon",
+      "requires_equipment": [
+        "ct_scan"
+      ]
+    },
+    "blunt_trauma_chest": {
+      "code": "SYM11",
+      "category": "trauma",
+      "severity_weight": 0.85,
+      "requires_specialist": "trauma_surgeon",
+      "requires_equipment": [
+        "ct_scan"
+      ]
+    },
+    "blunt_trauma_abdomen": {
+      "code": "SYM12",
+      "category": "trauma",
+      "severity_weight": 0.88,
+      "requires_specialist": "trauma_surgeon",
+      "requires_equipment": [
+        "ct_scan",
+        "blood_bank"
+      ]
+    },
+    "fracture_open": {
+      "code": "SYM13",
+      "category": "orthopedic",
+      "severity_weight": 0.75,
+      "requires_specialist": "orthopedic_surgeon",
+      "requires_equipment": []
+    },
+    "fracture_closed": {
+      "code": "SYM14",
+      "category": "orthopedic",
+      "severity_weight": 0.5,
+      "requires_specialist": "orthopedic_surgeon",
+      "requires_equipment": []
+    },
+    "severe_bleeding": {
+      "code": "SYM15",
+      "category": "trauma",
+      "severity_weight": 0.92,
+      "requires_specialist": "trauma_surgeon",
+      "requires_equipment": [
+        "blood_bank"
+      ]
+    },
+    "burns_major": {
+      "code": "SYM16",
+      "category": "trauma",
+      "severity_weight": 0.88,
+      "requires_specialist": "trauma_surgeon",
+      "requires_equipment": [
+        "icu"
+      ]
+    },
+    "burns_minor": {
+      "code": "SYM17",
+      "category": "trauma",
+      "severity_weight": 0.35,
+      "requires_specialist": "general_surgeon",
+      "requires_equipment": []
+    },
+    "abdominal_pain_severe": {
+      "code": "SYM18",
+      "category": "general",
+      "severity_weight": 0.55,
+      "requires_specialist": "general_surgeon",
+      "requires_equipment": []
+    },
+    "vomiting_blood": {
+      "code": "SYM19",
+      "category": "general",
+      "severity_weight": 0.8,
+      "requires_specialist": "general_surgeon",
+      "requires_equipment": [
+        "blood_bank"
+      ]
+    },
+    "diabetic_emergency": {
+      "code": "SYM20",
+      "category": "metabolic",
+      "severity_weight": 0.7,
+      "requires_specialist": "general_surgeon",
+      "requires_equipment": [
+        "icu"
+      ]
+    },
+    "allergic_reaction_severe": {
+      "code": "SYM21",
+      "category": "general",
+      "severity_weight": 0.82,
+      "requires_specialist": "pulmonologist",
+      "requires_equipment": [
+        "icu"
+      ]
+    },
+    "drowning": {
+      "code": "SYM22",
+      "category": "respiratory",
+      "severity_weight": 0.93,
+      "requires_specialist": "pulmonologist",
+      "requires_equipment": [
+        "ventilator",
+        "icu"
+      ]
+    },
+    "cardiac_arrest": {
+      "code": "SYM23",
+      "category": "cardiac",
+      "severity_weight": 1.0,
+      "requires_specialist": "cardiologist",
+      "requires_equipment": [
+        "cath_lab",
+        "icu",
+        "ventilator"
+      ]
+    },
+    "stroke_symptoms": {
+      "code": "SYM24",
+      "category": "neurological",
+      "severity_weight": 0.95,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "ct_scan",
+        "mri"
+      ]
+    },
+    "spinal_injury": {
+      "code": "SYM25",
+      "category": "trauma",
+      "severity_weight": 0.92,
+      "requires_specialist": "neurologist",
+      "requires_equipment": [
+        "mri",
+        "icu"
+      ]
+    }
+  },
+  "category_to_primary_specialist": {
+    "cardiac": "cardiologist",
+    "respiratory": "pulmonologist",
+    "neurological": "neurologist",
+    "trauma": "trauma_surgeon",
+    "orthopedic": "orthopedic_surgeon",
+    "general": "general_surgeon",
+    "metabolic": "general_surgeon"
+  }
+}

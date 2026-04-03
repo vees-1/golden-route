@@ -1,13 +1,11 @@
 import os
 import json
-import anthropic
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 
-_whisper = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-_claude = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))  # used for both Whisper + gpt-4o-mini
 
 _SYMPTOMS = [
     "chest_pain", "chest_pain_radiating_left_arm", "shortness_of_breath",
@@ -50,7 +48,7 @@ def transcribe_and_extract(audio_bytes: bytes, filename: str = "audio.webm") -> 
         tmp_path = f.name
 
     with open(tmp_path, "rb") as f:
-        transcription = _whisper.audio.transcriptions.create(
+        transcription = _client.audio.transcriptions.create(
             model="whisper-1",
             file=(filename, f, "audio/webm"),
         ).text
@@ -62,12 +60,13 @@ def transcribe_and_extract(audio_bytes: bytes, filename: str = "audio.webm") -> 
         transcription=transcription,
     )
 
-    response = _claude.messages.create(
-        model="claude-sonnet-4-6",
+    response = _client.chat.completions.create(
+        model="gpt-4o-mini",
         max_tokens=400,
         messages=[{"role": "user", "content": prompt}],
+        response_format={"type": "json_object"},
     )
 
-    extracted = json.loads(response.content[0].text)
+    extracted = json.loads(response.choices[0].message.content)
     extracted["transcription"] = transcription
     return extracted

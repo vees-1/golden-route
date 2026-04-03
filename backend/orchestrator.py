@@ -4,30 +4,27 @@ from routing import rank_hospitals
 from explainer import explain
 
 
-def run_pipeline(patient: dict) -> dict:
+def _core(patient: dict) -> tuple:
     severity = predict(patient)
     survival = compute_survival(severity, patient)
     routing = rank_hospitals(patient["lat"], patient["lng"], severity)
-
     optimal = routing["recommended"][0] if routing["recommended"] else None
     nearest_h = next((h for h in routing["recommended"] + routing["infeasible"]
                       if h["name"] == routing["nearest_hospital"]), None)
+    comparison = compare_routes(
+        survival["condition"],
+        optimal["est_travel_minutes"],
+        nearest_h["est_travel_minutes"],
+    ) if optimal and nearest_h else None
+    return severity, survival, routing, comparison
 
-    if optimal and nearest_h:
-        comparison = compare_routes(
-            survival["condition"],
-            optimal["est_travel_minutes"],
-            nearest_h["est_travel_minutes"],
-        )
-    else:
-        comparison = None
 
+def run_pipeline_fast(patient: dict) -> dict:
+    severity, survival, routing, comparison = _core(patient)
+    return {"severity": severity, "survival": survival, "routing": routing, "comparison": comparison, "explanation": None}
+
+
+def run_pipeline(patient: dict) -> dict:
+    severity, survival, routing, comparison = _core(patient)
     explanation = explain(patient, severity, survival, routing, comparison)
-
-    return {
-        "severity":   severity,
-        "survival":   survival,
-        "routing":    routing,
-        "comparison": comparison,
-        "explanation": explanation,
-    }
+    return {"severity": severity, "survival": survival, "routing": routing, "comparison": comparison, "explanation": explanation}

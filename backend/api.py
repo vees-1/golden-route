@@ -7,7 +7,9 @@ from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
+from concurrent.futures import ThreadPoolExecutor
 from orchestrator import run_pipeline
+from orchestrator import run_pipeline_fast
 from voice import transcribe_and_extract
 
 app = FastAPI(title="GoldenRoute API")
@@ -75,15 +77,18 @@ class MasscasualtyEvent(BaseModel):
 @app.post("/mass-casualty")
 def mass_casualty(event: MasscasualtyEvent):
     try:
-        results = []
-        for p in event.patients:
+        def process(p):
             patient_dict = p.model_dump()
             patient_dict["lat"] = event.location.lat
             patient_dict["lng"] = event.location.lng
             patient_dict["symptoms"] = "|".join(p.symptoms)
-            result = run_pipeline(patient_dict)
+            result = run_pipeline_fast(patient_dict)  # no Claude explanation in batch
             result["patient_id"] = p.patient_id
-            results.append(result)
+            return result
+
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            results = list(ex.map(process, event.patients))
+
         return {"event_id": event.event_id, "title": event.title, "results": results}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

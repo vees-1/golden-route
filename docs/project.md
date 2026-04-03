@@ -6,12 +6,10 @@ Route ambulances to the optimal hospital, not the nearest one.
 
 ## Stack
 
-| Layer | Tools |
-|-------|-------|
-| ML | XGBoost, scikit-learn |
-| Routing | Constraint-based optimizer, Haversine |
-| LLM | Anthropic Claude API |
-| UI | Streamlit, Folium, Plotly |
+- ML — XGBoost, scikit-learn
+- Routing — Constraint-based optimizer, Haversine
+- LLM — Anthropic Claude API
+- UI — Streamlit, Folium, Plotly
 
 ---
 

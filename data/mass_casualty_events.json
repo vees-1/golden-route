@@ -1,142 +1,77 @@
 {
-  "events": [
+  "event_id": "MCE_01",
+  "title": "Pune-Mumbai Expressway Pileup",
+  "description": "Multi-vehicle collision near Lonavala exit. 8 patients extracted by NDRF.",
+  "timestamp": "2026-04-03T21:45:00+05:30",
+  "location": {
+    "name": "Pune-Mumbai Expressway, near Dehu Road exit",
+    "lat": 18.671,
+    "lng": 73.752
+  },
+  "patients": [
     {
-      "event_id": "MCE_01",
-      "title": "Pune-Mumbai Expressway Pileup",
-      "description": "Multi-vehicle collision near Lonavala exit. 8 patients extracted by NDRF.",
-      "timestamp": "2026-04-03T21:45:00+05:30",
-      "location": {
-        "name": "Pune-Mumbai Expressway, near Dehu Road exit",
-        "lat": 18.671,
-        "lng": 73.752
-      },
-      "patients": [
-        {
-          "patient_id": "MCE01_P1",
-          "age": 42, "gender": "M",
-          "heart_rate": 138, "bp_systolic": 72, "bp_diastolic": 38,
-          "spo2": 79, "gcs": 5, "respiratory_rate": 38,
-          "spo2_trend_per_min": -0.7, "hr_trend_per_min": 1.3,
-          "symptoms": ["blunt_trauma_head", "blunt_trauma_chest", "severe_bleeding", "loss_of_consciousness"]
-        },
-        {
-          "patient_id": "MCE01_P2",
-          "age": 35, "gender": "F",
-          "heart_rate": 125, "bp_systolic": 82, "bp_diastolic": 48,
-          "spo2": 83, "gcs": 8, "respiratory_rate": 32,
-          "spo2_trend_per_min": -0.5, "hr_trend_per_min": 0.9,
-          "symptoms": ["blunt_trauma_abdomen", "severe_bleeding"]
-        },
-        {
-          "patient_id": "MCE01_P3",
-          "age": 28, "gender": "M",
-          "heart_rate": 110, "bp_systolic": 95, "bp_diastolic": 60,
-          "spo2": 88, "gcs": 11, "respiratory_rate": 28,
-          "spo2_trend_per_min": -0.3, "hr_trend_per_min": 0.5,
-          "symptoms": ["blunt_trauma_chest", "shortness_of_breath"]
-        },
-        {
-          "patient_id": "MCE01_P4",
-          "age": 55, "gender": "M",
-          "heart_rate": 125, "bp_systolic": 78, "bp_diastolic": 45,
-          "spo2": 85, "gcs": 6, "respiratory_rate": 35,
-          "spo2_trend_per_min": -0.6, "hr_trend_per_min": 1.1,
-          "symptoms": ["spinal_injury", "blunt_trauma_head", "loss_of_consciousness"]
-        },
-        {
-          "patient_id": "MCE01_P5",
-          "age": 19, "gender": "F",
-          "heart_rate": 105, "bp_systolic": 100, "bp_diastolic": 65,
-          "spo2": 93, "gcs": 13, "respiratory_rate": 22,
-          "spo2_trend_per_min": -0.15, "hr_trend_per_min": 0.3,
-          "symptoms": ["fracture_open", "blunt_trauma_chest"]
-        },
-        {
-          "patient_id": "MCE01_P6",
-          "age": 67, "gender": "M",
-          "heart_rate": 140, "bp_systolic": 80, "bp_diastolic": 42,
-          "spo2": 81, "gcs": 9, "respiratory_rate": 30,
-          "spo2_trend_per_min": -0.5, "hr_trend_per_min": 0.8,
-          "symptoms": ["chest_pain_radiating_left_arm", "shortness_of_breath", "blunt_trauma_chest"]
-        },
-        {
-          "patient_id": "MCE01_P7",
-          "age": 31, "gender": "M",
-          "heart_rate": 92, "bp_systolic": 118, "bp_diastolic": 75,
-          "spo2": 96, "gcs": 15, "respiratory_rate": 18,
-          "spo2_trend_per_min": -0.05, "hr_trend_per_min": 0.1,
-          "symptoms": ["fracture_closed"]
-        },
-        {
-          "patient_id": "MCE01_P8",
-          "age": 45, "gender": "F",
-          "heart_rate": 98, "bp_systolic": 108, "bp_diastolic": 68,
-          "spo2": 94, "gcs": 14, "respiratory_rate": 20,
-          "spo2_trend_per_min": -0.1, "hr_trend_per_min": 0.2,
-          "symptoms": ["fracture_open", "abdominal_pain_severe"]
-        }
-      ]
+      "patient_id": "MCE01_P1",
+      "age": 42, "gender": "M",
+      "heart_rate": 138, "bp_systolic": 72, "bp_diastolic": 38,
+      "spo2": 79, "gcs": 5, "respiratory_rate": 38,
+      "spo2_trend_per_min": -0.7, "hr_trend_per_min": 1.3,
+      "symptoms": ["blunt_trauma_head", "blunt_trauma_chest", "severe_bleeding", "loss_of_consciousness"]
     },
     {
-      "event_id": "MCE_02",
-      "title": "Magarpatta IT Park — Gas Leak",
-      "description": "Chemical gas leak in a server room. 6 employees affected, primarily respiratory distress.",
-      "timestamp": "2026-04-03T11:30:00+05:30",
-      "location": {
-        "name": "Magarpatta City, Hadapsar",
-        "lat": 18.514,
-        "lng": 73.927
-      },
-      "patients": [
-        {
-          "patient_id": "MCE02_P1",
-          "age": 29, "gender": "M",
-          "heart_rate": 130, "bp_systolic": 88, "bp_diastolic": 50,
-          "spo2": 74, "gcs": 6, "respiratory_rate": 40,
-          "spo2_trend_per_min": -0.8, "hr_trend_per_min": 1.0,
-          "symptoms": ["severe_breathing_difficulty", "loss_of_consciousness"]
-        },
-        {
-          "patient_id": "MCE02_P2",
-          "age": 34, "gender": "F",
-          "heart_rate": 120, "bp_systolic": 92, "bp_diastolic": 55,
-          "spo2": 78, "gcs": 8, "respiratory_rate": 36,
-          "spo2_trend_per_min": -0.6, "hr_trend_per_min": 0.7,
-          "symptoms": ["severe_breathing_difficulty", "loss_of_consciousness"]
-        },
-        {
-          "patient_id": "MCE02_P3",
-          "age": 26, "gender": "M",
-          "heart_rate": 108, "bp_systolic": 105, "bp_diastolic": 68,
-          "spo2": 86, "gcs": 13, "respiratory_rate": 30,
-          "spo2_trend_per_min": -0.3, "hr_trend_per_min": 0.4,
-          "symptoms": ["severe_breathing_difficulty", "shortness_of_breath"]
-        },
-        {
-          "patient_id": "MCE02_P4",
-          "age": 31, "gender": "F",
-          "heart_rate": 102, "bp_systolic": 110, "bp_diastolic": 70,
-          "spo2": 88, "gcs": 14, "respiratory_rate": 26,
-          "spo2_trend_per_min": -0.2, "hr_trend_per_min": 0.3,
-          "symptoms": ["shortness_of_breath", "headache_severe"]
-        },
-        {
-          "patient_id": "MCE02_P5",
-          "age": 38, "gender": "M",
-          "heart_rate": 95, "bp_systolic": 115, "bp_diastolic": 72,
-          "spo2": 91, "gcs": 15, "respiratory_rate": 22,
-          "spo2_trend_per_min": -0.1, "hr_trend_per_min": 0.2,
-          "symptoms": ["shortness_of_breath"]
-        },
-        {
-          "patient_id": "MCE02_P6",
-          "age": 24, "gender": "F",
-          "heart_rate": 88, "bp_systolic": 120, "bp_diastolic": 78,
-          "spo2": 94, "gcs": 15, "respiratory_rate": 20,
-          "spo2_trend_per_min": -0.05, "hr_trend_per_min": 0.1,
-          "symptoms": ["shortness_of_breath"]
-        }
-      ]
+      "patient_id": "MCE01_P2",
+      "age": 35, "gender": "F",
+      "heart_rate": 125, "bp_systolic": 82, "bp_diastolic": 48,
+      "spo2": 83, "gcs": 8, "respiratory_rate": 32,
+      "spo2_trend_per_min": -0.5, "hr_trend_per_min": 0.9,
+      "symptoms": ["blunt_trauma_abdomen", "severe_bleeding"]
+    },
+    {
+      "patient_id": "MCE01_P3",
+      "age": 28, "gender": "M",
+      "heart_rate": 110, "bp_systolic": 95, "bp_diastolic": 60,
+      "spo2": 88, "gcs": 11, "respiratory_rate": 28,
+      "spo2_trend_per_min": -0.3, "hr_trend_per_min": 0.5,
+      "symptoms": ["blunt_trauma_chest", "shortness_of_breath"]
+    },
+    {
+      "patient_id": "MCE01_P4",
+      "age": 55, "gender": "M",
+      "heart_rate": 125, "bp_systolic": 78, "bp_diastolic": 45,
+      "spo2": 85, "gcs": 6, "respiratory_rate": 35,
+      "spo2_trend_per_min": -0.6, "hr_trend_per_min": 1.1,
+      "symptoms": ["spinal_injury", "blunt_trauma_head", "loss_of_consciousness"]
+    },
+    {
+      "patient_id": "MCE01_P5",
+      "age": 19, "gender": "F",
+      "heart_rate": 105, "bp_systolic": 100, "bp_diastolic": 65,
+      "spo2": 93, "gcs": 13, "respiratory_rate": 22,
+      "spo2_trend_per_min": -0.15, "hr_trend_per_min": 0.3,
+      "symptoms": ["fracture_open", "blunt_trauma_chest"]
+    },
+    {
+      "patient_id": "MCE01_P6",
+      "age": 67, "gender": "M",
+      "heart_rate": 140, "bp_systolic": 80, "bp_diastolic": 42,
+      "spo2": 81, "gcs": 9, "respiratory_rate": 30,
+      "spo2_trend_per_min": -0.5, "hr_trend_per_min": 0.8,
+      "symptoms": ["chest_pain_radiating_left_arm", "shortness_of_breath", "blunt_trauma_chest"]
+    },
+    {
+      "patient_id": "MCE01_P7",
+      "age": 31, "gender": "M",
+      "heart_rate": 92, "bp_systolic": 118, "bp_diastolic": 75,
+      "spo2": 96, "gcs": 15, "respiratory_rate": 18,
+      "spo2_trend_per_min": -0.05, "hr_trend_per_min": 0.1,
+      "symptoms": ["fracture_closed"]
+    },
+    {
+      "patient_id": "MCE01_P8",
+      "age": 45, "gender": "F",
+      "heart_rate": 98, "bp_systolic": 108, "bp_diastolic": 68,
+      "spo2": 94, "gcs": 14, "respiratory_rate": 20,
+      "spo2_trend_per_min": -0.1, "hr_trend_per_min": 0.2,
+      "symptoms": ["fracture_open", "abdominal_pain_severe"]
     }
   ]
 }

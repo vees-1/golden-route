@@ -6,4 +6,5 @@ joblib
 fastapi
 uvicorn
 anthropic
+openai
 python-dotenv

@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Cardiac Arrest — Shivajinagar",
+    "lat": 18.5204, "lng": 73.8567,
+    "age": 58, "heart_rate": 130, "bp_systolic": 78, "bp_diastolic": 42,
+    "spo2": 82, "gcs": 6, "respiratory_rate": 36,
+    "spo2_trend_per_min": -0.8, "hr_trend_per_min": 1.5,
+    "symptoms": "cardiac_arrest|chest_pain_radiating_left_arm|loss_of_consciousness"
+  },
+  {
+    "label": "Acute Stroke — Baner",
+    "lat": 18.5590, "lng": 73.7868,
+    "age": 65, "heart_rate": 95, "bp_systolic": 188, "bp_diastolic": 112,
+    "spo2": 95, "gcs": 11, "respiratory_rate": 18,
+    "spo2_trend_per_min": -0.1, "hr_trend_per_min": 0.3,
+    "symptoms": "stroke_symptoms|sudden_weakness_one_side|slurred_speech"
+  },
+  {
+    "label": "Severe Trauma — Hadapsar",
+    "lat": 18.5018, "lng": 73.9260,
+    "age": 34, "heart_rate": 118, "bp_systolic": 88, "bp_diastolic": 55,
+    "spo2": 90, "gcs": 10, "respiratory_rate": 28,
+    "spo2_trend_per_min": -0.4, "hr_trend_per_min": 0.8,
+    "symptoms": "blunt_trauma_chest|severe_bleeding|fracture_open"
+  },
+  {
+    "label": "Respiratory Failure — Wakad",
+    "lat": 18.5985, "lng": 73.7640,
+    "age": 47, "heart_rate": 122, "bp_systolic": 92, "bp_diastolic": 58,
+    "spo2": 76, "gcs": 12, "respiratory_rate": 38,
+    "spo2_trend_per_min": -0.9, "hr_trend_per_min": 1.1,
+    "symptoms": "severe_breathing_difficulty|shortness_of_breath"
+  },
+  {
+    "label": "Anaphylaxis — Kothrud",
+    "lat": 18.5074, "lng": 73.8077,
+    "age": 22, "heart_rate": 135, "bp_systolic": 72, "bp_diastolic": 40,
+    "spo2": 88, "gcs": 13, "respiratory_rate": 32,
+    "spo2_trend_per_min": -0.6, "hr_trend_per_min": 1.3,
+    "symptoms": "allergic_reaction_severe|shortness_of_breath"
+  }
+]

@@ -47,7 +47,7 @@ export default function RoadClosureAlert({ currentPatientPayload, currentHospita
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <AlertTriangle size={14} style={{ color: '#FF9500' }} />
-          <p className="label" style={{ marginBottom: 0 }}>Road Closure Simulation <span className="ml-1 text-xs font-normal" style={{ color: '#86868B' }}>Twist 2</span></p>
+          <p className="label" style={{ marginBottom: 0 }}>Road Closure Simulation</p>
         </div>
       </div>
 

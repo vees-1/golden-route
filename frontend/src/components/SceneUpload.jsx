@@ -37,7 +37,7 @@ export default function SceneUpload({ onSceneAnalyzed }) {
 
   return (
     <div className="mb-4">
-      <p className="label mb-2">Scene Photo <span className="ml-1 text-xs font-normal" style={{ color: '#86868B' }}>Twist 1</span></p>
+      <p className="label mb-2">Scene Photo</p>
 
       {/* Upload area */}
       <div

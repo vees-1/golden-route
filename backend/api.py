@@ -18,7 +18,7 @@ app = FastAPI(title="GoldenRoute API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite dev server
+    allow_origins=["http://localhost:5173", "http://localhost:8000", "http://127.0.0.1:8000"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -177,6 +177,78 @@ class EthicalTriagePatient(BaseModel):
     spo2_trend_per_min: float = 0.0
     hr_trend_per_min: float = 0.0
     symptoms: List[str] = []
+
+
+class TriageFromResultsPatient(BaseModel):
+    patient_id: str
+    triage_tag: str = "RED"
+    severity_label: str = "Critical"
+    needs_icu: bool = True
+    needs_ventilator: bool = False
+    optimal_survival_pct: float = 0.0
+    nearest_survival_pct: float = 0.0
+    hospital_name: str = "—"
+    eta: float = 0.0
+    icu_available: int = 0
+
+
+class TriageFromResultsRequest(BaseModel):
+    patients: List[TriageFromResultsPatient]
+    icu_beds: int = 2
+
+
+@app.post("/ethical-triage-from-results")
+def ethical_triage_from_results(req: TriageFromResultsRequest):
+    import os
+    from anthropic import Anthropic
+    try:
+        ranked = sorted(req.patients, key=lambda p: p.optimal_survival_pct, reverse=True)
+        allocated = [p.patient_id for p in ranked[:req.icu_beds]]
+        deferred  = [p.patient_id for p in ranked[req.icu_beds:]]
+
+        lines = [
+            f"RESOURCE CONSTRAINTS: {req.icu_beds} ICU bed(s) available.",
+            f"PATIENTS ({len(ranked)} total, ranked by survival probability — highest gets the bed):\n"
+        ]
+        for p in ranked:
+            alloc = "ALLOCATED" if p.patient_id in allocated else "DEFERRED"
+            lines.append(
+                f"- {p.patient_id} [{alloc}]: Triage={p.triage_tag}, {p.severity_label}, "
+                f"SurvivalWithICU={p.optimal_survival_pct:.1f}%, SurvivalWithoutICU≈{max(p.nearest_survival_pct-15, 5):.1f}%, "
+                f"NeedsVent={p.needs_ventilator}, Hospital={p.hospital_name}, ETA={p.eta:.0f}min"
+            )
+
+        system = """You are an AI Ethical Triage Advisor. Apply utilitarian bioethics: allocate scarce ICU beds to maximize total lives saved — prioritizing highest survival probability.
+
+Structure your response exactly as:
+
+## Ethical Framework Applied
+One sentence naming the framework and why it applies.
+
+## Allocation Decisions
+One bullet per patient (allocated first, then deferred):
+- **[ID] — [ALLOCATED / DEFERRED]** (Survival: X%) — One sentence. For ALLOCATED: why their profile warrants the bed. For DEFERRED: their odds without ICU and any alternative care.
+
+## Ethical Cost Acknowledged
+2-3 sentences: the moral weight of denial. Do not minimize it.
+
+## Recommendation
+One sentence: what clinical staff should do next.
+
+Be direct and clinical. Use real patient IDs and exact percentages."""
+
+        client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        resp = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=900,
+            system=system,
+            messages=[{"role": "user", "content": "\n".join(lines) + "\n\nProvide the ethical triage briefing."}],
+        )
+
+        ranked_out = [p.model_dump() for p in ranked]
+        return {"ranked": ranked_out, "allocated": allocated, "deferred": deferred, "reasoning": resp.content[0].text}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 class EthicalTriageRequest(BaseModel):

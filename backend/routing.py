@@ -137,22 +137,24 @@ def rank_hospitals(
         for hid in road["affected_hospital_ids"]:
             closure_penalties[hid] = closure_penalties.get(hid, 0) + road["penalty_minutes"]
 
+    # Re-compute max_dist accounting for road closure effective distances
+    effective_distances = {}
+    for h in hospital_pool:
+        extra_min = closure_penalties.get(h["id"], 0)
+        effective_distances[h["id"]] = distances[h["id"]] + (extra_min / 60) * AVG_SPEED_KMH
+    effective_max_dist = max(effective_distances.values())
+
     scored = []
     for h in hospital_pool:
         dist = distances[h["id"]]
         unmet = _check_constraints(h, severity_result)
-        sc = _score(h, dist, severity_result, max_dist)
-
-        # Apply road closure penalty to travel score
         extra_minutes = closure_penalties.get(h["id"], 0)
-        if extra_minutes:
-            effective_travel = sc["est_travel_minutes"] + extra_minutes
-            travel_penalty = (extra_minutes / 60) * WEIGHTS["travel_time"]
-            sc["total"] = max(0.0, sc["total"] - travel_penalty)
-            sc["est_travel_minutes"] = effective_travel
-            sc["road_closure_penalty_min"] = extra_minutes
-        else:
-            sc["road_closure_penalty_min"] = 0
+
+        # Score using effective distance so road closure properly re-normalises travel score
+        eff_dist = effective_distances[h["id"]]
+        sc = _score(h, eff_dist, severity_result, effective_max_dist)
+        sc["est_travel_minutes"] = round(_travel_minutes(dist) + extra_minutes, 1)
+        sc["road_closure_penalty_min"] = extra_minutes
 
         if unmet:
             sc["total"] = max(0.0, sc["total"] - 0.5)  # hard penalty, not exclusion

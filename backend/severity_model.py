@@ -101,7 +101,7 @@ def _get_care_needs(symptoms: list) -> dict:
             else:
                 equipment.add(eq)
 
-    primary = list(specialists)[0] if specialists else "general_surgeon"
+    primary = list(specialists)[0] if specialists else None
     return {
         "needs_icu": needs_icu,
         "needs_ventilator": needs_ventilator,

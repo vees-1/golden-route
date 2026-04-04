@@ -252,7 +252,7 @@ function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFrom
 
       <aside className="flex-shrink-0 flex flex-col overflow-y-auto"
         style={{ width: 320, borderLeft: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} onReroute={setRerouteData} />}
+        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} onReroute={setRerouteData} rerouteData={rerouteData} />}
       </aside>
     </div>
   )
@@ -277,7 +277,7 @@ function EmptyRightPanel() {
   )
 }
 
-function ResultPanel({ result, lastPayload, pickupLocation, onReroute }) {
+function ResultPanel({ result, lastPayload, pickupLocation, onReroute, rerouteData }) {
   if (!result) return null
   return (
     <div className="flex flex-col gap-4 p-4 animate-fade-in">
@@ -319,7 +319,7 @@ function ResultPanel({ result, lastPayload, pickupLocation, onReroute }) {
         currentHospital={result.selectedHospital?.name}
         onReroute={onReroute}
       />
-      <ReportGenerator result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} />
+      <ReportGenerator result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} rerouteData={rerouteData} />
     </div>
   )
 }

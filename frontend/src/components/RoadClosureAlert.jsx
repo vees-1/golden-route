@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { AlertTriangle, RefreshCw, Loader, X } from 'lucide-react'
+import { AlertTriangle, RefreshCw, Loader } from 'lucide-react'
+import HospitalCard from './HospitalCard'
+import { HOSPITALS } from '../data/mockData'
 
 const ROADS = [
   { id: 'expressway', label: 'Pune-Mumbai Expressway' },
@@ -7,8 +9,25 @@ const ROADS = [
   { id: 'sh60',       label: 'SH-60 Solapur Road' },
 ]
 
+function buildHospitalCardData(h) {
+  const base = HOSPITALS.find((hh) => hh.id === h.id) ?? {}
+  return {
+    id:            h.id,
+    name:          h.name,
+    eta:           parseFloat(h.est_travel_minutes?.toFixed(1)),
+    distance:      h.dist_km,
+    icuAvailable:  h.icu_available ?? 0,
+    icuBeds:       base.icuBeds ?? (h.icu_available ?? 0) + 4,
+    ventsAvailable: h.vent_available ?? 0,
+    ventilators:   base.ventilators ?? (h.vent_available ?? 0) + 3,
+    specialties:   (h.specialists ?? []).map((s) => s.replace(/_/g, ' ')),
+    survivalRate:  null,
+    lat:           h.lat,
+    lng:           h.lng,
+  }
+}
+
 export default function RoadClosureAlert({ currentPatientPayload, currentHospital, onReroute }) {
-  const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState([])
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
@@ -44,11 +63,9 @@ export default function RoadClosureAlert({ currentPatientPayload, currentHospita
 
   return (
     <div className="card p-4">
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <AlertTriangle size={14} style={{ color: '#FF9500' }} />
-          <p className="label" style={{ marginBottom: 0 }}>Road Closure Simulation</p>
-        </div>
+      <div className="flex items-center gap-2 mb-3">
+        <AlertTriangle size={14} style={{ color: '#FF9500' }} />
+        <p className="label" style={{ marginBottom: 0 }}>Road Closure Simulation</p>
       </div>
 
       <p className="text-xs mb-3" style={{ color: '#86868B' }}>Select closed roads to trigger dynamic re-routing</p>
@@ -77,34 +94,30 @@ export default function RoadClosureAlert({ currentPatientPayload, currentHospita
       </button>
 
       {result && !result.error && (
-        <div className="mt-3 rounded-xl p-3"
-          style={{
-            background: result.rerouted ? 'rgba(255,149,0,0.08)' : 'rgba(52,199,89,0.08)',
-            border: `1px solid ${result.rerouted ? 'rgba(255,149,0,0.25)' : 'rgba(52,199,89,0.25)'}`,
-          }}>
+        <div className="mt-3">
           {result.rerouted ? (
             <>
-              <p className="text-xs font-bold mb-1" style={{ color: '#FF9500' }}>⚠ Re-route triggered</p>
-              <p className="text-xs" style={{ color: '#3C3C43' }}>
-                New optimal: <strong>{result.newHospital?.name}</strong>
-              </p>
-              <p className="text-xs mt-0.5" style={{ color: '#86868B' }}>
-                ETA: {Math.round(result.newHospital?.est_travel_minutes)} min
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle size={13} style={{ color: '#FF9500' }} />
+                <p className="text-xs font-bold" style={{ color: '#FF9500' }}>Re-route triggered</p>
                 {result.newHospital?.road_closure_penalty_min > 0 && (
-                  <span style={{ color: '#FF3B30' }}> (+{result.newHospital.road_closure_penalty_min} min penalty on affected roads)</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full font-medium" style={{ background: 'rgba(255,59,48,0.1)', color: '#FF3B30' }}>
+                    +{result.newHospital.road_closure_penalty_min} min on closed roads
+                  </span>
                 )}
-              </p>
+              </div>
+              <p className="label mb-2">Rerouted Hospital</p>
+              <HospitalCard hospital={buildHospitalCardData(result.newHospital)} isSelected={false} isRerouted />
             </>
           ) : (
-            <>
+            <div className="rounded-xl p-3" style={{ background: 'rgba(52,199,89,0.08)', border: '1px solid rgba(52,199,89,0.25)' }}>
               <p className="text-xs font-bold mb-1" style={{ color: '#34C759' }}>Route unchanged</p>
-              <p className="text-xs" style={{ color: '#86868B' }}>
-                {currentHospital} remains optimal despite closures.
-              </p>
-            </>
+              <p className="text-xs" style={{ color: '#86868B' }}>{currentHospital} remains optimal despite closures.</p>
+            </div>
           )}
         </div>
       )}
+
       {result?.error && <p className="mt-2 text-xs" style={{ color: '#FF3B30' }}>{result.error}</p>}
     </div>
   )

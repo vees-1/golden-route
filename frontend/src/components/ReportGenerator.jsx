@@ -19,7 +19,7 @@ function sevColor(sev) {
     : '#34C759'
 }
 
-function buildReport(result, lastPayload, pickupLocation) {
+function buildReport(result, lastPayload, pickupLocation, rerouteData) {
   const now = new Date()
   const id  = incidentId()
   const raw = result._raw ?? {}
@@ -197,6 +197,39 @@ function buildReport(result, lastPayload, pickupLocation) {
     </div>` : '<p style="color:#86868B">No hospital selected</p>'}
   </div>
 
+  <!-- Road Closure Reroute -->
+  ${rerouteData?.routing?.recommended?.[0] && rerouteData.routing.recommended[0].name !== hosp?.name ? (() => {
+    const rh = rerouteData.routing.recommended[0]
+    const closedNames = (rerouteData.closed_roads ?? []).join(', ')
+    return `
+  <div class="section">
+    <div class="section-title" style="color:#FF9500;border-color:#FF9500">⚠ Road Closure Re-route</div>
+    <div style="margin-bottom:8px;padding:6px 10px;background:rgba(255,149,0,0.08);border-radius:8px;border:1px solid rgba(255,149,0,0.3);font-size:10px;color:#FF9500;font-weight:600">
+      Closed: ${closedNames} — original route invalidated
+    </div>
+    <div class="hosp-box" style="border-color:#FF9500">
+      <div style="position:absolute;top:10px;right:12px;background:#FF9500;color:white;border-radius:6px;padding:2px 8px;font-size:9px;font-weight:700">⚠ REROUTED</div>
+      <div class="hosp-name">${rh.name}</div>
+      <div class="hosp-grid">
+        <div class="card" style="background:#FFF5E6">
+          <div class="card-label">New ETA</div>
+          <div class="card-value" style="color:#FF9500">${Math.round(rh.est_travel_minutes)} min</div>
+        </div>
+        <div class="card" style="background:#FFF5E6">
+          <div class="card-label">Distance</div>
+          <div class="card-value" style="color:#FF9500">${rh.dist_km?.toFixed(1) ?? '—'} km</div>
+        </div>
+        <div class="card">
+          <div class="card-label">ICU Free</div>
+          <div class="card-value" style="color:${(rh.icu_available??0)>0?'#34C759':'#FF3B30'}">${rh.icu_available ?? 0}</div>
+        </div>
+        ${rh.road_closure_penalty_min > 0 ? `<div class="card"><div class="card-label">Penalty</div><div class="card-value" style="color:#FF3B30">+${rh.road_closure_penalty_min}m</div></div>` : ''}
+      </div>
+      ${(rh.specialists??[]).length ? `<div style="margin-top:8px;font-size:10px;color:#86868B">Specialties: <strong style="color:#1D1D1F">${rh.specialists.map(s=>s.replace(/_/g,' ')).join(', ')}</strong></div>` : ''}
+    </div>
+  </div>`
+  })() : ''}
+
   <!-- Survival Comparison -->
   ${result.nearestHospital ? `
   <div class="section">
@@ -256,13 +289,13 @@ function buildReport(result, lastPayload, pickupLocation) {
 </html>`
 }
 
-export default function ReportGenerator({ result, lastPayload, pickupLocation }) {
+export default function ReportGenerator({ result, lastPayload, pickupLocation, rerouteData }) {
   const [generating, setGenerating] = useState(false)
 
   function generate() {
     setGenerating(true)
     setTimeout(() => {
-      const html = buildReport(result, lastPayload, pickupLocation)
+      const html = buildReport(result, lastPayload, pickupLocation, rerouteData)
       const win = window.open('', '_blank')
       win.document.write(html)
       win.document.close()

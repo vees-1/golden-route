@@ -19,7 +19,7 @@ function AvailBar({ label, available, total }) {
   )
 }
 
-export default function HospitalCard({ hospital, isSelected = false }) {
+export default function HospitalCard({ hospital, isSelected = false, isRerouted = false }) {
   if (!hospital) return null
 
   const etaMin = typeof hospital.eta === 'number' ? hospital.eta.toFixed(1) : hospital.eta
@@ -27,8 +27,8 @@ export default function HospitalCard({ hospital, isSelected = false }) {
   return (
     <div className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        border: '1px solid #F2F2F7',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+        border: `1px solid ${isRerouted ? 'rgba(255,149,0,0.3)' : '#F2F2F7'}`,
+        boxShadow: isRerouted ? '0 2px 16px rgba(255,149,0,0.15)' : '0 2px 12px rgba(0,0,0,0.04)',
         background: '#ffffff',
       }}>
 
@@ -44,6 +44,12 @@ export default function HospitalCard({ hospital, isSelected = false }) {
                   Top Pick
                 </span>
               )}
+              {isRerouted && (
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold flex-shrink-0"
+                  style={{ background: '#FF9500', color: 'white' }}>
+                  ⚠ Rerouted
+                </span>
+              )}
             </div>
             <div className="flex items-center gap-1 mt-0.5">
               <MapPin size={10} color="#C7C7CC" />
@@ -52,6 +58,7 @@ export default function HospitalCard({ hospital, isSelected = false }) {
           </div>
 
           {/* Survival rate */}
+          {hospital.survivalRate != null && (
           <div className="flex-shrink-0 text-right ml-3">
             <div className="flex items-center gap-1 justify-end">
               <Star size={13} fill="#FFCC00" color="#FFCC00" />
@@ -59,6 +66,7 @@ export default function HospitalCard({ hospital, isSelected = false }) {
             </div>
             <p className="text-xs" style={{ color: '#86868B' }}>survival</p>
           </div>
+          )}
         </div>
 
         {/* ETA — prominent */}

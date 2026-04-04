@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import MCICoordinator from './MCICoordinator'
+import EthicalTriagePanel from './EthicalTriagePanel'
 import { MapContainer, TileLayer, Marker, Polyline, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import { HOSPITALS, SYMPTOMS } from '../data/mockData'
@@ -50,12 +51,17 @@ function createPatientIcon(triage) {
   return L.divIcon({ html: svg, className: '', iconSize: [32, 32], iconAnchor: [16, 16] })
 }
 
-function createHospIcon() {
-  const svg = `<svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="15" cy="15" r="13" fill="#007AFF" stroke="white" stroke-width="2.5"/>
-    <text x="15" y="19" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="white">H</text>
+function createHospIcon(color = '#007AFF') {
+  const size = 32, r = 16
+  const arm = size * 0.22, len = size * 0.52
+  const cx = r, cy = r
+  const crossPath = `M${cx-arm},${cy-len/2} h${arm*2} v${len/2-arm} h${len/2-arm} v${arm*2} h${-(len/2-arm)} v${len/2-arm} h${-arm*2} v${-(len/2-arm)} h${-(len/2-arm)} v${-arm*2} h${len/2-arm} Z`
+  const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="hs" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="${color}" flood-opacity="0.4"/></filter></defs>
+    <circle cx="${cx}" cy="${cy}" r="${r-1}" fill="white" stroke="${color}" stroke-width="2.5" filter="url(#hs)"/>
+    <path d="${crossPath}" fill="${color}"/>
   </svg>`
-  return L.divIcon({ html: svg, className: '', iconSize: [30, 30], iconAnchor: [15, 15] })
+  return L.divIcon({ html: svg, className: '', iconSize: [size, size], iconAnchor: [r, r], popupAnchor: [0, -r-4] })
 }
 
 function VitalPill({ label, value, unit }) {
@@ -67,11 +73,22 @@ function VitalPill({ label, value, unit }) {
   )
 }
 
+async function fetchOSRMRoute(from, to) {
+  const url = `https://router.project-osrm.org/route/v1/driving/${from[1]},${from[0]};${to[1]},${to[0]}?overview=full&geometries=geojson`
+  const res = await fetch(url)
+  const data = await res.json()
+  if (data.routes?.[0]) {
+    return data.routes[0].geometry.coordinates.map(([lng, lat]) => [lat, lng])
+  }
+  return null
+}
+
 export default function MassCasualtyView() {
   const [mode, setMode] = useState('input') // 'input' | 'results'
   const [inputTab, setInputTab] = useState('json') // 'json' | 'form'
   const [jsonText, setJsonText] = useState(JSON.stringify(SAMPLE_EVENT, null, 2))
   const [results, setResults] = useState(null)
+  const [routes, setRoutes] = useState({}) // patient_id → [[lat,lng], ...]
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [selectedPatient, setSelectedPatient] = useState(null)
@@ -79,6 +96,26 @@ export default function MassCasualtyView() {
   const [transcribing, setTranscribing] = useState(false)
   const mediaRef = useRef(null)
   const chunksRef = useRef([])
+
+  async function fetchRoutes(data, eventLoc) {
+    const from = [eventLoc.lat, eventLoc.lng]
+    const entries = await Promise.all(
+      (data.results ?? []).map(async (p) => {
+        const hosp = p.routing?.recommended?.[0]
+        if (!hosp) return null
+        const to = [hosp.lat, hosp.lng]
+        try {
+          const pts = await fetchOSRMRoute(from, to)
+          return [p.patient_id, pts ?? [from, to]]
+        } catch {
+          return [p.patient_id, [from, to]]
+        }
+      })
+    )
+    const map = {}
+    entries.forEach(e => { if (e) map[e[0]] = e[1] })
+    setRoutes(map)
+  }
 
   // Form-based patient builder state
   const [eventTitle, setEventTitle]   = useState('Mass Casualty Event')
@@ -100,8 +137,11 @@ export default function MassCasualtyView() {
       })
       if (!res.ok) throw new Error(await res.text())
       const data = await res.json()
+      const loc = JSON.parse(jsonText).location
       setResults(data)
+      setRoutes({})
       setMode('results')
+      fetchRoutes(data, loc)
     } catch (e) {
       setError(e.message)
     } finally {
@@ -211,8 +251,11 @@ export default function MassCasualtyView() {
       })
       if (!res.ok) throw new Error(await res.text())
       const data = await res.json()
+      const loc = { lat: eventLat, lng: eventLng }
       setResults(data)
+      setRoutes({})
       setMode('results')
+      fetchRoutes(data, loc)
     } catch (e) {
       setError(e.message)
     } finally {
@@ -395,6 +438,7 @@ export default function MassCasualtyView() {
 
   // Results view
   const red    = patients.filter((p) => p.severity?.triage_tag === 'RED')
+
   const yellow = patients.filter((p) => p.severity?.triage_tag === 'YELLOW')
   const green  = patients.filter((p) => p.severity?.triage_tag === 'GREEN')
   const sorted = [...red, ...yellow, ...green]
@@ -467,7 +511,7 @@ export default function MassCasualtyView() {
             style={{ height: 420, width: '100%' }}
             zoomControl={false}
           >
-            <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution="&copy; OpenStreetMap contributors &copy; CARTO" />
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' maxZoom={19} />
             {eventLocation && (
               <Marker position={[eventLocation.lat, eventLocation.lng]} icon={createPatientIcon('RED')}>
                 <Popup><div style={{ fontFamily: 'Inter', padding: 8 }}><p style={{ fontWeight: 700 }}>{eventLocation.name}</p></div></Popup>
@@ -480,13 +524,34 @@ export default function MassCasualtyView() {
               const tc = TRIAGE_CONFIG[tag]
               return (
                 <React.Fragment key={p.patient_id}>
-                  <Marker position={[hosp.lat, hosp.lng]} icon={createHospIcon()}>
-                    <Popup><div style={{ fontFamily: 'Inter', padding: 8 }}><p style={{ fontWeight: 700, fontSize: 12 }}>{hosp.name}</p><p style={{ fontSize: 11, color: '#34C759' }}>ICU: {hosp.icu_available}</p></div></Popup>
+                  <Marker position={[hosp.lat, hosp.lng]} icon={createHospIcon(tc.color)}>
+                    <Popup>
+                      <div style={{ fontFamily: 'Inter, sans-serif', padding: '10px', minWidth: 160 }}>
+                        <p style={{ fontWeight: 700, fontSize: 13, color: '#1D1D1F', marginBottom: 6 }}>{hosp.name}</p>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                          <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '5px 8px', textAlign: 'center' }}>
+                            <p style={{ fontSize: 9, color: '#86868B', marginBottom: 2 }}>ICU FREE</p>
+                            <p style={{ fontSize: 13, fontWeight: 700, color: hosp.icu_available > 0 ? '#34C759' : '#FF3B30' }}>{hosp.icu_available}</p>
+                          </div>
+                          <div style={{ background: '#F5F5F7', borderRadius: 8, padding: '5px 8px', textAlign: 'center' }}>
+                            <p style={{ fontSize: 9, color: '#86868B', marginBottom: 2 }}>ETA</p>
+                            <p style={{ fontSize: 13, fontWeight: 700, color: '#007AFF' }}>{Math.round(hosp.est_travel_minutes ?? 0)}m</p>
+                          </div>
+                        </div>
+                        <div style={{ marginTop: 6 }}>
+                          <span style={{ background: tc.color, color: 'white', borderRadius: 4, padding: '1px 6px', fontSize: 9, fontWeight: 700 }}>{tag}</span>
+                          <span style={{ marginLeft: 6, fontSize: 10, color: '#86868B' }}>{p.patient_id}</span>
+                        </div>
+                      </div>
+                    </Popup>
                   </Marker>
-                  <Polyline
-                    positions={[[eventLocation.lat, eventLocation.lng], [hosp.lat, hosp.lng]]}
-                    pathOptions={{ color: tc.color, weight: 2.5, opacity: 0.7, dashArray: '6 4' }}
-                  />
+                  {(() => {
+                    const pts = routes[p.patient_id] ?? [[eventLocation.lat, eventLocation.lng], [hosp.lat, hosp.lng]]
+                    return <>
+                      <Polyline positions={pts} pathOptions={{ color: tc.color, weight: 5, opacity: 0.12, lineCap: 'round' }} />
+                      <Polyline positions={pts} pathOptions={{ color: tc.color, weight: 2.5, opacity: 0.85, dashArray: '8 5', lineCap: 'round', lineJoin: 'round' }} />
+                    </>
+                  })()}
                 </React.Fragment>
               )
             })}
@@ -613,6 +678,7 @@ export default function MassCasualtyView() {
       </div>
 
       <MCICoordinator results={results} />
+      <EthicalTriagePanel results={results} />
     </div>
   )
 }

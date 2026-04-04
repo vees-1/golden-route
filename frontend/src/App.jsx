@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react'
-import { Activity, Users, Hospital, Scale } from 'lucide-react'
+import { Activity, Users, Hospital } from 'lucide-react'
 import PatientForm from './components/PatientForm'
 import EMTAssistant from './components/EMTAssistant'
 import SceneUpload from './components/SceneUpload'
@@ -11,7 +11,6 @@ import HospitalCard from './components/HospitalCard'
 import RejectedList from './components/RejectedList'
 import AIReasoningPanel from './components/AIReasoningPanel'
 import MassCasualtyView from './components/MassCasualtyView'
-import EthicalTriageView from './components/EthicalTriageView'
 import HospitalStatusView from './components/HospitalStatusView'
 import { PICKUP_LOCATIONS } from './data/mockData'
 
@@ -21,7 +20,6 @@ const TABS = [
   { id: 'dispatch', label: 'Dispatch',        icon: Activity },
   { id: 'mass',     label: 'Mass Casualty',   icon: Users },
   { id: 'network',  label: 'Hospital Network', icon: Hospital },
-  { id: 'triage',   label: 'Ethical Triage',  icon: Scale },
 ]
 
 // Map real API response → component-friendly shape
@@ -186,11 +184,6 @@ export default function App() {
         {activeTab === 'network' && (
           <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
             <HospitalStatusView lastResult={rawResult} />
-          </div>
-        )}
-        {activeTab === 'triage' && (
-          <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
-            <EthicalTriageView />
           </div>
         )}
       </main>

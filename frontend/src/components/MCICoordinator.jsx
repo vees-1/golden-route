@@ -51,26 +51,74 @@ function parseBriefing(text) {
 function renderLines(lines) {
   const elements = []
   let key = 0
-  for (const line of lines) {
-    if (!line.trim()) {
-      elements.push(<div key={key++} style={{ height: 4 }} />)
+  let i = 0
+  while (i < lines.length) {
+    const line = lines[i]
+    const trimmed = line.trim()
+
+    // skip empty / dividers
+    if (!trimmed || trimmed === '---' || trimmed === '***') {
+      i++; continue
+    }
+
+    // markdown table: line starts and ends with |
+    if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+      // collect all consecutive table lines
+      const tableLines = []
+      while (i < lines.length && lines[i].trim().startsWith('|')) {
+        tableLines.push(lines[i].trim())
+        i++
+      }
+      // parse header, skip separator row (contains ---), parse body
+      const rows = tableLines.filter(l => !l.replace(/\|/g, '').replace(/-/g, '').replace(/\s/g, ''))
+        // separator row: only dashes, pipes, spaces
+        ? tableLines.filter(l => !/^\|[-|\s]+\|$/.test(l))
+        : tableLines
+      const parsed = rows.map(r => r.split('|').slice(1, -1).map(c => c.trim()))
+      if (parsed.length === 0) continue
+      const [header, ...body] = parsed
+      elements.push(
+        <div key={key++} style={{ overflowX: 'auto', marginBottom: 6 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
+            <thead>
+              <tr>{header.map((h, ci) => (
+                <th key={ci} style={{ textAlign: 'left', padding: '4px 8px', borderBottom: '1.5px solid #E5E5EA', color: '#86868B', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.4px', whiteSpace: 'nowrap' }}>{inlineFormat(h)}</th>
+              ))}</tr>
+            </thead>
+            <tbody>
+              {body.map((row, ri) => (
+                <tr key={ri} style={{ borderBottom: '1px solid #F2F2F7', background: ri % 2 === 1 ? '#F9F9FB' : 'transparent' }}>
+                  {row.map((cell, ci) => (
+                    <td key={ci} style={{ padding: '4px 8px', color: '#3C3C43', fontWeight: ci === 0 ? 600 : 400 }}>{inlineFormat(cell)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
       continue
     }
-    if (line.trimStart().startsWith('- ')) {
-      const content = line.trimStart().slice(2)
+
+    // bullet
+    if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) {
+      const content = trimmed.slice(2)
       elements.push(
         <div key={key++} className="flex gap-2 items-start" style={{ marginBottom: 4 }}>
           <span style={{ color: '#86868B', marginTop: 2, flexShrink: 0 }}>•</span>
           <p className="text-xs leading-relaxed" style={{ color: '#3C3C43' }}>{inlineFormat(content)}</p>
         </div>
       )
-      continue
+      i++; continue
     }
+
+    // plain text
     elements.push(
       <p key={key++} className="text-xs leading-relaxed" style={{ color: '#3C3C43', marginBottom: 2 }}>
-        {inlineFormat(line)}
+        {inlineFormat(trimmed)}
       </p>
     )
+    i++
   }
   return elements
 }

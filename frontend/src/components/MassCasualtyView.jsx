@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import MCICoordinator from './MCICoordinator'
 import { MapContainer, TileLayer, Marker, Polyline, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import { HOSPITALS, SYMPTOMS } from '../data/mockData'
@@ -610,6 +611,8 @@ export default function MassCasualtyView() {
           </table>
         </div>
       </div>
+
+      <MCICoordinator results={results} />
     </div>
   )
 }

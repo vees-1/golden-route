@@ -17,14 +17,19 @@ function createHospitalIcon(available, total, isSelected, isNearest) {
     : ratio > 0.4 ? '#34C759'
     : ratio > 0.15 ? '#FF9500'
     : '#FF3B30'
-  const size = isSelected ? 36 : 28
-  const border = isSelected ? 3 : 2
+  const size = isSelected ? 40 : 32
+  const r = size / 2
+  // Medical cross dimensions
+  const arm = size * 0.22
+  const len = size * 0.52
+  const cx = r, cy = r
+  const crossPath = `M${cx - arm},${cy - len/2} h${arm*2} v${len/2 - arm} h${len/2 - arm} v${arm*2} h${-(len/2 - arm)} v${len/2 - arm} h${-arm*2} v${-(len/2 - arm)} h${-(len/2 - arm)} v${-arm*2} h${len/2 - arm} Z`
   const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="${size/2}" cy="${size/2}" r="${size/2 - border}" fill="${color}" stroke="white" stroke-width="${border}" filter="url(#s)"/>
-    <text x="${size/2}" y="${size/2+4}" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700" font-size="${isSelected?10:8}" fill="white">H</text>
-    <defs><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="${color}" flood-opacity="0.4"/></filter></defs>
+    <defs><filter id="s${size}" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="${isSelected?3:2}" flood-color="${color}" flood-opacity="0.45"/></filter></defs>
+    <circle cx="${cx}" cy="${cy}" r="${r - 1}" fill="white" stroke="${color}" stroke-width="${isSelected?3:2}" filter="url(#s${size})"/>
+    <path d="${crossPath}" fill="${color}"/>
   </svg>`
-  return L.divIcon({ html: svg, className: '', iconSize: [size, size], iconAnchor: [size/2, size/2], popupAnchor: [0, -size/2-4] })
+  return L.divIcon({ html: svg, className: '', iconSize: [size, size], iconAnchor: [r, r], popupAnchor: [0, -r - 4] })
 }
 
 function createAmbulanceIcon() {

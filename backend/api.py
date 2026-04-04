@@ -148,6 +148,54 @@ def emt_chat(req: EMTChatRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+class MCICoordinateRequest(BaseModel):
+    title: str
+    results: list
+
+
+@app.post("/mci-coordinate")
+def mci_coordinate(req: MCICoordinateRequest):
+    from mci_coordinator import coordinate
+    try:
+        result = coordinate({"title": req.title, "results": req.results})
+        return {"briefing": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class EthicalTriagePatient(BaseModel):
+    patient_id: str
+    lat: float = 18.5074
+    lng: float = 73.8073
+    age: int
+    heart_rate: int
+    bp_systolic: int
+    bp_diastolic: int
+    spo2: float
+    gcs: int
+    respiratory_rate: int
+    spo2_trend_per_min: float = 0.0
+    hr_trend_per_min: float = 0.0
+    symptoms: List[str] = []
+
+
+class EthicalTriageRequest(BaseModel):
+    patients: List[EthicalTriagePatient]
+    icu_beds: int = 2
+    vents: int = 2
+
+
+@app.post("/ethical-triage")
+def ethical_triage(req: EthicalTriageRequest):
+    from ethical_triage import run_ethical_triage
+    try:
+        patients_data = [p.model_dump() for p in req.patients]
+        result = run_ethical_triage(patients_data, req.icu_beds, req.vents)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.post("/transcribe")
 async def transcribe(file: UploadFile = File(...)):
     try:

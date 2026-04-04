@@ -1,15 +1,17 @@
 import React, { useState, lazy, Suspense } from 'react'
-import { Activity, Users, Hospital } from 'lucide-react'
+import { Activity, Users, Hospital, Scale } from 'lucide-react'
 import PatientForm from './components/PatientForm'
 import EMTAssistant from './components/EMTAssistant'
 import SceneUpload from './components/SceneUpload'
 import RoadClosureAlert from './components/RoadClosureAlert'
+import ReportGenerator from './components/ReportGenerator'
 import SeverityGauge from './components/SeverityGauge'
 import SurvivalCard from './components/SurvivalCard'
 import HospitalCard from './components/HospitalCard'
 import RejectedList from './components/RejectedList'
 import AIReasoningPanel from './components/AIReasoningPanel'
 import MassCasualtyView from './components/MassCasualtyView'
+import EthicalTriageView from './components/EthicalTriageView'
 import HospitalStatusView from './components/HospitalStatusView'
 import { PICKUP_LOCATIONS } from './data/mockData'
 
@@ -19,6 +21,7 @@ const TABS = [
   { id: 'dispatch', label: 'Dispatch',        icon: Activity },
   { id: 'mass',     label: 'Mass Casualty',   icon: Users },
   { id: 'network',  label: 'Hospital Network', icon: Hospital },
+  { id: 'triage',   label: 'Ethical Triage',  icon: Scale },
 ]
 
 // Map real API response → component-friendly shape
@@ -185,6 +188,11 @@ export default function App() {
             <HospitalStatusView lastResult={rawResult} />
           </div>
         )}
+        {activeTab === 'triage' && (
+          <div className="p-6 overflow-y-auto animate-fade-in" style={{ height: 'calc(100vh - 56px)' }}>
+            <EthicalTriageView />
+          </div>
+        )}
       </main>
     </div>
   )
@@ -247,7 +255,7 @@ function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFrom
 
       <aside className="flex-shrink-0 flex flex-col overflow-y-auto"
         style={{ width: 320, borderLeft: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} />}
+        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} />}
       </aside>
     </div>
   )
@@ -272,7 +280,7 @@ function EmptyRightPanel() {
   )
 }
 
-function ResultPanel({ result, lastPayload }) {
+function ResultPanel({ result, lastPayload, pickupLocation }) {
   if (!result) return null
   return (
     <div className="flex flex-col gap-4 p-4 animate-fade-in">
@@ -313,6 +321,7 @@ function ResultPanel({ result, lastPayload }) {
         currentPatientPayload={lastPayload}
         currentHospital={result.selectedHospital?.name}
       />
+      <ReportGenerator result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} />
     </div>
   )
 }

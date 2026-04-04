@@ -43,7 +43,7 @@ export default function RejectedList({ infeasibleHospitals = [] }) {
                 <p className="text-xs font-semibold truncate" style={{ color: '#1D1D1F' }}>{h.name}</p>
               </div>
               <span className="text-xs font-medium flex-shrink-0" style={{ color: '#86868B' }}>
-                {Math.round(h.est_travel_minutes)}m away
+                {Math.round(h.est_travel_minutes)} min away
               </span>
             </div>
             <div className="flex flex-wrap gap-1 mt-1.5 pl-5">

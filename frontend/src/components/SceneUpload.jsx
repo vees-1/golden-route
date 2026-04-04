@@ -72,9 +72,27 @@ export default function SceneUpload({ onSceneAnalyzed }) {
           <div className="flex items-center gap-2 mb-1">
             <AlertTriangle size={12} style={{ color: sty.color }} />
             <span className="text-xs font-bold" style={{ color: sty.color }}>{sty.label}</span>
-            <span className="text-xs ml-auto" style={{ color: '#86868B' }}>{Math.round(result.confidence * 100)}% conf.</span>
+            <span className="text-xs ml-auto font-mono" style={{ color: '#86868B' }}>{Math.round(result.confidence * 100)}%</span>
           </div>
-          <p className="text-xs" style={{ color: '#3C3C43' }}>{result.reason}</p>
+          <p className="text-xs mb-1.5" style={{ color: '#3C3C43' }}>{result.reason}</p>
+
+          {/* CLIP confidence score bars */}
+          {result.scores && (
+            <div className="flex flex-col gap-0.5 mb-1.5">
+              {[['high','#FF3B30'],['medium','#FF9500'],['low','#34C759']].map(([k, c]) => (
+                <div key={k} className="flex items-center gap-1.5">
+                  <span className="text-xs font-mono" style={{ color: '#86868B', width: 38, fontSize: 9 }}>{k}</span>
+                  <div className="flex-1 h-1.5 rounded-full" style={{ background: '#E5E5EA' }}>
+                    <div className="h-full rounded-full transition-all" style={{ width: `${Math.round(result.scores[k] * 100)}%`, background: c }} />
+                  </div>
+                  <span style={{ color: '#86868B', fontSize: 9, width: 26, textAlign: 'right' }}>{Math.round(result.scores[k] * 100)}%</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <p className="text-xs font-mono" style={{ color: '#86868B', fontSize: 9 }}>model: {result.model}</p>
+
           {result.trauma_only && (
             <div className="mt-1.5 flex items-center gap-1.5">
               <AlertTriangle size={11} style={{ color: '#FF3B30' }} />

@@ -63,14 +63,32 @@ async function fetchOSRMRoute(from, to) {
   return null
 }
 
-export default function MapView({ result, pickupLocation }) {
+function createRerouteIcon(size = 40) {
+  const r = size / 2
+  const arm = size * 0.22
+  const len = size * 0.52
+  const cx = r, cy = r
+  const crossPath = `M${cx - arm},${cy - len/2} h${arm*2} v${len/2 - arm} h${len/2 - arm} v${arm*2} h${-(len/2 - arm)} v${len/2 - arm} h${-arm*2} v${-(len/2 - arm)} h${-(len/2 - arm)} v${-arm*2} h${len/2 - arm} Z`
+  const svg = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+    <defs><filter id="rr" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FF9500" flood-opacity="0.6"/></filter></defs>
+    <circle cx="${cx}" cy="${cy}" r="${r - 1}" fill="white" stroke="#FF9500" stroke-width="3" filter="url(#rr)"/>
+    <path d="${crossPath}" fill="#FF9500"/>
+  </svg>`
+  return L.divIcon({ html: svg, className: '', iconSize: [size, size], iconAnchor: [r, r], popupAnchor: [0, -r - 4] })
+}
+
+export default function MapView({ result, pickupLocation, rerouteData }) {
   const [realRoute, setRealRoute] = useState(null)
+  const [rerouteRoute, setRerouteRoute] = useState(null)
   const routeKey = useRef(null)
+  const rerouteKey = useRef(null)
 
   const pickupPos = pickupLocation ? [pickupLocation.lat, pickupLocation.lng] : [18.5074, 73.8073]
   const selectedHosp = result?.selectedHospital
   const selectedId   = result?.selectedHospital?.id
   const nearestName  = result?._raw?.routing?.nearest_hospital
+
+  const rerouteHosp = rerouteData?.routing?.recommended?.[0] ?? null
 
   const apiHospitals = result ? [
     ...(result._raw?.routing?.recommended ?? []),
@@ -88,12 +106,44 @@ export default function MapView({ result, pickupLocation }) {
     const dest = [selectedHosp.lat, selectedHosp.lng]
     fetchOSRMRoute(pickupPos, dest)
       .then((pts) => pts && setRealRoute(pts))
-      .catch(() => setRealRoute([pickupPos, dest])) // fallback to straight line
+      .catch(() => setRealRoute([pickupPos, dest]))
   }, [selectedHosp?.id, pickupPos[0], pickupPos[1]])
 
-  const routeForFit = realRoute ?? (selectedHosp ? [pickupPos, [selectedHosp.lat, selectedHosp.lng]] : null)
+  // Fetch OSRM route for rerouted hospital
+  useEffect(() => {
+    if (!rerouteHosp) { setRerouteRoute(null); rerouteKey.current = null; return }
+    const key = `${pickupPos[0]},${pickupPos[1]}-${rerouteHosp.lat},${rerouteHosp.lng}`
+    if (rerouteKey.current === key) return
+    rerouteKey.current = key
+    fetchOSRMRoute(pickupPos, [rerouteHosp.lat, rerouteHosp.lng])
+      .then((pts) => pts && setRerouteRoute(pts))
+      .catch(() => setRerouteRoute([pickupPos, [rerouteHosp.lat, rerouteHosp.lng]]))
+  }, [rerouteHosp?.id, rerouteHosp?.lat, rerouteHosp?.lng])
+
+  const activeRoute = rerouteRoute ?? realRoute
+  const routeForFit = activeRoute ?? (selectedHosp ? [pickupPos, [selectedHosp.lat, selectedHosp.lng]] : null)
 
   return (
+    <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+    {/* Road closure banner */}
+    {rerouteHosp && (
+      <div style={{
+        position: 'absolute', top: 12, left: '50%', transform: 'translateX(-50%)',
+        zIndex: 1000, background: 'rgba(255,149,0,0.95)', backdropFilter: 'blur(12px)',
+        borderRadius: 14, padding: '8px 16px', display: 'flex', alignItems: 'center', gap: 8,
+        boxShadow: '0 4px 20px rgba(255,149,0,0.4)', border: '1px solid rgba(255,255,255,0.3)',
+        whiteSpace: 'nowrap',
+      }}>
+        <span style={{ fontSize: 14 }}>⚠</span>
+        <span style={{ color: 'white', fontWeight: 700, fontSize: 12 }}>Road Closure Active</span>
+        <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 11 }}>→</span>
+        <span style={{ color: 'white', fontWeight: 600, fontSize: 12 }}>{rerouteHosp.name}</span>
+        <span style={{ background: 'rgba(255,255,255,0.25)', color: 'white', fontSize: 10, fontWeight: 700, borderRadius: 6, padding: '1px 6px' }}>
+          {Math.round(rerouteHosp.est_travel_minutes)} min
+        </span>
+      </div>
+    )}
+
     <MapContainer
       center={pickupPos}
       zoom={13}
@@ -109,11 +159,19 @@ export default function MapView({ result, pickupLocation }) {
 
       {routeForFit && <FitRoute positions={routeForFit} />}
 
-      {/* Real road route from OSRM */}
+      {/* Original route — faded when rerouted */}
       {realRoute && (
         <>
-          <Polyline positions={realRoute} pathOptions={{ color: '#007AFF', weight: 7, opacity: 0.12, lineCap: 'round' }} />
-          <Polyline positions={realRoute} pathOptions={{ color: '#007AFF', weight: 4, opacity: 0.9, lineCap: 'round', lineJoin: 'round' }} />
+          <Polyline positions={realRoute} pathOptions={{ color: '#007AFF', weight: 7, opacity: rerouteRoute ? 0.06 : 0.12, lineCap: 'round' }} />
+          <Polyline positions={realRoute} pathOptions={{ color: '#007AFF', weight: 4, opacity: rerouteRoute ? 0.25 : 0.9, lineCap: 'round', lineJoin: 'round', dashArray: rerouteRoute ? '8 6' : undefined }} />
+        </>
+      )}
+
+      {/* Rerouted road — orange, prominent */}
+      {rerouteRoute && (
+        <>
+          <Polyline positions={rerouteRoute} pathOptions={{ color: '#FF9500', weight: 8, opacity: 0.15, lineCap: 'round' }} />
+          <Polyline positions={rerouteRoute} pathOptions={{ color: '#FF9500', weight: 5, opacity: 1.0, lineCap: 'round', lineJoin: 'round' }} />
         </>
       )}
 
@@ -121,16 +179,18 @@ export default function MapView({ result, pickupLocation }) {
       {hospitals.map((hospital) => {
         const icuAvail  = hospital.icu_available ?? hospital.icuAvailable ?? 0
         const icuTotal  = hospital.icuBeds ?? 10
-        const isSelected = hospital.id === selectedId
+        const isRerouted = rerouteHosp && hospital.id === rerouteHosp.id
+        const isSelected = !rerouteHosp && hospital.id === selectedId
         const isNearest  = hospital.name === nearestName
         const eta = hospital.est_travel_minutes ?? hospital.eta ?? null
 
         return (
           <Marker key={hospital.id} position={[hospital.lat, hospital.lng]}
-            icon={createHospitalIcon(icuAvail, icuTotal, isSelected, isNearest)}>
+            icon={isRerouted ? createRerouteIcon(40) : createHospitalIcon(icuAvail, icuTotal, isSelected, isNearest)}>
             <Popup>
               <div style={{ fontFamily: 'Inter, sans-serif', padding: '12px', minWidth: 180 }}>
                 <div style={{ display: 'flex', gap: 6, marginBottom: 8, flexWrap: 'wrap' }}>
+                  {isRerouted && <span style={{ background: '#FF9500', color: 'white', borderRadius: 6, padding: '2px 8px', fontSize: 10, fontWeight: 700 }}>⚠ REROUTED</span>}
                   {isSelected && <span style={{ background: 'linear-gradient(135deg,#007AFF,#5856D6)', color: 'white', borderRadius: 6, padding: '2px 8px', fontSize: 10, fontWeight: 700 }}>AI PICK</span>}
                   {isNearest && <span style={{ background: '#FF9500', color: 'white', borderRadius: 6, padding: '2px 8px', fontSize: 10, fontWeight: 700 }}>NEAREST</span>}
                 </div>
@@ -170,5 +230,6 @@ export default function MapView({ result, pickupLocation }) {
         </Popup>
       </Marker>
     </MapContainer>
+    </div>
   )
 }

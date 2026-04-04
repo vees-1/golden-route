@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import { Activity, Users, Hospital } from 'lucide-react'
 import PatientForm from './components/PatientForm'
 import EMTAssistant from './components/EMTAssistant'
@@ -194,6 +194,10 @@ export default function App() {
 function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFromAI, onVitalsExtracted, lastPayload }) {
   const hasAnalyzed = !!result
   const [traumaOnly, setTraumaOnly] = useState(false)
+  const [rerouteData, setRerouteData] = useState(null)
+
+  // Reset reroute when a new analysis runs
+  useEffect(() => { setRerouteData(null) }, [result])
 
   function handleSceneAnalyzed(sceneResult) {
     setTraumaOnly(!!sceneResult.trauma_only)
@@ -220,7 +224,7 @@ function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFrom
 
       <div className="flex-1 relative" style={{ minWidth: 0 }}>
         <Suspense fallback={<div className="w-full h-full flex items-center justify-center" style={{ background: '#F5F5F7' }}><p className="text-sm" style={{ color: '#86868B' }}>Loading map…</p></div>}>
-          <MapView result={result} pickupLocation={pickupLocation} />
+          <MapView result={result} pickupLocation={pickupLocation} rerouteData={rerouteData} />
         </Suspense>
 
         {!hasAnalyzed && (
@@ -248,7 +252,7 @@ function DispatchView({ result, isLoading, pickupLocation, onAnalyze, vitalsFrom
 
       <aside className="flex-shrink-0 flex flex-col overflow-y-auto"
         style={{ width: 320, borderLeft: '1px solid rgba(0,0,0,0.06)', background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(12px)' }}>
-        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} />}
+        {!hasAnalyzed ? <EmptyRightPanel /> : <ResultPanel result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} onReroute={setRerouteData} />}
       </aside>
     </div>
   )
@@ -273,7 +277,7 @@ function EmptyRightPanel() {
   )
 }
 
-function ResultPanel({ result, lastPayload, pickupLocation }) {
+function ResultPanel({ result, lastPayload, pickupLocation, onReroute }) {
   if (!result) return null
   return (
     <div className="flex flex-col gap-4 p-4 animate-fade-in">
@@ -313,6 +317,7 @@ function ResultPanel({ result, lastPayload, pickupLocation }) {
       <RoadClosureAlert
         currentPatientPayload={lastPayload}
         currentHospital={result.selectedHospital?.name}
+        onReroute={onReroute}
       />
       <ReportGenerator result={result} lastPayload={lastPayload} pickupLocation={pickupLocation} />
     </div>
